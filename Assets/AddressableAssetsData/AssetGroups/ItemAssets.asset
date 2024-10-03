@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: ItemAssets
+  m_EditorClassIdentifier: 
+  m_GroupName: ItemAssets
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 0c434cf3d1ef26841bd1e864dd7798ed
+  m_SerializeEntries:
+  - m_GUID: dfa5fbe11db6deb4fb5abb25dce4b077
+    m_Address: Elephant
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51ee915208b67e8419a6375a3fb252d3
+    m_Address: Fish
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dca1a8a2781f4b041bba3189e6285c46
+    m_Address: Giraffe
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 260dca4c37576c845b18eca48a5a8006
+    m_Address: Horse
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5fd4899d3cd14a54cbdcc992e219f6cf
+    m_Address: Image10
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: daf89e08b816bc047b9cc95ae2eb1f2f
+    m_Address: Image11
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51bb8880ccbed944387448b533c5643a
+    m_Address: Image12
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a047756bd8d5304eb934b44666325eb
+    m_Address: Image13
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d242536bb94de0c49a305e81675a1397
+    m_Address: Image15
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a289e2162d4e4c340a395d27115d5dbe
+    m_Address: Image16
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1fb39ee3fbc50114abe776b252a75321
+    m_Address: Image17
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 19b93fb45c5b1714b9a4dfcf0d618083
+    m_Address: Image18
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07a3591571d6e67448fedd59441d7661
+    m_Address: Leopard
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 385e02637cfdc3f4cbe9571db75a60d0
+    m_Address: Lion
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf57c6e9cbeb6754ca139359aff50387
+    m_Address: Panda
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 37943c41ecc2d9043953fc734e117298
+    m_Address: Tiger
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39dee74333027ea48bc25d44da240693
+    m_Address: Tiger1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ea79b51b8dd528d4ebe460580798ca12
+    m_Address: Turtle
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: dd57ffa3a2092954fbd6d0cac301022a, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 9e3c6033cef5b84439e2c2aa98921e69, type: 2}
+    - {fileID: 11400000, guid: 767698d9753ad5643aabb3fcdfbaa347, type: 2}

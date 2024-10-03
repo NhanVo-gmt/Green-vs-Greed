@@ -1,0 +1,24 @@
+{
+    "name": "GameFoundation.SoundManager",
+    "rootNamespace": "",
+    "references": [
+        "GameFoundation.DataManager",
+        "GameFoundation.Utilities",
+        "GameFoundation.AssetLibrary",
+        "Zenject-Signals",
+        "Unity.ResourceManager",
+        "UniTask",
+        "UniTask.Addressables",
+        "UniRx",
+        "Unity.Addressables"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

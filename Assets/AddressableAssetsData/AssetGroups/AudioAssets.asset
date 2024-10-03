@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: AudioAssets
+  m_EditorClassIdentifier: 
+  m_GroupName: AudioAssets
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 59c996291ea893040bdd693e8b2b1ed5
+  m_SerializeEntries:
+  - m_GUID: 41d9b4dfb71aea1479aca367ff81b218
+    m_Address: background_music
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f0daa815f2045a4facc24650fbe23c0
+    m_Address: button_sound
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8b29b95ceaac474f83e9eff5e33ea53
+    m_Address: pickup_sound
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 929d49865e8b17545980dce1e11d9e49
+    m_Address: win1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81af883f3dc2c9349b4ff050c726f570
+    m_Address: win_sound
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: dd57ffa3a2092954fbd6d0cac301022a, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 6a75872d0efab6f439589dfc7a78838c, type: 2}
+    - {fileID: 11400000, guid: 25a6223b77d5b2349b17ee7bf00b2307, type: 2}

@@ -1,0 +1,25 @@
+{
+    "name": "GameFoundation.Script",
+    "rootNamespace": "",
+    "references": [
+        "GameFoundation.Utilities",
+        "GameFoundation.AssetLibrary",
+        "GameFoundation.UIModule",
+        "I2Localization.Scripts",
+        "Zenject-Source",
+        "Zenject-Signals",
+        "UniTask",
+        "GameFoundation.GameConfigs",
+        "GameFoundation.SoundManager",
+        "GameFoundation.DataManager"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

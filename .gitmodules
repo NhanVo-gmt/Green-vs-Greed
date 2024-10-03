@@ -1,0 +1,3 @@
+[submodule "Packages/com.gdk.core"]
+	path = Packages/com.gdk.core
+	url = git@github.com:GameDevelopmentKit/GameFoundation.git

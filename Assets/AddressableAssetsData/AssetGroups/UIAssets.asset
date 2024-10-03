@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: UIAssets
+  m_EditorClassIdentifier: 
+  m_GroupName: UIAssets
+  m_Data:
+    m_SerializedData: []
+  m_GUID: ea9cda61ec8756c4d86c2617074d7dd6
+  m_SerializeEntries:
+  - m_GUID: 2ac9e8bcd6358e54cafb9b6a829f2648
+    m_Address: GameCompletePopupView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98ed7ea8d5e51e645b3e5b1a6cfaef7f
+    m_Address: GameSettingPopupView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4dd238452e93c124a8d941149693abaa
+    m_Address: GameLosePopupView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: dd57ffa3a2092954fbd6d0cac301022a, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 6325e75f38cb0d6438f8b1ea7459d8f9, type: 2}
+    - {fileID: 11400000, guid: 8c31cf3446c011542a9c68186eeebe89, type: 2}
