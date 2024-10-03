@@ -52,7 +52,7 @@ public class StartGameScreenPresenter : BaseScreenPresenter<StartGameScreenView>
 
     void GoToLevelScreen()
     {
-        this.gameSceneDirector.LoadLevelSelectScene().Forget();
+        this.gameSceneDirector.LoadGameScene().Forget();
     }
 
     public override void Dispose()

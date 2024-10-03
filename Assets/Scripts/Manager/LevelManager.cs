@@ -147,7 +147,7 @@ namespace UserData.Controller
 
         async UniTask LoadSelectedLevelScene()
         {
-            await this.gameSceneDirector.LoadLevelScene(this.Data.CurrentLevelId, this.Data.CurrentLevelIndex);
+            await this.gameSceneDirector.LoadGameScene();
         }
 
         #endregion
