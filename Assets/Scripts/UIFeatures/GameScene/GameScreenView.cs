@@ -10,9 +10,8 @@ using Zenject;
 
 public class GameScreenView : BaseView
 {
-    public TextMeshProUGUI levelText;
-    public Button          backButton;
-    public Button          settingButton;
+    public Button questionButton;
+    public Button settingButton;
 }
 
 [ScreenInfo(nameof(GameScreenView))]
@@ -38,21 +37,20 @@ public class GameScreenPresenter : BaseScreenPresenter<GameScreenView>
 
     public override UniTask BindData()
     {
-        this.View.levelText.text = $"Level {levelManager.GetCurrentLevel().Id}-{levelManager.GetCurrentLevelIndex()}";
-        this.View.backButton.onClick.AddListener(GoBackLevelScene);
+        this.View.questionButton.onClick.AddListener(OpenQuestionScreen);
         this.View.settingButton.onClick.AddListener(OpenSettingScreen);
         return UniTask.CompletedTask;
     }
 
     public override void Dispose()
     {
-        this.View.backButton.onClick.RemoveAllListeners();
+        this.View.questionButton.onClick.RemoveAllListeners();
         this.View.settingButton.onClick.RemoveAllListeners();
     }
 
-    void GoBackLevelScene()
+    void OpenQuestionScreen()
     {
-        gameSceneDirector.LoadLevelSelectScene().Forget();
+        // todo
     }
 
     void OpenSettingScreen()

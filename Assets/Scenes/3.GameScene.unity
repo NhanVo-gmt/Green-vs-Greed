@@ -438,6 +438,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: button_sound
+--- !u!114 &340945372 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9016417889758279948, guid: f884622225175424bb628d9ae8a032c3, type: 3}
+  m_PrefabInstance: {fileID: 340945368}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340945370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &375139585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -619,6 +630,10 @@ PrefabInstance:
       propertyPath: backButton
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4718659794174132066, guid: a458f5838d1aff6468a74ef606cfbd74, type: 3}
+      propertyPath: questionButton
+      value: 
+      objectReference: {fileID: 340945372}
     - target: {fileID: 7543096571295703744, guid: a458f5838d1aff6468a74ef606cfbd74, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -78
