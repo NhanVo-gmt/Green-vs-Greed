@@ -16,17 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 6fa5bf58b6e7b3742be9535b47abf68f
-  m_SerializeEntries:
-  - m_GUID: 3bfa70b492d4b2c489407abcdba3714e
-    m_Address: Coin
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3ce6f715180b14049bcc16e5119b63d1
-    m_Address: Hint
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: dd57ffa3a2092954fbd6d0cac301022a, type: 2}
   m_SchemaSet:
