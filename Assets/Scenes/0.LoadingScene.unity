@@ -248,7 +248,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7f84159ccc2c554458bc7f8fe7e8a1dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4f4b9245c78f3a6459502d492dd0f6a9, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -279,8 +279,24 @@ PrefabInstance:
       value: 127.51
       objectReference: {fileID: 0}
     - target: {fileID: 2462270124829692545, guid: b4d3292cc865425ab937c97382fd99a5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462270124829692545, guid: b4d3292cc865425ab937c97382fd99a5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462270124829692545, guid: b4d3292cc865425ab937c97382fd99a5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462270124829692545, guid: b4d3292cc865425ab937c97382fd99a5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 271
+      value: 66
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462270124829692545, guid: b4d3292cc865425ab937c97382fd99a5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2715118100779677283, guid: b4d3292cc865425ab937c97382fd99a5, type: 3}
       propertyPath: m_fontSize
@@ -407,9 +423,13 @@ PrefabInstance:
       value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 4713694932230225916, guid: b4d3292cc865425ab937c97382fd99a5, type: 3}
+      propertyPath: m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713694932230225916, guid: b4d3292cc865425ab937c97382fd99a5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300024, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+      objectReference: {fileID: 392959785, guid: f1d0d64aa7543a841aa606220eaa50be, type: 3}
     - target: {fileID: 5400107036761175951, guid: b4d3292cc865425ab937c97382fd99a5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -432,13 +452,29 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4821092174568174113, guid: b4d3292cc865425ab937c97382fd99a5, type: 3}
       insertIndex: 0
       addedObject: {fileID: 846364591}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3763333685261011114, guid: b4d3292cc865425ab937c97382fd99a5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1566759639}
   m_SourcePrefab: {fileID: 100100000, guid: b4d3292cc865425ab937c97382fd99a5, type: 3}
 --- !u!224 &1566759637 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3326240125315803394, guid: b4d3292cc865425ab937c97382fd99a5, type: 3}
   m_PrefabInstance: {fileID: 1566759636}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1566759638 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3763333685261011114, guid: b4d3292cc865425ab937c97382fd99a5, type: 3}
+  m_PrefabInstance: {fileID: 1566759636}
+  m_PrefabAsset: {fileID: 0}
+--- !u!222 &1566759639
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566759638}
+  m_CullTransparentMesh: 1
 --- !u!114 &1645649795 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1718765650894639401, guid: 7371e7fbfcacb584eb0ee5bc9d1939ac, type: 3}
