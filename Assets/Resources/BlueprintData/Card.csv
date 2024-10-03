@@ -1,0 +1,9 @@
+Id,Name,Description,PlayerType,Image,
+1,Ship Surge,Raise the rates on maritime routes and increase shipping amount.,Corporation,,Water
+2,Chop Chop Chaos,Cut down more trees for a greater timber yield.,Corporation,,Wood
+3,Industrial Invasion,"Expand your manufacturing capabilities, but it will have adverse effect on the environment",Corporation,,"Wood, Water"
+4,Wasteland,"Increase profits through efficient waste management, but risk environmental contamination.",Corporation,,Water
+5,Paper Recycling,Recycle paper to conserve wood resources and reduce waste.,Environment,,Wood
+6,Leakage Lockdown,Implement water-saving measures and fixing leaks.,Environment,,Water
+7,Forest Restoration,Plant trees to restore forests and create new habitats for animals.,Environment,,Wood
+8,"Reduce, Reuse, Recycle",Reduce waste generation and promote sustainable consumption.,Environment,,"Wood, Water"
