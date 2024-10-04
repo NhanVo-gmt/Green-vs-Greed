@@ -23,7 +23,7 @@ namespace Blueprints
 
     public enum PlayerType
     {
-        Environment,
-        Corporation
+        Environment = 0,
+        Corporation = 1,
     }
 }

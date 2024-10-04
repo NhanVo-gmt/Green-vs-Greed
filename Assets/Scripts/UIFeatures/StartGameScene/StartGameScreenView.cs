@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using DataManager.MasterData;
 using GameFoundation.Scripts.UIModule.ScreenFlow.BaseScreen.Presenter;
 using GameFoundation.Scripts.UIModule.ScreenFlow.BaseScreen.View;
 using GameFoundationBridge;
@@ -18,7 +19,7 @@ public class StartGameScreenView : BaseView
 public class StartGameScreenPresenter : BaseScreenPresenter<StartGameScreenView>
 {
     #region Inject
-    
+
     private readonly GameSceneDirector gameSceneDirector;
 
     #endregion

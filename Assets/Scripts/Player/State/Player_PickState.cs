@@ -8,4 +8,10 @@ public class Player_PickState : PlayerState
     {
         
     }
+
+    public override void OnEnter()
+    {
+        base.OnEnter();
+        stateMachine.ChangeState(player.playerIdleState);
+    }
 }

@@ -5,11 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="183aa535-458a-4c9a-a18f-e0b9b9d9f9d9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/CardManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/Player_DrawState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Green-vs-Greed/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Green-vs-Greed/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Game/Card.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Game/Card.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/3.GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/3.GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Blueprints/CardBlueprint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Blueprints/CardBlueprint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DIContexts/GameSceneInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DIContexts/GameSceneInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DIContexts/StartGameInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DIContexts/StartGameInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/CardManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/CardManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Card.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Card.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/CardSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/CardSlot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/State/Player_PickState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/Player_PickState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIFeatures/GameScene/GameScreenView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIFeatures/GameScene/GameScreenView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIFeatures/StartGameScene/StartGameScreenView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIFeatures/StartGameScene/StartGameScreenView.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +29,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2c0de1fb8ee742c895d3910a034aaf45a000/09/9ffb22cd/UserProfile.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Blueprints/CardBlueprint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/CardSlot.cs" root0="FORCE_HIGHLIGHTING" />
@@ -84,10 +94,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="97292">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="97292" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -104,7 +114,8 @@
       <option name="presentableId" value="Default" />
       <updated>1727945986451</updated>
       <workItem from="1727945993829" duration="4729000" />
-      <workItem from="1727965863524" duration="767000" />
+      <workItem from="1727965863524" duration="884000" />
+      <workItem from="1728045870856" duration="4247000" />
     </task>
     <servers />
   </component>
@@ -115,5 +126,24 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Manager/CardManager.cs</url>
+          <line>27</line>
+          <properties documentPath="D:\UTSSS\Serious Game\Green-vs-Greed\Assets\Scripts\Manager\CardManager.cs" initialLine="27" containingFunctionPresentation="Method 'OnDataLoaded'">
+            <startOffsets>
+              <option value="791" />
+            </startOffsets>
+            <endOffsets>
+              <option value="842" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

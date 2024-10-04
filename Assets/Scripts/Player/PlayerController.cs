@@ -1,22 +1,25 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Sirenix.OdinInspector.Editor.Validation;
+using Blueprints;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Player")]
     public int             playerIndex = 0;
     public PlayerStateName currentState;
+
+    [Header("Card Index")]
+    public List<CardSlot> CardSlots = new();
 
     #region State
 
     private StateMachine stateMachine;
 
-    private Player_IdleState playerIdleState;
-    private Player_PickState playerPickState;
+    public Player_IdleState playerIdleState { get; private set; }
+    public Player_PickState playerPickState { get; private set; }
 
     #endregion
+    
 
     private void Awake()
     {
@@ -41,5 +44,17 @@ public class PlayerController : MonoBehaviour
     public void StartTurn()
     {
         stateMachine.ChangeState(playerPickState);
+    }
+
+    public void DrawCard(CardRecord cardRecord)
+    {
+        foreach (CardSlot slot in CardSlots)
+        {
+            if (slot.CanGetCard())
+            {
+                slot.DrawCard(cardRecord);
+                return;
+            }
+        }
     }
 }
