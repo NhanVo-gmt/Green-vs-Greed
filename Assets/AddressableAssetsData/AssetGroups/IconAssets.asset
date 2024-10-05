@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: IconAssets
+  m_EditorClassIdentifier: 
+  m_GroupName: IconAssets
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 5e4ac952327c10e49992c8dd3ae35d17
+  m_SerializeEntries:
+  - m_GUID: 960ea4ec937953e40a56ceda9ba7fb23
+    m_Address: Deforestation
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f18e2fdcdf115264f903cfe5c6ce9209
+    m_Address: Industry
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf1634603255c4742b5ce2fe0875ea4b
+    m_Address: Ship
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 509e8031a7e6f964ab432693a4b8092c
+    m_Address: Water Pip
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 91f839c4877225b42abb045580d5972b
+    m_Address: Paper
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13f4b1c52de64b94e885f9edabfe478e
+    m_Address: Prevent water leak
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e82d2429c0bcc045a09717b39d72366
+    m_Address: Reduce, reuse, recycle
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6954ba1283d858b4fa7607995053e172
+    m_Address: Reforestation
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e70daa6a64df3a459ebd3d10a6075fd
+    m_Address: CorporationCard
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4c353f1fe924f384b82073d21cf01e6e
+    m_Address: EnvironmentCard
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: dd57ffa3a2092954fbd6d0cac301022a, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 7ea714f36a97e5f49901e28dd0e3ab9f, type: 2}
+    - {fileID: 11400000, guid: 924674725b87d854588b93de00ca2f13, type: 2}
