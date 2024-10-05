@@ -27,7 +27,6 @@
             
             foreach (CardRecord record in CardBlueprint.Values)
             {
-                Debug.LogError(record.PlayerType);
                 if (record.PlayerType == PlayerType.Environment)
                 {
                     EnvironmentCards.Add(record);
@@ -37,6 +36,16 @@
                     CorporationCards.Add(record);
                 }
             }
+        }
+        
+        public List<CardRecord> GetCards(PlayerType playerType)
+        {
+            if (playerType == PlayerType.Corporation)
+            {
+                return CorporationCards;
+            }
+            
+            return EnvironmentCards;
         }
 
         public CardRecord DrawRandomCard(PlayerType playerType)

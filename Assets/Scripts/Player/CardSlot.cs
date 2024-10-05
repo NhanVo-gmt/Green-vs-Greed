@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Blueprints;
@@ -6,7 +7,14 @@ using UnityEngine.EventSystems;
 
 public class CardSlot : MonoBehaviour, IPointerDownHandler
 {
-    [SerializeField] private Card card;
+    public Card card;
+
+    public Action<CardSlot> OnPickCard;
+
+    private void Awake()
+    {
+        UseCard();
+    }
 
     public void DrawCard(CardRecord cardRecord)
     {
@@ -21,8 +29,7 @@ public class CardSlot : MonoBehaviour, IPointerDownHandler
 
     public void UseCard()
     {
-        this.card.Use();
-        this.card.gameObject.SetActive(false);
+        OnPickCard?.Invoke(this);
     }
 
     public void OnPointerDown(PointerEventData eventData)

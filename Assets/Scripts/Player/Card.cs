@@ -29,4 +29,9 @@ public class Card : MonoBehaviour
 
         CardRecord = null;
     }
+
+    public CardRecord GetCardRecord()
+    {
+        return CardRecord;
+    }
 }

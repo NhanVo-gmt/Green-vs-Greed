@@ -16,6 +16,8 @@ public class StateMachine
     {
         if (currentState == newState) return;
         
+        Debug.Log($"[Player]: Change State from {currentState} to {newState}");
+        
         currentState.OnExit();
 
         currentState = newState;

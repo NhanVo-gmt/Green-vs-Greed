@@ -4,8 +4,9 @@ using UnityEngine;
 
 public enum PlayerStateName
 {
-    Idle,
-    Pick,
+    Idle = 0,
+    Pick = 1,
+    Draw = 2,
 }
 
 public abstract class PlayerState : State

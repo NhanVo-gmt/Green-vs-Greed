@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using Blueprints;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,8 +10,10 @@ public class PlayerController : MonoBehaviour
     public int             playerIndex = 0;
     public PlayerStateName currentState;
 
-    [Header("Card Index")]
-    public List<CardSlot> CardSlots = new();
+    public bool isBot = false;
+
+    [Header("Card")]
+    public PlayerCardDeck playerCardDeck;
 
     #region State
 
@@ -17,6 +21,9 @@ public class PlayerController : MonoBehaviour
 
     public Player_IdleState playerIdleState { get; private set; }
     public Player_PickState playerPickState { get; private set; }
+    public Player_DrawState playerDrawState { get; private set; }
+
+    public Action OnFinishTurn;
 
     #endregion
     
@@ -25,8 +32,9 @@ public class PlayerController : MonoBehaviour
     {
         stateMachine = new();
 
-        playerIdleState = new(stateMachine, this, PlayerStateName.Idle);
+        playerDrawState = new(stateMachine, this, PlayerStateName.Draw);
         playerPickState = new(stateMachine, this, PlayerStateName.Pick);
+        playerIdleState = new(stateMachine, this, PlayerStateName.Idle);
         
         stateMachine.Initialize(playerIdleState);
     }
@@ -46,15 +54,13 @@ public class PlayerController : MonoBehaviour
         stateMachine.ChangeState(playerPickState);
     }
 
+    public void FinishTurn()
+    {
+        OnFinishTurn?.Invoke();
+    }
+
     public void DrawCard(CardRecord cardRecord)
     {
-        foreach (CardSlot slot in CardSlots)
-        {
-            if (slot.CanGetCard())
-            {
-                slot.DrawCard(cardRecord);
-                return;
-            }
-        }
+        playerCardDeck.DrawCard(cardRecord);
     }
 }
