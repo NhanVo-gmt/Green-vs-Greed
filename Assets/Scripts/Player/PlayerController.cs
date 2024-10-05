@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     public Player_PickState playerPickState { get; private set; }
     public Player_DrawState playerDrawState { get; private set; }
 
-    public Action OnFinishTurn;
+    public Action<PlayerController> OnFinishTurn;
 
     #endregion
     
@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
     public void FinishTurn()
     {
-        OnFinishTurn?.Invoke();
+        OnFinishTurn?.Invoke(this);
     }
 
     public void DrawCard(CardRecord cardRecord)

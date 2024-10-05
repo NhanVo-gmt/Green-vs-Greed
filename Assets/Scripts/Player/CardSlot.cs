@@ -11,6 +11,8 @@ public class CardSlot : MonoBehaviour, IPointerDownHandler
 
     public Action<CardSlot> OnPickCard;
 
+    public bool CanPick { get; private set; } = true;
+
     private void Awake()
     {
         UseCard();
@@ -34,7 +36,13 @@ public class CardSlot : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("Use Card");
+        if (!CanPick) return;
+
         UseCard();
+    }
+
+    public void SetPickState(bool state)
+    {
+        CanPick = state;
     }
 }

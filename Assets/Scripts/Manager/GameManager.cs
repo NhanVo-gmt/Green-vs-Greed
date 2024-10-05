@@ -16,7 +16,7 @@ public class GameManager : SingletonObject<GameManager>
     
 
     [Header("Debug")]
-    [SerializeField] private int currentPlayerIndex = 0;
+    [SerializeField] private int currentPlayerIndex = -1;
 
     private Dictionary<int, PlayerController> PlayerControllers = new();
 
@@ -32,32 +32,11 @@ public class GameManager : SingletonObject<GameManager>
         this.GetCurrentContainer().Inject(this);
         
         FindAllPlayers();
-        DrawAllCards();
-        StartPlayerTurn();
-    }
-
-    private void OnDestroy()
-    {
-        foreach (var player in PlayerControllers.Values)
-        {
-            player.OnFinishTurn -= NextPlayerTurn;
-        }
-        PlayerControllers.Clear();
-    }
-
-    private void DrawAllCards()
-    {
-        foreach (var cardRecord in CardManager.GetCards(PlayerType.Environment))
-        {
-            PlayerControllers[0].DrawCard(cardRecord);
-        }
         
-        foreach (var cardRecord in CardManager.GetCards(PlayerType.Corporation))
-        {
-            PlayerControllers[1].DrawCard(cardRecord);
-        }
+        CardManager.OnCardDataLoaded += DrawAllCards;
+        DrawAllCards();
     }
-
+    
     void FindAllPlayers()
     {
         numberPlayers = 0;
@@ -68,6 +47,43 @@ public class GameManager : SingletonObject<GameManager>
             PlayerControllers.Add(player.playerIndex, player);
             numberPlayers++;
         }
+    }
+
+    private void OnDestroy()
+    {
+        CardManager.OnCardDataLoaded -= DrawAllCards;
+        foreach (var player in PlayerControllers.Values)
+        {
+            player.OnFinishTurn -= NextPlayerTurn;
+        }
+        PlayerControllers.Clear();
+    }
+    
+
+    private void DrawAllCards()
+    {
+        if (CardManager.GetCards(PlayerType.Corporation).Count == 0) return;
+        
+        foreach (var cardRecord in CardManager.GetCards(PlayerType.Environment))
+        {
+            PlayerControllers[0].DrawCard(cardRecord);
+        }
+        
+        foreach (var cardRecord in CardManager.GetCards(PlayerType.Corporation))
+        {
+            PlayerControllers[1].DrawCard(cardRecord);
+        }
+
+        NextPlayerTurn();
+    }
+
+    
+
+    void NextPlayerTurn(PlayerController player)
+    {
+        if (player.playerIndex != currentPlayerIndex) return;
+        
+        NextPlayerTurn();
     }
 
     void NextPlayerTurn()

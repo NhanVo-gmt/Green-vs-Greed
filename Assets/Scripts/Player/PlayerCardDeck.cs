@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Blueprints;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlayerCardDeck : MonoBehaviour
 {
@@ -14,13 +15,20 @@ public class PlayerCardDeck : MonoBehaviour
 
     public bool CanPick { get; private set; } = false;
 
+    private PlayerController player;
+    private List<CardSlot>   AvailableCardSlots = new();
+
     private void Awake()
     {
+        player = GetComponentInParent<PlayerController>();
+        
         foreach (var slot in CardSlots)
         {
+            slot.SetPickState(!player.isBot);
             slot.OnPickCard += PickCard;
         }
     }
+    
 
     public void DrawCard(CardRecord cardRecord)
     {
@@ -30,6 +38,8 @@ public class PlayerCardDeck : MonoBehaviour
             {
                 slot.DrawCard(cardRecord);
                 OnDrawCard?.Invoke(cardRecord);
+                
+                AvailableCardSlots.Add(slot);
                 return;
             }
         }
@@ -41,6 +51,11 @@ public class PlayerCardDeck : MonoBehaviour
     public void SetPickState(bool state)
     {
         CanPick = state;
+
+        if (player.isBot)
+        {
+            PickRandomCard();
+        }
     }
     
     public void PickCard(CardSlot cardSlot)
@@ -49,8 +64,21 @@ public class PlayerCardDeck : MonoBehaviour
         
         cardSlot.card.Use();
         cardSlot.card.gameObject.SetActive(false);
+        
+        AvailableCardSlots.Remove(cardSlot);
 
         OnPickCard?.Invoke(cardSlot.card.GetCardRecord());
+    }
+
+    #endregion
+
+    #region AI
+
+    public void PickRandomCard()
+    {
+        CardSlot slot = AvailableCardSlots[Random.Range(0, AvailableCardSlots.Count)];
+        
+        PickCard(slot);
     }
 
     #endregion

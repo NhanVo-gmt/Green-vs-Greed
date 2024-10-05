@@ -8,5 +8,11 @@ public class Player_IdleState : PlayerState
     {
         
     }
-    
+
+    public override void OnEnter()
+    {
+        base.OnEnter();
+        
+        player.FinishTurn();
+    }
 }
