@@ -25,6 +25,8 @@ public class PlayerCardDeck : MonoBehaviour
         foreach (var slot in CardSlots)
         {
             slot.SetPickState(!player.isBot);
+            slot.card.gameObject.SetActive(false);
+            
             slot.OnPickCard += PickCard;
         }
     }
