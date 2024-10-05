@@ -14,7 +14,6 @@ public class GameManager : SingletonObject<GameManager>
     [Header("Player")]
     [SerializeField] private int numberPlayers;
     
-
     [Header("Debug")]
     [SerializeField] private int currentPlayerIndex = -1;
 
@@ -66,12 +65,12 @@ public class GameManager : SingletonObject<GameManager>
         
         foreach (var cardRecord in CardManager.GetCards(PlayerType.Environment))
         {
-            PlayerControllers[0].DrawCard(cardRecord);
+            PlayerControllers[1].DrawCard(cardRecord);
         }
         
         foreach (var cardRecord in CardManager.GetCards(PlayerType.Corporation))
         {
-            PlayerControllers[1].DrawCard(cardRecord);
+            PlayerControllers[0].DrawCard(cardRecord);
         }
 
         NextPlayerTurn();
@@ -88,11 +87,18 @@ public class GameManager : SingletonObject<GameManager>
 
     void NextPlayerTurn()
     {
-        int newIndex = currentPlayerIndex >= numberPlayers - 1 ? 0 : currentPlayerIndex + 1;
-        Debug.Log($"[Game Manager]: Change Player from {currentPlayerIndex} to {newIndex}");
+        if (currentPlayerIndex >= numberPlayers - 1)
+        {
+            EndTurn();
+        }
+        else
+        {
+            int newIndex = currentPlayerIndex >= numberPlayers - 1 ? 0 : currentPlayerIndex + 1;
+            Debug.Log($"[Game Manager]: Change Player from {currentPlayerIndex} to {newIndex}");
 
-        currentPlayerIndex = newIndex;
-        StartPlayerTurn();
+            currentPlayerIndex = newIndex;
+            StartPlayerTurn();
+        }
     }
 
     void StartPlayerTurn()
@@ -110,4 +116,56 @@ public class GameManager : SingletonObject<GameManager>
         else PlayerControllers[currentPlayerIndex].DrawCard(CardManager.DrawRandomCard(PlayerType.Corporation));
     }
 
+    #region End Turn
+
+    public void EndTurn()
+    {
+        StartCoroutine(EndTurnCoroutine());
+    }
+
+
+    IEnumerator EndTurnCoroutine()
+    {
+        Debug.Log($"[Game Manager]: Check End Turn");
+        
+        List<CardSlot> player0Cards = PlayerControllers[0].playedCardDeck.CardSlots;
+        List<CardSlot> player1Cards = PlayerControllers[1].playedCardDeck.CardSlots;
+        for (int i = 0; i < player0Cards.Count; i++)
+        {
+            CardResource[] player0CardResources = player0Cards[i].card.GetCardRecord().Resources;
+            CardResource[] player1CardResources = player1Cards[i].card.GetCardRecord().Resources;
+
+            if (player0CardResources.Length > player1CardResources.Length)
+            {
+                // Lose life
+                Debug.Log($"[Game Manager]: Player Lose Life");
+            }
+            else
+            {
+                for (int j = 0; j < player0CardResources.Length; j++)
+                {
+                    Debug.LogError(player0CardResources[j]);
+                    if (player0CardResources[j] != player1CardResources[j])
+                    {
+                        // Lose life
+                        Debug.Log($"[Game Manager]: Player Lose Life");
+                    }
+                }
+            }
+
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(2f);
+
+        foreach (PlayerController controller in PlayerControllers.Values)
+        {
+            controller.playedCardDeck.DiscardAllCards();
+        }
+        
+        currentPlayerIndex = 0;
+        StartPlayerTurn();
+    }
+
+    #endregion
 }

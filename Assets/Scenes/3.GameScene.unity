@@ -328,13 +328,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_1
       objectReference: {fileID: 0}
+    - target: {fileID: 6880246955123862017, guid: 77443e68d1560c84188f38dccfb569de, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7371829662327253705, guid: 77443e68d1560c84188f38dccfb569de, type: 3}
       propertyPath: isBot
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7371829662327253705, guid: 77443e68d1560c84188f38dccfb569de, type: 3}
       propertyPath: playerIndex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1641,7 +1645,7 @@ SceneRoots:
   - {fileID: 375139585}
   - {fileID: 1772156307}
   - {fileID: 649235992}
-  - {fileID: 7042045444085921143}
   - {fileID: 219071265}
+  - {fileID: 7042045444085921143}
   - {fileID: 1935750223}
   - {fileID: 982661454}

@@ -13,10 +13,6 @@ public class CardSlot : MonoBehaviour, IPointerDownHandler
 
     public bool CanPick { get; private set; } = true;
 
-    private void Awake()
-    {
-        UseCard();
-    }
 
     public void DrawCard(CardRecord cardRecord)
     {
@@ -29,7 +25,7 @@ public class CardSlot : MonoBehaviour, IPointerDownHandler
         return !this.card.HasCard();
     }
 
-    public void UseCard()
+    public void PickCard()
     {
         OnPickCard?.Invoke(this);
     }
@@ -38,7 +34,7 @@ public class CardSlot : MonoBehaviour, IPointerDownHandler
     {
         if (!CanPick) return;
 
-        UseCard();
+        PickCard();
     }
 
     public void SetPickState(bool state)
