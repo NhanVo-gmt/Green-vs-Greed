@@ -1,4 +1,4 @@
-Id,Name,Description,PlayerType,Image,
+Id,Name,Description,PlayerType,Image,Resources
 1,Ship Surge,Raise the rates on maritime routes and increase shipping amount.,Corporation,Ship,Water
 2,Chop Chop Chaos,Cut down more trees for a greater timber yield.,Corporation,Deforestation,Wood
 3,Industrial Invasion,"Expand your manufacturing capabilities, but it will have adverse effect on the environment",Corporation,Industry,"Wood, Water"

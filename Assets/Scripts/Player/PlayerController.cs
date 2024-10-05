@@ -12,8 +12,14 @@ public class PlayerController : MonoBehaviour
 
     public bool isBot = false;
 
+    [Header("Life")]
+    public int maxLife = 3;
+
+    private int currentLife = 0;
+
     [Header("Card")]
     public PlayerCardDeck playerCardDeck;
+    public PlayedCardDeck playedCardDeck;
 
     #region State
 
@@ -30,6 +36,8 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        RegisterEvent();
+        
         stateMachine = new();
 
         playerDrawState = new(stateMachine, this, PlayerStateName.Draw);
@@ -37,6 +45,18 @@ public class PlayerController : MonoBehaviour
         playerIdleState = new(stateMachine, this, PlayerStateName.Idle);
         
         stateMachine.Initialize(playerIdleState);
+
+        currentLife = maxLife;
+    }
+
+    void RegisterEvent()
+    {
+        playerCardDeck.OnPickCard += playedCardDeck.DrawCard;
+    }
+
+    private void OnDestroy()
+    {
+        playerCardDeck.OnPickCard -= playedCardDeck.DrawCard;
     }
 
     private void Update()

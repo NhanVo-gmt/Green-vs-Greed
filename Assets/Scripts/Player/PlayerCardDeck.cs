@@ -5,34 +5,11 @@ using Blueprints;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class PlayerCardDeck : MonoBehaviour
+public class PlayerCardDeck : CardDeck
 {
-    [Header("Card Index")]
-    public List<CardSlot> CardSlots = new();
-
-    public Action<CardRecord> OnDrawCard;
-    public Action<CardRecord> OnPickCard;
-
-    public bool CanPick { get; private set; } = false;
-
-    private PlayerController player;
     private List<CardSlot>   AvailableCardSlots = new();
 
-    private void Awake()
-    {
-        player = GetComponentInParent<PlayerController>();
-        
-        foreach (var slot in CardSlots)
-        {
-            slot.SetPickState(!player.isBot);
-            slot.card.gameObject.SetActive(false);
-            
-            slot.OnPickCard += PickCard;
-        }
-    }
-    
-
-    public void DrawCard(CardRecord cardRecord)
+    public override void DrawCard(CardRecord cardRecord)
     {
         foreach (CardSlot slot in CardSlots)
         {
@@ -50,7 +27,7 @@ public class PlayerCardDeck : MonoBehaviour
     #region Pick
     
     
-    public void SetPickState(bool state)
+    public override void SetPickState(bool state)
     {
         CanPick = state;
 
@@ -60,11 +37,10 @@ public class PlayerCardDeck : MonoBehaviour
         }
     }
     
-    public void PickCard(CardSlot cardSlot)
+    public override void PickCard(CardSlot cardSlot)
     {
         if (!CanPick) return;
         
-        cardSlot.card.Use();
         cardSlot.card.gameObject.SetActive(false);
         
         AvailableCardSlots.Remove(cardSlot);
