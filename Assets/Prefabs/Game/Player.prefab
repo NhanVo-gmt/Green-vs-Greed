@@ -49,7 +49,6 @@ MonoBehaviour:
   currentState: 0
   isBot: 0
   playerCardDeck: {fileID: 6656492679727941464}
-  drawBtn: {fileID: 0}
 --- !u!1 &6674275001581619059
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,6 +193,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1701715997739466759, guid: 8a6ce67fd5b878e41a45daae7ea1c19e, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 6239119014668048236}
+    - target: {fileID: 1701715997739466759, guid: 8a6ce67fd5b878e41a45daae7ea1c19e, type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 9191114043079640042}
     - target: {fileID: 3848448748528977040, guid: 8a6ce67fd5b878e41a45daae7ea1c19e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.5
@@ -254,9 +261,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62b45aa1d1c4bfc4b85167e82ae166fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!212 &6239119014668048236 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 219636517350244910, guid: 8a6ce67fd5b878e41a45daae7ea1c19e, type: 3}
+  m_PrefabInstance: {fileID: 6168105817832756546}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6985624190089744850 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3848448748528977040, guid: 8a6ce67fd5b878e41a45daae7ea1c19e, type: 3}
+  m_PrefabInstance: {fileID: 6168105817832756546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &9191114043079640042 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3032301376449074856, guid: 8a6ce67fd5b878e41a45daae7ea1c19e, type: 3}
   m_PrefabInstance: {fileID: 6168105817832756546}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6707696351250334639
