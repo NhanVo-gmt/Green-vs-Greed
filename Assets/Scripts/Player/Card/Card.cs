@@ -57,6 +57,16 @@ public class Card : MonoBehaviour
         return CardRecord != null;
     }
 
+    public void Pick()
+    {
+        if (this.CardRecord == null) return;
+        
+        // Pick
+
+        CardRecord = null;
+        gameObject.SetActive(false);
+    }
+
     public void Use()
     {
         if (this.CardRecord == null) return;
@@ -64,6 +74,7 @@ public class Card : MonoBehaviour
         // Use
 
         CardRecord = null;
+        gameObject.SetActive(false);
     }
 
     public CardRecord GetCardRecord()

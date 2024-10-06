@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Player")]
     public int             playerIndex = 0;
+
+    public PlayerType      playerType;
     public PlayerStateName currentState;
     public PlayerData      playerData;
 
