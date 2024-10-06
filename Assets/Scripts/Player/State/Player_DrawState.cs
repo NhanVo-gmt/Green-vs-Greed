@@ -7,7 +7,6 @@
     public override void OnEnter()
     {
         base.OnEnter();
-        GameManager.Instance.DrawCard();
         
         stateMachine.ChangeState(player.playerPickState);
     }

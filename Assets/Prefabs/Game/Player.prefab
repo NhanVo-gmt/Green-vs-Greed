@@ -61,7 +61,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1000
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!114 &8271047791225788160
 MonoBehaviour:
@@ -317,6 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIndex: 0
+  playerType: 0
   currentState: 0
   playerData:
     MaxLives: 3
@@ -335,6 +336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6880246955123862017}
   - component: {fileID: 4870469354574910993}
+  - component: {fileID: 8275527477819352245}
   m_Layer: 0
   m_Name: PlayedDeck
   m_TagString: Untagged
@@ -376,6 +378,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardSlots:
   - {fileID: 5572041648711186865}
+--- !u!210 &8275527477819352245
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5305430284946910652}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 40
+  m_SortAtRoot: 1
 --- !u!1 &5817130884257192617
 GameObject:
   m_ObjectHideFlags: 0

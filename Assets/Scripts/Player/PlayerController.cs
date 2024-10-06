@@ -13,6 +13,7 @@ public class PlayerData
     public int lives;
 
     public Action<int> OnLoseLife;
+    public Action      OnDie;
     
     public void Initialize()
     {
@@ -23,6 +24,11 @@ public class PlayerData
     {
         lives--;
         OnLoseLife?.Invoke(lives);
+
+        if (lives <= 0)
+        {
+            OnDie?.Invoke();
+        }
     }
 }
 

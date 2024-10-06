@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Blueprints;
+using GameFoundation.Scripts.UIModule.ScreenFlow.Managers;
 using GameFoundation.Scripts.Utilities.Extension;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -10,7 +11,7 @@ using UnityEngine.UI;
 using UserData.Controller;
 using Zenject;
 
-public class GameManager : SingletonObject<GameManager>
+public class GameManager : MonoBehaviour
 {
     [Header("Player")]
     [SerializeField] private int numberPlayers;
@@ -20,12 +21,9 @@ public class GameManager : SingletonObject<GameManager>
 
     private Dictionary<int, PlayerController> PlayerControllers = new();
 
-    [Inject] private CardManager   CardManager;
-
-    protected override void Awake()
-    {
-        base.Awake();
-    }
+    [Inject] private CardManager    CardManager;
+    [Inject] private IScreenManager ScreenManager;
+    
 
     private void Start()
     {
@@ -42,19 +40,22 @@ public class GameManager : SingletonObject<GameManager>
         numberPlayers = 0;
         foreach (var player in GameObject.FindObjectsOfType<PlayerController>(true))
         {
-            player.OnFinishTurn += NextPlayerTurn;
+            player.OnFinishTurn     += NextPlayerTurn;
+            player.playerData.OnDie += EndGame;
             
             PlayerControllers.Add(player.playerIndex, player);
             numberPlayers++;
         }
     }
+    
 
     private void OnDestroy()
     {
         CardManager.OnCardDataLoaded -= DrawAllCards;
         foreach (var player in PlayerControllers.Values)
         {
-            player.OnFinishTurn -= NextPlayerTurn;
+            player.OnFinishTurn     -= NextPlayerTurn;
+            player.playerData.OnDie -= EndGame;
         }
         PlayerControllers.Clear();
     }
@@ -162,6 +163,15 @@ public class GameManager : SingletonObject<GameManager>
         
         currentPlayerIndex = 0;
         StartPlayerTurn();
+    }
+
+    #endregion
+
+    #region End Game
+
+    private void EndGame()
+    {
+        ScreenManager.OpenScreen<LoseScreenPopupPresenter>();
     }
 
     #endregion
