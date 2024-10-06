@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3848448748528977040}
   - component: {fileID: 1290845740377983558}
   - component: {fileID: 3566825124585033707}
+  - component: {fileID: 4863829565415050309}
   m_Layer: 0
   m_Name: CardSlot
   m_TagString: Untagged
@@ -92,6 +93,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.1790276, y: 2.956646}
   m_EdgeRadius: 0
+--- !u!95 &4863829565415050309
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8627425268450609932}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 23099e83bcde6394f874cbf53dc56879, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &4260638899469923728
 PrefabInstance:
   m_ObjectHideFlags: 0
