@@ -64,14 +64,12 @@ public class GameManager : SingletonObject<GameManager>
     {
         if (CardManager.GetCards(PlayerType.Corporation).Count == 0) return;
         
-        foreach (var cardRecord in CardManager.GetCards(PlayerType.Environment))
+        foreach (var player in PlayerControllers.Values)
         {
-            PlayerControllers[1].DrawCard(cardRecord);
-        }
-        
-        foreach (var cardRecord in CardManager.GetCards(PlayerType.Corporation))
-        {
-            PlayerControllers[0].DrawCard(cardRecord);
+            foreach (var cardRecord in CardManager.GetCards(player.playerType))
+            {
+                player.DrawCard(cardRecord);
+            }
         }
 
         NextPlayerTurn();
@@ -88,9 +86,11 @@ public class GameManager : SingletonObject<GameManager>
 
     void NextPlayerTurn()
     {
+        DrawCardEndTurn();
+        
         if (currentPlayerIndex >= numberPlayers - 1)
         {
-            EndTurn();
+            EndBothTurn();
         }
         else
         {
@@ -100,6 +100,11 @@ public class GameManager : SingletonObject<GameManager>
             currentPlayerIndex = newIndex;
             StartPlayerTurn();
         }
+    }
+
+    void DrawCardEndTurn()
+    {
+        if (currentPlayerIndex != -1) PlayerControllers[currentPlayerIndex].DrawCard(CardManager.DrawRandomCard(PlayerControllers[currentPlayerIndex].playerType));
     }
 
     void StartPlayerTurn()
@@ -119,13 +124,13 @@ public class GameManager : SingletonObject<GameManager>
 
     #region End Turn
 
-    public void EndTurn()
+    public void EndBothTurn()
     {
-        StartCoroutine(EndTurnCoroutine());
+        StartCoroutine(EndBothTurnCoroutine());
     }
 
 
-    IEnumerator EndTurnCoroutine()
+    IEnumerator EndBothTurnCoroutine()
     {
         Debug.Log($"[Game Manager]: Check End Turn");
         

@@ -41,11 +41,11 @@ public class PlayerCardDeck : CardDeck
     {
         if (!CanPick) return;
         
-        cardSlot.card.gameObject.SetActive(false);
+        OnPickCard?.Invoke(cardSlot.card.GetCardRecord());
         
+        cardSlot.card.Pick();
         AvailableCardSlots.Remove(cardSlot);
 
-        OnPickCard?.Invoke(cardSlot.card.GetCardRecord());
     }
 
     #endregion
