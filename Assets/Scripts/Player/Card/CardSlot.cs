@@ -2,9 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Blueprints;
+using GameFoundation.Scripts.UIModule.ScreenFlow.Managers;
+using GameFoundation.Scripts.Utilities.Extension;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Watermelon;
+using Zenject;
 
 public class CardSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
@@ -22,8 +25,12 @@ public class CardSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
     private Animator anim;
     private Vector3  startPos;
 
+    [Inject] private IScreenManager screenManager; 
+        
     private void Awake()
     {
+        this.GetCurrentContainer().Inject(this);
+        
         anim     = GetComponent<Animator>();
         startPos = transform.position;
     }
@@ -47,9 +54,19 @@ public class CardSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (!CanPick || !card.gameObject.activeSelf) return;
+        if (!card.HasCard()) return;
+        
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            screenManager.OpenScreen<CardDetailsPopupPresenter, CardRecord>(this.card.GetCardRecord());
+        }
+        else
+        {
+            if (!CanPick) return;
 
-        PickCard();
+            PickCard();
+        }
+        
     }
 
     public void SetPickState(bool state)
