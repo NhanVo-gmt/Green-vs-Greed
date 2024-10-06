@@ -20,7 +20,7 @@ public class GameManager : SingletonObject<GameManager>
 
     private Dictionary<int, PlayerController> PlayerControllers = new();
 
-    [Inject] private CardManager CardManager;
+    [Inject] private CardManager   CardManager;
 
     protected override void Awake()
     {
@@ -133,32 +133,22 @@ public class GameManager : SingletonObject<GameManager>
         List<CardSlot> player1Cards = PlayerControllers[1].playedCardDeck.CardSlots;
         for (int i = 0; i < player0Cards.Count; i++)
         {
-            CardResource[] player0CardResources = player0Cards[i].card.GetCardRecord().Resources.Select(
-                resource => resource.ResourceId).ToArray();
-            CardResource[] player1CardResources = player1Cards[i].card.GetCardRecord().Resources.Select(
-                resource => resource.ResourceId).ToArray();
+            var player0CardResources = player0Cards[i].card.GetCardRecord().Resources;
+            var player1CardResources = player1Cards[i].card.GetCardRecord().Resources;
 
-            if (player0CardResources.Length > player1CardResources.Length)
+            foreach (var cardResourceRecord in player0CardResources.Values)
             {
-                // Lose life
-                Debug.Log($"[Game Manager]: Player Lose Life");
-            }
-            else
-            {
-                for (int j = 0; j < player0CardResources.Length; j++)
+                if (!player1CardResources.ContainsKey(cardResourceRecord.ResourceId))
                 {
-                    if (player0CardResources[j] != player1CardResources[j])
-                    {
-                        // Lose life
-                        Debug.Log($"[Game Manager]: Player Lose Life");
-                    }
+                    // Lose life
+                    PlayerControllers[1].LoseLife();
                 }
             }
 
             yield return null;
         }
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         foreach (PlayerController controller in PlayerControllers.Values)
         {
@@ -171,3 +161,5 @@ public class GameManager : SingletonObject<GameManager>
 
     #endregion
 }
+
+

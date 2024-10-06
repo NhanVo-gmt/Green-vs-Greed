@@ -37,7 +37,7 @@ public class Card : MonoBehaviour
         CardManager.GetIcon(cardRecord.Image).ContinueWith((sprite) => image.sprite = sprite).Forget();
 
         int i = 0;
-        foreach (var cardResource in cardRecord.Resources)
+        foreach (var cardResource in cardRecord.Resources.Values)
         {
             resourceUis[i].BindData(cardResource);
             i++;
