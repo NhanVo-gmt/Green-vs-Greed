@@ -14,12 +14,12 @@ namespace Blueprints
     [CsvHeaderKey("Id")]
     public class CardRecord
     {
-        public string         Id;
-        public string         Name;
-        public string         Description;
-        public PlayerType     PlayerType;
-        public string         Image;
-        public CardResource[] Resources;
+        public string                             Id;
+        public string                             Name;
+        public string                             Description;
+        public PlayerType                         PlayerType;
+        public string                             Image;
+        public BlueprintByRow<CardResourceRecord> Resources;
     }
 
     public enum PlayerType
@@ -28,9 +28,16 @@ namespace Blueprints
         Corporation = 1,
     }
 
+    [CsvHeaderKey("ResourceId")]
+    public class CardResourceRecord
+    {
+        public CardResource ResourceId;
+        public int          ResourceAmount;
+    }
+
     public enum CardResource
     {
-        Wood,
-        Water
+        Wood = 0,
+        Water = 1
     }
 }

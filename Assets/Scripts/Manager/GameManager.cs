@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Blueprints;
 using GameFoundation.Scripts.Utilities.Extension;
 using Sirenix.OdinInspector;
@@ -132,8 +133,10 @@ public class GameManager : SingletonObject<GameManager>
         List<CardSlot> player1Cards = PlayerControllers[1].playedCardDeck.CardSlots;
         for (int i = 0; i < player0Cards.Count; i++)
         {
-            CardResource[] player0CardResources = player0Cards[i].card.GetCardRecord().Resources;
-            CardResource[] player1CardResources = player1Cards[i].card.GetCardRecord().Resources;
+            CardResource[] player0CardResources = player0Cards[i].card.GetCardRecord().Resources.Select(
+                resource => resource.ResourceId).ToArray();
+            CardResource[] player1CardResources = player1Cards[i].card.GetCardRecord().Resources.Select(
+                resource => resource.ResourceId).ToArray();
 
             if (player0CardResources.Length > player1CardResources.Length)
             {
@@ -144,7 +147,6 @@ public class GameManager : SingletonObject<GameManager>
             {
                 for (int j = 0; j < player0CardResources.Length; j++)
                 {
-                    Debug.LogError(player0CardResources[j]);
                     if (player0CardResources[j] != player1CardResources[j])
                     {
                         // Lose life
