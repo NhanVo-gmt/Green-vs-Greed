@@ -54,6 +54,8 @@ public class PlayerCardDeck : CardDeck
 
     public void PickRandomCard()
     {
+        if (AvailableCardSlots.Count <= 0) return;
+        
         CardSlot slot = AvailableCardSlots[Random.Range(0, AvailableCardSlots.Count)];
         
         PickCard(slot);

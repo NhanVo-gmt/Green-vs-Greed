@@ -4,22 +4,44 @@ using Blueprints;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class PlayerData
+{
+    public int MaxLives;
+
+    [Header("Debug")]
+    public int lives;
+
+    public Action<int> OnLoseLife;
+    
+    public void Initialize()
+    {
+        lives = MaxLives;
+    }
+
+    public void LoseLife()
+    {
+        lives--;
+        OnLoseLife?.Invoke(lives);
+    }
+}
+
 public class PlayerController : MonoBehaviour
 {
     [Header("Player")]
     public int             playerIndex = 0;
     public PlayerStateName currentState;
+    public PlayerData      playerData;
 
     public bool isBot = false;
-
-    [Header("Life")]
-    public int maxLife = 3;
-
-    private int currentLife = 0;
+    
 
     [Header("Card")]
     public PlayerCardDeck playerCardDeck;
     public PlayedCardDeck playedCardDeck;
+
+    [Header("UI")]
+    public PlayerUI playerUI;
 
     #region State
 
@@ -46,7 +68,8 @@ public class PlayerController : MonoBehaviour
         
         stateMachine.Initialize(playerIdleState);
 
-        currentLife = maxLife;
+        playerData.Initialize();
+        playerUI.BindData(playerData);
     }
 
     void RegisterEvent()
@@ -83,4 +106,14 @@ public class PlayerController : MonoBehaviour
     {
         playerCardDeck.DrawCard(cardRecord);
     }
+
+    #region Live
+
+    public void LoseLife()
+    {
+        playerData.LoseLife();
+        Debug.Log($"[Player {playerIndex}]: Player Lose Life");
+    }
+
+    #endregion
 }
