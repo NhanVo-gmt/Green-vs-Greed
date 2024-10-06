@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="183aa535-458a-4c9a-a18f-e0b9b9d9f9d9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UIFeatures/GameScene/Settings/CardDetailsPopupView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Green-vs-Greed/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Green-vs-Greed/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/UIAssets.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/UIAssets.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/State/Player_DrawState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/Player_DrawState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/3.GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/3.GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Card/CardSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Card/CardSlot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIFeatures/GameScene/GameScreenView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIFeatures/GameScene/GameScreenView.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,11 +47,12 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature/end-game-screen",
+    "git-widget-placeholder": "feature/view-game-content",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "editor.preferences.completion",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
