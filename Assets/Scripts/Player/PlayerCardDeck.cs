@@ -9,19 +9,14 @@ public class PlayerCardDeck : CardDeck
 {
     private List<CardSlot>   AvailableCardSlots = new();
 
-    public override void DrawCard(CardRecord cardRecord)
+
+    public override void DrawSlot(CardSlot slot, CardRecord record)
     {
-        foreach (CardSlot slot in CardSlots)
-        {
-            if (slot.CanGetCard())
-            {
-                slot.DrawCard(cardRecord, player.isBot);
-                OnDrawCard?.Invoke(cardRecord);
-                
-                AvailableCardSlots.Add(slot);
-                return;
-            }
-        }
+        base.DrawSlot(slot, record);
+        
+        slot.SetViewState(!player.isBot);
+        
+        AvailableCardSlots.Add(slot);
     }
 
     #region Pick
