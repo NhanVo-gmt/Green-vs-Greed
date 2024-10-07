@@ -1473,7 +1473,7 @@ GameObject:
   - component: {fileID: 549914221}
   - component: {fileID: 549914220}
   m_Layer: 5
-  m_Name: TurnText
+  m_Name: GameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1627,6 +1627,8 @@ MonoBehaviour:
   numberPlayers: 0
   shuffle: {fileID: 0}
   gameUI: {fileID: 1770760154}
+  waitTimeBeforeChecking: 0.5
+  waitTimeAfterChecking: 1
   currentPlayerIndex: -1
 --- !u!4 &649235992
 Transform:
@@ -2190,7 +2192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c65fb894bc0d307488437206afd3bd45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnText: {fileID: 549914220}
+  gameText: {fileID: 549914220}
 --- !u!1 &1772156306
 GameObject:
   m_ObjectHideFlags: 0

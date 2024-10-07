@@ -20,6 +20,10 @@ public class GameManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private GameUI gameUI;
+
+    [Header("Time")]
+    [SerializeField] private float waitTimeBeforeChecking = 0.5f;
+    [SerializeField] private float waitTimeAfterChecking = 1f;
     
     [Header("Debug")]
     [SerializeField] private int currentPlayerIndex = -1;
@@ -175,6 +179,8 @@ public class GameManager : MonoBehaviour
         Debug.Log($"[Game Manager]: Check End Turn");
         gameUI.EndTurn();
         
+        yield return new WaitForSeconds(waitTimeBeforeChecking);
+        
         List<CardSlot> player0Cards = PlayerControllers[0].playedCardDeck.CardSlots;
         List<CardSlot> player1Cards = PlayerControllers[1].playedCardDeck.CardSlots;
         for (int i = 0; i < player0Cards.Count; i++)
@@ -187,14 +193,16 @@ public class GameManager : MonoBehaviour
                 if (!player1CardResources.ContainsKey(cardResourceRecord.ResourceId))
                 {
                     // Lose life
+                    gameUI.SetText($"Player lack: {cardResourceRecord.ResourceId}");
                     PlayerControllers[1].LoseLife();
+                    break;
                 }
             }
 
             yield return null;
         }
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(waitTimeAfterChecking);
 
         foreach (PlayerController controller in PlayerControllers.Values)
         {

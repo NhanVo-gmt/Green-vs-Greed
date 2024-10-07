@@ -2,22 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GameUI : MonoBehaviour
 {
-    public TextMeshProUGUI turnText;
+    public TextMeshProUGUI gameText;
 
     public void SetTurn(int player)
     {
         if (player == 0)
         {
-            turnText.text = $"Bot Turn";
+            gameText.text = $"Bot Turn";
         }
-        else turnText.text = $"Player Turn";
+        else gameText.text = $"Player Turn";
+    }
+
+    public void SetText(string text)
+    {
+        gameText.text = text;
     }
 
     public void EndTurn()
     {
-        turnText.text = "Checking...";
+        gameText.text = "Checking...";
     }
 }
