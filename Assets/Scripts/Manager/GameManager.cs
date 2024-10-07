@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
 {
     [Header("Player")]
     [SerializeField] private int numberPlayers;
+
+    [Header("UI")]
+    [SerializeField] private GameUI gameUI;
     
     [Header("Debug")]
     [SerializeField] private int currentPlayerIndex = -1;
@@ -76,8 +79,6 @@ public class GameManager : MonoBehaviour
         NextPlayerTurn();
     }
 
-    
-
     void NextPlayerTurn(PlayerController player)
     {
         if (player.playerIndex != currentPlayerIndex) return;
@@ -110,6 +111,7 @@ public class GameManager : MonoBehaviour
 
     void StartPlayerTurn()
     {
+        gameUI.SetTurn(currentPlayerIndex);
         PlayerControllers[currentPlayerIndex].StartTurn();
     }
 
@@ -134,6 +136,7 @@ public class GameManager : MonoBehaviour
     IEnumerator EndBothTurnCoroutine()
     {
         Debug.Log($"[Game Manager]: Check End Turn");
+        gameUI.EndTurn();
         
         List<CardSlot> player0Cards = PlayerControllers[0].playedCardDeck.CardSlots;
         List<CardSlot> player1Cards = PlayerControllers[1].playedCardDeck.CardSlots;

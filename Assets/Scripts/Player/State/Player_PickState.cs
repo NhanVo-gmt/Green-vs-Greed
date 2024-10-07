@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Player_PickState : PlayerState
 {
+    private float waitTime        = 2f;
+    private float elapsedWaitTime = 0f;
+    
     public Player_PickState(StateMachine stateMachine, PlayerController player, PlayerStateName stateName) : base(stateMachine, player, stateName)
     {
         
@@ -14,9 +17,27 @@ public class Player_PickState : PlayerState
     {
         base.OnEnter();
 
+        if (player.isBot) elapsedWaitTime = Random.Range(0f, waitTime);
+        else CanPick();
+        
+    }
+
+    void CanPick()
+    {
         player.playerCardDeck.OnPickCard += ChangeState;
         
         player.playerCardDeck.SetPickState(true);
+    }
+
+    public override void Update()
+    {
+        if (elapsedWaitTime < 0f) return;
+        
+        elapsedWaitTime -= Time.deltaTime;
+        if (elapsedWaitTime <= 0f)
+        {
+            CanPick();
+        }
     }
 
     public override void OnExit()
