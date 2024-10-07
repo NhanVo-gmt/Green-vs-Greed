@@ -23,7 +23,7 @@ public class CardDeck : MonoBehaviour
         {
             slot.SetPickState(!player.isBot);
             slot.SetHoverState(!player.isBot);
-            slot.card.gameObject.SetActive(false);
+            slot.DisableVisual();
             
             slot.OnPickCard += PickCard;
         }
@@ -55,7 +55,7 @@ public class CardDeck : MonoBehaviour
     {
         if (!CanPick) return;
         
-        cardSlot.card.gameObject.SetActive(false);
+        cardSlot.DisableVisual();
         
         OnPickCard?.Invoke(cardSlot.card.GetCardRecord());
     }

@@ -15,7 +15,7 @@ public class PlayerCardDeck : CardDeck
         {
             if (slot.CanGetCard())
             {
-                slot.DrawCard(cardRecord);
+                slot.DrawCard(cardRecord, player.isBot);
                 OnDrawCard?.Invoke(cardRecord);
                 
                 AvailableCardSlots.Add(slot);
@@ -43,6 +43,7 @@ public class PlayerCardDeck : CardDeck
         
         OnPickCard?.Invoke(cardSlot.card.GetCardRecord());
         
+        cardSlot.DisableVisual();
         cardSlot.card.Pick();
         AvailableCardSlots.Remove(cardSlot);
 

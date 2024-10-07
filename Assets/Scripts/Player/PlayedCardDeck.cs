@@ -25,7 +25,7 @@ public class PlayedCardDeck : CardDeck
         foreach (CardSlot slot in CardSlots)
         {
             slot.card.Use();
-            slot.card.gameObject.SetActive(false);
+            slot.DisableVisual();
         }
     }
 }

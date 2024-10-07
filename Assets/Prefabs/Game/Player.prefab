@@ -854,6 +854,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1290845740377983558, guid: 8a6ce67fd5b878e41a45daae7ea1c19e, type: 3}
+      propertyPath: backCard
+      value: 
+      objectReference: {fileID: 316995034288397013}
     - target: {fileID: 1701715997739466759, guid: 8a6ce67fd5b878e41a45daae7ea1c19e, type: 3}
       propertyPath: card
       value: 
@@ -991,6 +995,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a6ce67fd5b878e41a45daae7ea1c19e, type: 3}
+--- !u!1 &316995034288397013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5908637784282992535, guid: 8a6ce67fd5b878e41a45daae7ea1c19e, type: 3}
+  m_PrefabInstance: {fileID: 6168105817832756546}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4932429860321582852 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1290845740377983558, guid: 8a6ce67fd5b878e41a45daae7ea1c19e, type: 3}

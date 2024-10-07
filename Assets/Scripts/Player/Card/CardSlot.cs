@@ -11,7 +11,10 @@ using Zenject;
 
 public class CardSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
+    [Header("Card")]
     public Card card;
+
+    public GameObject backCard;
 
     [Header("Anim")]
     public float hoverY = 1f;
@@ -37,10 +40,17 @@ public class CardSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
     }
 
 
-    public void DrawCard(CardRecord cardRecord)
+    public void DrawCard(CardRecord cardRecord, bool isBot = false)
     {
         this.card.BindData(cardRecord);
-        this.card.gameObject.SetActive(true);
+        if (isBot)
+        {
+            SetBackCardVisual(true);
+        }
+        else
+        {
+            SetBackCardVisual(false);
+        }
     }
 
     public bool CanGetCard()
@@ -92,6 +102,22 @@ public class CardSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
     public void SetHoverState(bool state)
     {
         CanHover = state;
+    }
+
+    #endregion
+
+    #region Visual
+
+    public void SetBackCardVisual(bool state)
+    {
+        this.backCard.SetActive(state);
+        this.card.gameObject.SetActive(!state);
+    }
+
+    public void DisableVisual()
+    {
+        card.gameObject.SetActive(false);
+        backCard.SetActive(false);
     }
 
     #endregion
