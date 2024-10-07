@@ -35,7 +35,9 @@ public class GameScreenPresenter : BaseScreenPresenter<GameScreenView>
 
     protected override void OnViewReady()
     {
-        // masterDataManager.InitializeData().Forget();
+#if UNITY_EDITOR
+        masterDataManager.InitializeData().Forget();
+#endif
             
         base.OnViewReady();
         this.OpenViewAsync().Forget();

@@ -21,6 +21,7 @@ public class CardSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
     public Action<CardSlot> OnPickCard;
 
     public bool CanPick { get; private set; } = true;
+    public bool CanHover { get; private set; } = true;
 
     private Animator anim;
     private Vector3  startPos;
@@ -68,20 +69,31 @@ public class CardSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
         }
         
     }
+    
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (!CanHover) return;
+        transform.DOMoveY(startPos.y + hoverY, hoverTime, 0);
+    }
+    
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (!CanHover) return;
+        transform.DOMoveY(startPos.y, hoverTime, 0);
+    }
+
+    #region Set Methods
 
     public void SetPickState(bool state)
     {
         CanPick = state;
     }
     
-    public void OnPointerEnter(PointerEventData eventData)
+    public void SetHoverState(bool state)
     {
-        transform.DOMoveY(startPos.y + hoverY, hoverTime, 0);
+        CanHover = state;
     }
-    
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        transform.DOMoveY(startPos.y, hoverTime, 0);
-    }
+
+    #endregion
 
 }
