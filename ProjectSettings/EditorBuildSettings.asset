@@ -17,26 +17,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/3.GameScene.unity
     guid: 8ed608ed3aec2ce45a86ac72c177e5a4
-  - enabled: 1
-    path: Assets/Scenes/LevelScene/Level 1/Level1Stage1.unity
-    guid: 70fe290833771c04094c3b1ed64f587d
-  - enabled: 1
-    path: Assets/Scenes/LevelScene/Level 1/Level1Stage2.unity
-    guid: c3864a9c570c3e94b9251c2cd618a3ad
-  - enabled: 1
-    path: Assets/Scenes/LevelScene/Level 1/Level1Stage3.unity
-    guid: b5f4a334ac254a343a7011048688d42c
-  - enabled: 1
-    path: Assets/Scenes/LevelScene/Level 1/Level1Stage4.unity
-    guid: 03dd86101e1345b42ace0491e4b2f3f7
-  - enabled: 1
-    path: Assets/Scenes/LevelScene/Level 2/Level2Stage1.unity
-    guid: af1ff2e849c9b49449042ecd6f7931ae
-  - enabled: 1
-    path: Assets/Scenes/LevelScene/Level 2/Level2Stage2.unity
-    guid: 2cdf1d960fdb69444a52b680cecc5618
-  - enabled: 1
-    path: Assets/Scenes/LevelScene/Level 2/Level2Stage3.unity
-    guid: 1a6bdd9cd2b65ef488bac7586d87df57
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: adc4a8ae6f7848d4c9bcf3553afd8d13, type: 2}
