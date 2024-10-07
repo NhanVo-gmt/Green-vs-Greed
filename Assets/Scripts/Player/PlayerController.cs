@@ -47,9 +47,14 @@ public class PlayerController : MonoBehaviour
     [Header("Card")]
     public PlayerCardDeck playerCardDeck;
     public PlayedCardDeck playedCardDeck;
+    public int            shufflePerTurn = 1;
 
     [Header("UI")]
     public PlayerUI playerUI;
+
+    [Header("Debug")]
+    public int shuffleLeft = 1;
+    
 
     #region State
 
@@ -59,6 +64,7 @@ public class PlayerController : MonoBehaviour
     public Player_PickState playerPickState { get; private set; }
     public Player_DrawState playerDrawState { get; private set; }
 
+    public Action OnShuffle;
     public Action<PlayerController> OnFinishTurn;
 
     #endregion
@@ -102,11 +108,16 @@ public class PlayerController : MonoBehaviour
 
     public void StartTurn()
     {
+        shuffleLeft           =  shufflePerTurn;
+        ShuffleCard.OnShuffle += Shuffle;
+        
         stateMachine.ChangeState(playerPickState);
     }
 
     public void FinishTurn()
     {
+        ShuffleCard.OnShuffle -= Shuffle;
+        
         OnFinishTurn?.Invoke(this);
     }
 
@@ -114,6 +125,23 @@ public class PlayerController : MonoBehaviour
     {
         playerCardDeck.DrawCard(cardRecord);
     }
+
+    public void DiscardAllCards()
+    {
+        playerCardDeck.DiscardAllCards();
+    }
+
+    #region Shuffle
+
+    public void Shuffle()
+    {
+        if (shuffleLeft <= 0) return;
+
+        shuffleLeft--;
+        OnShuffle?.Invoke();
+    }
+
+    #endregion
 
     #region Live
 
@@ -124,4 +152,9 @@ public class PlayerController : MonoBehaviour
     }
 
     #endregion
+
+    public int GetCurrentNumberPlayerDeck()
+    {
+        return playerCardDeck.GetCurrentNumberCards();
+    }
 }

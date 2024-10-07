@@ -8,8 +8,7 @@ using Random = UnityEngine.Random;
 public class PlayerCardDeck : CardDeck
 {
     private List<CardSlot>   AvailableCardSlots = new();
-
-
+    
     public override void DrawSlot(CardSlot slot, CardRecord record)
     {
         base.DrawSlot(slot, record);
@@ -17,6 +16,11 @@ public class PlayerCardDeck : CardDeck
         slot.SetViewState(!player.isBot);
         
         AvailableCardSlots.Add(slot);
+    }
+
+    public int GetCurrentNumberCards()
+    {
+        return AvailableCardSlots.Count;
     }
 
     #region Pick
@@ -55,6 +59,16 @@ public class PlayerCardDeck : CardDeck
         CardSlot slot = AvailableCardSlots[Random.Range(0, AvailableCardSlots.Count)];
         
         PickCard(slot);
+    }
+
+    #endregion
+    
+    #region Discard
+    
+    public override void DiscardAllCards()
+    {
+        base.DiscardAllCards();
+        AvailableCardSlots.Clear();
     }
 
     #endregion
