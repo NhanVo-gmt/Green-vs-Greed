@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Blueprints;
 using UnityEngine;
 
 public class PlayedCardDeck : CardDeck
@@ -12,7 +13,14 @@ public class PlayedCardDeck : CardDeck
         {
             slot.SetPickState(false);
             slot.SetHoverState(false);
+            slot.SetViewState(true);
         }
+    }
+
+    public override void DrawSlot(CardSlot slot, CardRecord record)
+    {
+        base.DrawSlot(slot, record);
+        slot.SetViewState(true);
     }
 
     public CardSlot GetCardSlot(int index)

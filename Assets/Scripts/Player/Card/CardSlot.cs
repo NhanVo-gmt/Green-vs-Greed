@@ -25,6 +25,7 @@ public class CardSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
 
     public bool CanPick { get; private set; } = true;
     public bool CanHover { get; private set; } = true;
+    public bool CanView { get; private set; } = false;
 
     private Animator anim;
     private Vector3  startPos;
@@ -40,17 +41,9 @@ public class CardSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
     }
 
 
-    public void DrawCard(CardRecord cardRecord, bool isBot = false)
+    public void DrawCard(CardRecord cardRecord)
     {
         this.card.BindData(cardRecord);
-        if (isBot)
-        {
-            SetBackCardVisual(true);
-        }
-        else
-        {
-            SetBackCardVisual(false);
-        }
     }
 
     public bool CanGetCard()
@@ -67,7 +60,7 @@ public class CardSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
     {
         if (!card.HasCard()) return;
         
-        if (eventData.button == PointerEventData.InputButton.Right)
+        if (CanView && eventData.button == PointerEventData.InputButton.Right)
         {
             screenManager.OpenScreen<CardDetailsPopupPresenter, CardRecord>(this.card.GetCardRecord());
         }
@@ -102,6 +95,16 @@ public class CardSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
     public void SetHoverState(bool state)
     {
         CanHover = state;
+    }
+
+    public void SetViewState(bool state)
+    {
+        CanView = state;
+        
+        if (card.HasCard())
+        {
+            SetBackCardVisual(!CanView);
+        }
     }
 
     #endregion

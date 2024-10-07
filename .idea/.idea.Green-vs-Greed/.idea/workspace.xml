@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="183aa535-458a-4c9a-a18f-e0b9b9d9f9d9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Green-vs-Greed/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Green-vs-Greed/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Game/CardSlot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Game/CardSlot.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Game/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Game/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Card/CardDeck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Card/CardDeck.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Card/CardSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Card/CardSlot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayedCardDeck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayedCardDeck.cs" afterDir="false" />
@@ -48,7 +46,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature/back-card",
+    "git-widget-placeholder": "feature/view-content",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -117,7 +115,7 @@
       <workItem from="1728211699969" duration="403000" />
       <workItem from="1728212125528" duration="9469000" />
       <workItem from="1728288776145" duration="638000" />
-      <workItem from="1728292973120" duration="1534000" />
+      <workItem from="1728292973120" duration="2319000" />
     </task>
     <servers />
   </component>

@@ -35,13 +35,24 @@ public class CardDeck : MonoBehaviour
         {
             if (slot.CanGetCard())
             {
-                slot.DrawCard(cardRecord);
-                OnDrawCard?.Invoke(cardRecord);
+                DrawSlot(slot, cardRecord);
                 
                 return;
             }
         }
     }
+
+    #region Draw
+
+    public virtual void DrawSlot(CardSlot slot, CardRecord record)
+    {
+        slot.DrawCard(record);
+        slot.SetViewState(!player.isBot);
+        
+        OnDrawCard?.Invoke(record);
+    }
+
+    #endregion
 
     #region Pick
     
