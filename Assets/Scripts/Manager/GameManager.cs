@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
 {
     [Header("Player")]
     [SerializeField] private int numberPlayers;
-    [SerializeField] private ShuffleCard shuffle;
 
     [Header("UI")]
     [SerializeField] private GameUI gameUI;
