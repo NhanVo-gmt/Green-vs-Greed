@@ -72,4 +72,17 @@ public class CardDeck : MonoBehaviour
     }
 
     #endregion
+
+    #region Discard
+    
+    public virtual void DiscardAllCards()
+    {
+        foreach (CardSlot slot in CardSlots)
+        {
+            slot.card.Use();
+            slot.DisableVisual();
+        }
+    }
+
+    #endregion
 }

@@ -27,13 +27,5 @@ public class PlayedCardDeck : CardDeck
     {
         return CardSlots[index];
     }
-
-    public void DiscardAllCards()
-    {
-        foreach (CardSlot slot in CardSlots)
-        {
-            slot.card.Use();
-            slot.DisableVisual();
-        }
-    }
+    
 }

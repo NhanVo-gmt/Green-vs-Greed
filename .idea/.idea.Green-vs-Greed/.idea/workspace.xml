@@ -8,7 +8,153 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Green-vs-Greed/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Green-vs-Greed/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/3.GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/3.GameScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/State/Player_PickState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/Player_PickState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Card/CardDeck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Card/CardDeck.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayedCardDeck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayedCardDeck.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCardDeck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCardDeck.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Demo.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Demo/Animations.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Demo/Animations/SwitchFX_1.2s.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Demo/Animations/SwitchFX_1.2s.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Demo/Animations/SwitchFX_1.2s.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Demo/Animations/SwitchFX_1.2s.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Demo/Animations/SwitchFX_4s.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Demo/Animations/SwitchFX_4s.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Demo/Animations/SwitchFX_4s.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Demo/Animations/SwitchFX_4s.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Demo/Readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Demo/Readme.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Demo/Scenes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Demo/Scenes/LanaDemo01.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Demo/Scenes/LanaDemo01.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Demo/Scenes/LanaDemo02.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Demo/Scenes/LanaDemo02.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Demo/Scenes/LanaDemo03.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Demo/Scenes/LanaDemo03.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Demo/Scenes/LanaDemo04.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Demo/Scenes/LanaDemo04.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Materials/Circles_AB.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Materials/Circles_AB.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Materials/Circles_Additive.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Materials/Circles_Additive.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Materials/Drop_AB.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Materials/Drop_AB.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Materials/Square.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Materials/Square.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Models.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Models/Area_vertical.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Models/Area_vertical.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Models/Confetti.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Models/Confetti.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Area.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Area/Area_circles_blue.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Area/Area_circles_blue.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Area/Area_fire_red.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Area/Area_fire_red.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Area/Area_heal_green.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Area/Area_heal_green.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Area/Area_magic_multicolor.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Area/Area_magic_multicolor.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Area/Area_star_ellow.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Area/Area_star_ellow.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Confetti.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Confetti/Confetti_blast_multicolor.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Confetti/Confetti_blast_multicolor.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Confetti/Confetti_directional_multicolor.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Confetti/Confetti_directional_multicolor.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Dust.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Dust/Dust_permanently_blue.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Dust/Dust_permanently_blue.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Flash.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Flash/Flash_blue_purple.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Flash/Flash_blue_purple.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Flash/Flash_ellow.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Flash/Flash_ellow.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Flash/Flash_ellow_pink.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Flash/Flash_ellow_pink.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Flash/Flash_magic_blue_pink.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Flash/Flash_magic_blue_pink.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Flash/Flash_magic_ellow_blue.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Flash/Flash_magic_ellow_blue.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Flash/Flash_round_ellow.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Flash/Flash_round_ellow.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Flash/Flash_star_ellow_purple.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Flash/Flash_star_ellow_purple.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Shine.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Shine/Shine_ellow.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Shine/Shine_ellow.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Shine/Shine_pink.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Shine/Shine_pink.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Sparkle.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Sparkle/Sparkle_ellow.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Sparkle/Sparkle_ellow.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Water.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Water/Water_blast_blue.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Water/Water_blast_blue.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Water/Water_blast_green.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Prefabs/Water/Water_blast_green.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Blast_directional.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Blast_directional.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Blast_spiky.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Blast_spiky.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Circle01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Circle01.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Circle02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Circle02.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Circle03.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Circle03.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Circle04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Circle04.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Circle05.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Circle05.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Circle06.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Circle06.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Dust01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Dust01.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Flare01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Flare01.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Flare02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Flare02.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Flare03.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Flare03.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Gradient01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Gradient01.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Plus01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Plus01.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Ray01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Ray01.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Shockwave_spiky.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Shockwave_spiky.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Square01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Square01.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Square02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Square02.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Star01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Star01.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Star02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/Star02.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/confetti_large.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/confetti_large.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/drop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/drop.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/drop_blue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/drop_blue.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/drop_green.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/drop_green.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/spark01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Lana Studio/Hyper Casual FX/Textures/spark01.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Used.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Used/Circle02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Used/Circle02.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Used/Flash_star_ellow_green.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Used/Flash_star_ellow_green.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Used/Shine_blue.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Used/Shine_blue.prefab.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +169,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Blueprints/CardBlueprint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Manager/GameUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Card/ShuffleCard.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayedCardDeck.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerCardDeck.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/State/Player_PickState.cs" root0="FORCE_HIGHLIGHTING" />
@@ -45,7 +192,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature/turn-text",
+    "git-widget-placeholder": "dev",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -114,7 +261,7 @@
       <workItem from="1728211699969" duration="403000" />
       <workItem from="1728212125528" duration="9469000" />
       <workItem from="1728288776145" duration="638000" />
-      <workItem from="1728292973120" duration="3438000" />
+      <workItem from="1728292973120" duration="6118000" />
     </task>
     <servers />
   </component>

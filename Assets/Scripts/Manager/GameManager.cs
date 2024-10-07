@@ -10,11 +10,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UserData.Controller;
 using Zenject;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
     [Header("Player")]
     [SerializeField] private int numberPlayers;
+    [SerializeField] private ShuffleCard shuffle;
 
     [Header("UI")]
     [SerializeField] private GameUI gameUI;
@@ -43,6 +45,7 @@ public class GameManager : MonoBehaviour
         numberPlayers = 0;
         foreach (var player in GameObject.FindObjectsOfType<PlayerController>(true))
         {
+            player.OnShuffle        += Shuffle;
             player.OnFinishTurn     += NextPlayerTurn;
             player.playerData.OnDie += EndGame;
             
@@ -57,26 +60,40 @@ public class GameManager : MonoBehaviour
         CardManager.OnCardDataLoaded -= DrawAllCards;
         foreach (var player in PlayerControllers.Values)
         {
+            player.OnShuffle        -= Shuffle;
             player.OnFinishTurn     -= NextPlayerTurn;
             player.playerData.OnDie -= EndGame;
         }
         PlayerControllers.Clear();
     }
     
-
     private void DrawAllCards()
     {
         if (CardManager.GetCards(PlayerType.Corporation).Count == 0) return;
         
         foreach (var player in PlayerControllers.Values)
         {
-            foreach (var cardRecord in CardManager.GetCards(player.playerType))
-            {
-                player.DrawCard(cardRecord);
-            }
+            DrawAllCards(player);
         }
 
         NextPlayerTurn();
+    }
+
+    public void DrawAllCards(PlayerController player)
+    {
+        foreach (var cardRecord in CardManager.GetCards(player.playerType))
+        {
+            player.DrawCard(cardRecord);
+        }
+    }
+    
+    public void DrawRandomAllCards(PlayerController player, int num)
+    {
+        var cards = CardManager.GetCards(player.playerType);
+        for (int i = 0; i < num; i++)
+        {
+            player.DrawCard(cards[Random.Range(0, cards.Count)]);
+        }
     }
 
     void NextPlayerTurn(PlayerController player)
@@ -103,17 +120,21 @@ public class GameManager : MonoBehaviour
             StartPlayerTurn();
         }
     }
+    
+    void StartPlayerTurn()
+    {
+        gameUI.SetTurn(currentPlayerIndex);
+        PlayerControllers[currentPlayerIndex].StartTurn();
+    }
+
+    #region Draw Card
 
     void DrawCardEndTurn()
     {
         if (currentPlayerIndex != -1) PlayerControllers[currentPlayerIndex].DrawCard(CardManager.DrawRandomCard(PlayerControllers[currentPlayerIndex].playerType));
     }
 
-    void StartPlayerTurn()
-    {
-        gameUI.SetTurn(currentPlayerIndex);
-        PlayerControllers[currentPlayerIndex].StartTurn();
-    }
+    
 
     [Button("Draw Card")]
     public void DrawCard()
@@ -124,6 +145,22 @@ public class GameManager : MonoBehaviour
         }
         else PlayerControllers[currentPlayerIndex].DrawCard(CardManager.DrawRandomCard(PlayerType.Corporation));
     }
+    
+    #endregion
+
+    #region Shuffle
+
+    public void Shuffle()
+    {
+        PlayerController currentPlayer = PlayerControllers[currentPlayerIndex];
+
+        int numCard = currentPlayer.GetCurrentNumberPlayerDeck();
+        currentPlayer.DiscardAllCards();
+        
+        DrawRandomAllCards(currentPlayer, numCard);
+    }
+
+    #endregion
 
     #region End Turn
 
