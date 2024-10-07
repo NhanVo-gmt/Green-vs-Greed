@@ -28,6 +28,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerCardDeck.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/State/Player_PickState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/UI/PlayerUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIFeatures/GameUI/HowToPlayUI.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -46,7 +47,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature/lack-resource",
+    "git-widget-placeholder": "feature/how-to-play",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -116,7 +117,7 @@
       <workItem from="1728212125528" duration="9469000" />
       <workItem from="1728288776145" duration="638000" />
       <workItem from="1728292973120" duration="6118000" />
-      <workItem from="1728309656418" duration="731000" />
+      <workItem from="1728309656418" duration="2876000" />
     </task>
     <servers />
   </component>

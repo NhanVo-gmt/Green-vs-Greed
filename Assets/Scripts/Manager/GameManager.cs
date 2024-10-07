@@ -38,8 +38,11 @@ public class GameManager : MonoBehaviour
         this.GetCurrentContainer().Inject(this);
         
         FindAllPlayers();
-        
-        CardManager.OnCardDataLoaded += DrawAllCards;
+        gameUI.OnCloseHowToPlayScreen += StartGame;
+    }
+
+    void StartGame()
+    {
         DrawAllCards();
     }
     
@@ -60,7 +63,8 @@ public class GameManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        CardManager.OnCardDataLoaded -= DrawAllCards;
+        gameUI.OnCloseHowToPlayScreen -= StartGame;
+        
         foreach (var player in PlayerControllers.Values)
         {
             player.OnShuffle        -= Shuffle;
