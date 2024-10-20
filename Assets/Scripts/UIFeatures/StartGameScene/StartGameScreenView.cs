@@ -21,12 +21,14 @@ public class StartGameScreenPresenter : BaseScreenPresenter<StartGameScreenView>
     #region Inject
 
     private readonly GameSceneDirector gameSceneDirector;
+    private readonly MasterDataManager masterDataManager;
 
     #endregion
 
-    public StartGameScreenPresenter(SignalBus signalBus, GameSceneDirector gameSceneDirector) : base(signalBus)
+    public StartGameScreenPresenter(SignalBus signalBus, GameSceneDirector gameSceneDirector, MasterDataManager masterDataManager) : base(signalBus)
     {
         this.gameSceneDirector = gameSceneDirector;
+        this.masterDataManager = masterDataManager;
     }
 
     public override UniTask BindData()
@@ -49,6 +51,10 @@ public class StartGameScreenPresenter : BaseScreenPresenter<StartGameScreenView>
     {
         base.OnViewReady();
         this.OpenViewAsync().Forget();
+        
+#if UNITY_EDITOR
+        masterDataManager.InitializeData().Forget();
+#endif
     }
 
     void GoToLevelScreen()

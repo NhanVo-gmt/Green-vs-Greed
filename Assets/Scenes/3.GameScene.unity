@@ -3935,8 +3935,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Left-click to pick a card to fight against your opponent.\n\nRight-click
-    on a card to view its content.\r"
+  m_text: 'Left-click to pick a card to fight against your opponent.
+
+
+    Right-click
+    on a card to view its content.
+
+
+    Left-click to on card pile to shuffle your
+    card, you can do this once time per turn.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eaee9cf059da0ce4d9e8f209d475257b, type: 2}
   m_sharedMaterial: {fileID: 6903926735286332103, guid: eaee9cf059da0ce4d9e8f209d475257b, type: 2}

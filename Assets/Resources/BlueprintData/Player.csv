@@ -1,0 +1,4 @@
+Id,PlayerType,ResourceId,ResourceAmount
+0,Corporation,Money,100
+1,Environment,Wood,20
+,,Water,20

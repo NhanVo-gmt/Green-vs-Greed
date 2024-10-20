@@ -38,6 +38,7 @@ namespace Blueprints
     public enum CardResource
     {
         Wood = 0,
-        Water = 1
+        Water = 1,
+        Money = 2
     }
 }

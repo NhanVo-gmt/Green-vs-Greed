@@ -27,16 +27,20 @@ public class GameManager : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private int currentPlayerIndex = -1;
 
-    private Dictionary<int, PlayerController> PlayerControllers = new();
+    private Dictionary<int, Player> PlayerControllers = new();
 
+    [Inject] private PlayerManager  PlayerManager;
     [Inject] private CardManager    CardManager;
     [Inject] private IScreenManager ScreenManager;
-    
+
+    private void Awake()
+    {
+        this.GetCurrentContainer().Inject(this);
+    }
+
 
     private void Start()
     {
-        this.GetCurrentContainer().Inject(this);
-        
         FindAllPlayers();
         gameUI.OnCloseHowToPlayScreen += StartGame;
     }
@@ -49,8 +53,9 @@ public class GameManager : MonoBehaviour
     void FindAllPlayers()
     {
         numberPlayers = 0;
-        foreach (var player in GameObject.FindObjectsOfType<PlayerController>(true))
+        foreach (var player in GameObject.FindObjectsOfType<Player>(true))
         {
+            player.BindData(PlayerManager.GetPlayerRecord(player.playerIndex));
             player.OnShuffle        += Shuffle;
             player.OnFinishTurn     += NextPlayerTurn;
             player.playerData.OnDie += EndGame;
@@ -86,7 +91,7 @@ public class GameManager : MonoBehaviour
         NextPlayerTurn();
     }
 
-    public void DrawAllCards(PlayerController player)
+    public void DrawAllCards(Player player)
     {
         foreach (var cardRecord in CardManager.GetCards(player.playerType))
         {
@@ -94,7 +99,7 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    public void DrawRandomAllCards(PlayerController player, int num)
+    public void DrawRandomAllCards(Player player, int num)
     {
         var cards = CardManager.GetCards(player.playerType);
         for (int i = 0; i < num; i++)
@@ -103,7 +108,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void NextPlayerTurn(PlayerController player)
+    void NextPlayerTurn(Player player)
     {
         if (player.playerIndex != currentPlayerIndex) return;
         
@@ -159,7 +164,7 @@ public class GameManager : MonoBehaviour
 
     public void Shuffle()
     {
-        PlayerController currentPlayer = PlayerControllers[currentPlayerIndex];
+        Player currentPlayer = PlayerControllers[currentPlayerIndex];
 
         int numCard = currentPlayer.GetCurrentNumberPlayerDeck();
         currentPlayer.DiscardAllCards();
@@ -207,7 +212,7 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(waitTimeAfterChecking);
 
-        foreach (PlayerController controller in PlayerControllers.Values)
+        foreach (Player controller in PlayerControllers.Values)
         {
             controller.playedCardDeck.DiscardAllCards();
         }
