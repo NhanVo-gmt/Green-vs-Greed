@@ -1,6 +1,6 @@
 ﻿public class Player_DrawState : PlayerState
 {
-    public Player_DrawState(StateMachine stateMachine, PlayerController player, PlayerStateName stateName) : base(stateMachine, player, stateName)
+    public Player_DrawState(StateMachine stateMachine, Player player, PlayerStateName stateName) : base(stateMachine, player, stateName)
     {
     }
 

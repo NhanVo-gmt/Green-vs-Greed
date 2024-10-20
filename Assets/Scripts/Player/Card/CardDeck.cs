@@ -13,11 +13,11 @@ public class CardDeck : MonoBehaviour
 
     public bool CanPick { get; protected set; } = false;
     
-    protected PlayerController player;
+    protected Player player;
 
     protected virtual void Awake()
     {
-        player = GetComponentInParent<PlayerController>();
+        player = GetComponentInParent<Player>();
         
         foreach (var slot in CardSlots)
         {

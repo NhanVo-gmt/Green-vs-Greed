@@ -32,16 +32,17 @@ public class PlayerData
     }
 }
 
-public class PlayerController : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [Header("Player")]
     public int             playerIndex = 0;
-
-    public PlayerType      playerType;
+    
     public PlayerStateName currentState;
     public PlayerData      playerData;
 
     public bool isBot = false;
+
+    public PlayerType playerType => playerRecord.PlayerType;
     
 
     [Header("Card")]
@@ -54,7 +55,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Debug")]
     public int shuffleLeft = 1;
-    
+
+    private PlayerRecord playerRecord;
 
     #region State
 
@@ -65,13 +67,14 @@ public class PlayerController : MonoBehaviour
     public Player_DrawState playerDrawState { get; private set; }
 
     public Action OnShuffle;
-    public Action<PlayerController> OnFinishTurn;
+    public Action<Player> OnFinishTurn;
 
     #endregion
-    
 
-    private void Awake()
+    public void BindData(PlayerRecord playerRecord)
     {
+        this.playerRecord = playerRecord;
+        
         RegisterEvent();
         
         stateMachine = new();
@@ -83,7 +86,7 @@ public class PlayerController : MonoBehaviour
         stateMachine.Initialize(playerIdleState);
 
         playerData.Initialize();
-        playerUI.BindData(playerData);
+        playerUI.BindData(playerData, playerRecord);
     }
 
     void RegisterEvent()

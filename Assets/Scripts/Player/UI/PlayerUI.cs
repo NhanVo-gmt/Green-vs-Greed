@@ -1,24 +1,44 @@
 
 using System;
+using Blueprints;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class PlayerUI : MonoBehaviour
 {
+    [Header("Health")]
     public Image[] healthUI;
 
-    private PlayerData PlayerData;
+    [Header("Resource")]
+    public Transform resourceContent;
+    public ResourceItemUI resourceItemUI;
+    
+    private PlayerData playerData;
+    private PlayerRecord playerRecord;
+    
 
-    public void BindData(PlayerData playerData)
+    public void BindData(PlayerData playerData, PlayerRecord playerRecord)
     {
-        this.PlayerData = playerData;
+        this.playerData   = playerData;
+        this.playerRecord = playerRecord;
+        SpawnResourceUI();
         
         playerData.OnLoseLife += UpdateUI;
     }
 
     private void OnDestroy()
     {
-        PlayerData.OnLoseLife -= UpdateUI;
+        playerData.OnLoseLife -= UpdateUI;
+    }
+
+    private void SpawnResourceUI()
+    {
+        foreach (var resource in playerRecord.Resources.Values)
+        {
+            var resourceObject = Instantiate(resourceItemUI, resourceContent);
+            resourceObject.BindData(resource);
+        }
     }
 
 

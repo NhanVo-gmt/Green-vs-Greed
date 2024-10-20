@@ -8,7 +8,7 @@ public class Player_PickState : PlayerState
     private float waitTime        = 2f;
     private float elapsedWaitTime = 0f;
     
-    public Player_PickState(StateMachine stateMachine, PlayerController player, PlayerStateName stateName) : base(stateMachine, player, stateName)
+    public Player_PickState(StateMachine stateMachine, Player player, PlayerStateName stateName) : base(stateMachine, player, stateName)
     {
         
     }

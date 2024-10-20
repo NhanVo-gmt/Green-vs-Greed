@@ -11,10 +11,10 @@ public enum PlayerStateName
 
 public abstract class PlayerState : State
 {
-    protected PlayerController player;
+    protected Player player;
     protected PlayerStateName  stateName;
 
-    protected PlayerState(StateMachine stateMachine, PlayerController player, PlayerStateName stateName) : base(stateMachine)
+    protected PlayerState(StateMachine stateMachine, Player player, PlayerStateName stateName) : base(stateMachine)
     {
         this.player    = player;
         this.stateName = stateName;

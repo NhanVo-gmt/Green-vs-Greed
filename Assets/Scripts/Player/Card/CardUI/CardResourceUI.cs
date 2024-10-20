@@ -17,16 +17,16 @@ public class CardResourceUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI numText;
     [SerializeField] private Image           image;
 
-    [Inject] private CardManager CardManager;
+    [Inject] private MiscManager miscManager;
 
-    private CardResourceRecord CardResourceRecord;
+    private ResourceRecord CardResourceRecord;
 
     private void Awake()
     {
         this.GetCurrentContainer().Inject(this);
     }
 
-    public void BindData(CardResourceRecord resourceRecord)
+    public void BindData(ResourceRecord resourceRecord)
     {
         this.CardResourceRecord = resourceRecord;
 
@@ -37,7 +37,7 @@ public class CardResourceUI : MonoBehaviour
 
         numText.text = Mathf.Abs(resourceRecord.ResourceAmount).ToString();
 
-        CardManager.GetIcon(resourceRecord.ResourceId.ToString()).ContinueWith((sprite) =>
+        miscManager.GetIcon(resourceRecord.ResourceId.ToString()).ContinueWith((sprite) =>
         {
             image.sprite = sprite;
         }).Forget();
