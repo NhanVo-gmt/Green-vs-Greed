@@ -39,6 +39,7 @@ namespace DIContexts
             this.Container.Bind<CardManager>().AsSingle();
             this.Container.Bind<LevelManager>().AsSingle();
             this.Container.Bind<PlayerManager>().AsSingle().NonLazy();
+            this.Container.Bind<MiscManager>().AsSingle().NonLazy();
             this.Container.Bind<SettingManager>().AsSingle();
             
             this.Container.Bind<Initialiser>().FromComponentInHierarchy().AsSingle();

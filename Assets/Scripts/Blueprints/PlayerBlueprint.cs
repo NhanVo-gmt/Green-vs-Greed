@@ -13,7 +13,7 @@ namespace Blueprints
     {
         public int                                              Id;
         public PlayerType                                       PlayerType;
-        public BlueprintByRow<CardResource, CardResourceRecord> Resources;
+        public BlueprintByRow<Resource, ResourceRecord> Resources;
     }
 
 }

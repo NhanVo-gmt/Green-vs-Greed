@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
         stateMachine.Initialize(playerIdleState);
 
         playerData.Initialize();
-        playerUI.BindData(playerData);
+        playerUI.BindData(playerData, playerRecord);
     }
 
     void RegisterEvent()

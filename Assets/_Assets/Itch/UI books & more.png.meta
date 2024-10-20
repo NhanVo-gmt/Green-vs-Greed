@@ -1674,7 +1674,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI books & more_72
+      name: Coin
       rect:
         serializedVersion: 2
         x: 658
@@ -5170,6 +5170,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Coin: 2129352565
       UI books & more_0: -1696940385
       UI books & more_1: 1092700420
       UI books & more_10: 1593503842
@@ -5378,7 +5379,6 @@ TextureImporter:
       UI books & more_7: 1312060517
       UI books & more_70: 1009885073
       UI books & more_71: 1131422211
-      UI books & more_72: 2129352565
       UI books & more_73: 944326353
       UI books & more_74: -554849772
       UI books & more_75: -1448794963
