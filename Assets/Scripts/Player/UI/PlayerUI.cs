@@ -1,57 +1,47 @@
 
-using System;
+using System.Collections.Generic;
 using Blueprints;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
+
 
 public class PlayerUI : MonoBehaviour
 {
-    [Header("Health")]
-    public Image[] healthUI;
-
     [Header("Resource")]
     public Transform resourceContent;
-    public ResourceItemUI resourceItemUI;
+    public ResourceItemUI resourceItemUIPrefab;
     
-    private PlayerData playerData;
-    private PlayerRecord playerRecord;
-    
+    private PlayerData                           playerData;
+    private PlayerRecord                         playerRecord;
+    private Dictionary<Resource, ResourceItemUI> resourceItemUis = new();
 
-    public void BindData(PlayerData playerData, PlayerRecord playerRecord)
+    public void BindData(PlayerData playerData)
     {
         this.playerData   = playerData;
-        this.playerRecord = playerRecord;
         SpawnResourceUI();
         
-        playerData.OnLoseLife += UpdateUI;
+        playerData.OnUpdateResource += UpdateUI;
     }
 
     private void OnDestroy()
     {
-        playerData.OnLoseLife -= UpdateUI;
+        playerData.OnUpdateResource -= UpdateUI;
     }
 
     private void SpawnResourceUI()
     {
-        foreach (var resource in playerRecord.Resources.Values)
+        foreach (var resource in playerData.record.Resources.Values)
         {
-            var resourceObject = Instantiate(resourceItemUI, resourceContent);
-            resourceObject.BindData(resource);
+            var resourceItemUI = Instantiate(resourceItemUIPrefab, resourceContent);
+            resourceItemUI.BindData(resource);
+            
+            resourceItemUis.Add(resource.ResourceId, resourceItemUI);
         }
     }
 
-
-    private void UpdateUI(int newHealth)
+    
+    private void UpdateUI(Resource type, int newAmount)
     {
-        for (int i = 0; i < newHealth; i++)
-        {
-            healthUI[i].enabled = true;
-        }
-
-        for (int i = newHealth; i < healthUI.Length; i++)
-        {
-            healthUI[i].enabled = false;
-        }
+        resourceItemUis[type].UpdateAmountUI(newAmount);
     }
 }

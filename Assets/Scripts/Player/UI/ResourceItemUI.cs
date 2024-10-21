@@ -36,4 +36,9 @@ public class ResourceItemUI : MonoBehaviour
 
         text.text = resourceRecord.ResourceAmount.ToString();
     }
+
+    public void UpdateAmountUI(int newAmount)
+    {
+        text.text = newAmount.ToString();
+    }
 }

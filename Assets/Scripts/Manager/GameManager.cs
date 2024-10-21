@@ -198,13 +198,12 @@ public class GameManager : MonoBehaviour
 
             foreach (var cardResourceRecord in player0CardResources.Values)
             {
-                if (!player1CardResources.ContainsKey(cardResourceRecord.ResourceId))
-                {
-                    // Lose life
-                    gameUI.SetText($"Player lack: {cardResourceRecord.ResourceId}");
-                    PlayerControllers[1].LoseLife();
-                    break;
-                }
+                PlayerControllers[1].ChangeResourceAmount(cardResourceRecord.ResourceId, cardResourceRecord.ResourceAmount);
+            }
+            
+            foreach (var cardResourceRecord in player1CardResources.Values)
+            {
+                PlayerControllers[1].ChangeResourceAmount(cardResourceRecord.ResourceId, cardResourceRecord.ResourceAmount);
             }
 
             yield return null;

@@ -7,26 +7,30 @@ using UnityEngine.UI;
 [System.Serializable]
 public class PlayerData
 {
-    public int MaxLives;
+    public Action<int>           OnLoseLife;
+    public Action<Resource, int> OnUpdateResource;
+    public Action                OnDie;
 
-    [Header("Debug")]
-    public int lives;
+    public PlayerRecord              record;
+    public Dictionary<Resource, int> resources = new();
 
-    public Action<int> OnLoseLife;
-    public Action      OnDie;
-    
-    public void Initialize()
+    public void BindData(PlayerRecord playerRecord)
     {
-        lives = MaxLives;
+        record = playerRecord;
+        foreach (var resource in record.Resources.Values)
+        {
+            resources.Add(resource.ResourceId, resource.ResourceAmount);
+        }
     }
 
-    public void LoseLife()
+    public void ChangeResourceAmount(Resource type, int amount)
     {
-        lives--;
-        OnLoseLife?.Invoke(lives);
-
-        if (lives <= 0)
+        resources[type] += + amount;
+        OnUpdateResource?.Invoke(type, resources[type]);
+        
+        if (resources[type] <= 0)
         {
+            resources[type] = 0;
             OnDie?.Invoke();
         }
     }
@@ -84,9 +88,10 @@ public class Player : MonoBehaviour
         playerIdleState = new(stateMachine, this, PlayerStateName.Idle);
         
         stateMachine.Initialize(playerIdleState);
-
-        playerData.Initialize();
-        playerUI.BindData(playerData, playerRecord);
+        
+        playerData.BindData(playerRecord);
+        
+        playerUI.BindData(playerData);
     }
 
     void RegisterEvent()
@@ -146,12 +151,12 @@ public class Player : MonoBehaviour
 
     #endregion
 
-    #region Live
+    #region Resource
 
-    public void LoseLife()
+    public void ChangeResourceAmount(Resource type, int amount)
     {
-        playerData.LoseLife();
-        Debug.Log($"[Player {playerIndex}]: Player Lose Life");
+        playerData.ChangeResourceAmount(type, amount);
+        Debug.Log($"[Player {playerIndex}]: {type} {amount}");
     }
 
     #endregion
