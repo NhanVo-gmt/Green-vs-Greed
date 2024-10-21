@@ -11,8 +11,8 @@ namespace Blueprints
     [CsvHeaderKey("Id")]
     public class PlayerRecord
     {
-        public int                                              Id;
-        public PlayerType                                       PlayerType;
+        public int                                      Id;
+        public PlayerType                               PlayerType;
         public BlueprintByRow<Resource, ResourceRecord> Resources;
     }
 

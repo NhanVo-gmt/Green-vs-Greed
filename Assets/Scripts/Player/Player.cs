@@ -12,8 +12,21 @@ public class PlayerData
     [Header("Debug")]
     public int lives;
 
-    public Action<int> OnLoseLife;
-    public Action      OnDie;
+    public Action<int>           OnLoseLife;
+    public Action<Resource, int> OnUpdateResource;
+    public Action                OnDie;
+
+    public PlayerRecord              record;
+    public Dictionary<Resource, int> resources = new();
+
+    public void BindData(PlayerRecord playerRecord)
+    {
+        record = playerRecord;
+        foreach (var resource in record.Resources.Values)
+        {
+            resources.Add(resource.ResourceId, resource.ResourceAmount);
+        }
+    }
     
     public void Initialize()
     {
@@ -27,6 +40,18 @@ public class PlayerData
 
         if (lives <= 0)
         {
+            OnDie?.Invoke();
+        }
+    }
+
+    public void ChangeResourceAmount(Resource type, int amount)
+    {
+        resources[type] += + amount;
+        OnUpdateResource?.Invoke(type, resources[type]);
+        
+        if (resources[type] <= 0)
+        {
+            resources[type] = 0;
             OnDie?.Invoke();
         }
     }
@@ -86,7 +111,9 @@ public class Player : MonoBehaviour
         stateMachine.Initialize(playerIdleState);
 
         playerData.Initialize();
-        playerUI.BindData(playerData, playerRecord);
+        playerData.BindData(playerRecord);
+        
+        playerUI.BindData(playerData);
     }
 
     void RegisterEvent()
@@ -152,6 +179,15 @@ public class Player : MonoBehaviour
     {
         playerData.LoseLife();
         Debug.Log($"[Player {playerIndex}]: Player Lose Life");
+    }
+
+    #endregion
+
+    #region Resource
+
+    public void ChangeResourceAmount(Resource type, int amount)
+    {
+        playerData.ChangeResourceAmount(type, amount);
     }
 
     #endregion

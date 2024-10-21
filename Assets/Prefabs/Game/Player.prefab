@@ -120,8 +120,8 @@ MonoBehaviour:
   - {fileID: 4603733058916699064}
   - {fileID: 4317137882840617790}
   - {fileID: 5900123150115221772}
-  resourceContent: {fileID: 0}
-  resourceItemUI: {fileID: 0}
+  resourceContent: {fileID: 8552099463193274233}
+  resourceItemUIPrefab: {fileID: 8838147201976127215, guid: 541aeb62b23fa314ab24eaf395cba590, type: 3}
 --- !u!1 &2213970878676843217
 GameObject:
   m_ObjectHideFlags: 0
