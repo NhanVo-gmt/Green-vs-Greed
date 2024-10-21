@@ -7,11 +7,6 @@ using UnityEngine.UI;
 [System.Serializable]
 public class PlayerData
 {
-    public int MaxLives;
-
-    [Header("Debug")]
-    public int lives;
-
     public Action<int>           OnLoseLife;
     public Action<Resource, int> OnUpdateResource;
     public Action                OnDie;
@@ -25,22 +20,6 @@ public class PlayerData
         foreach (var resource in record.Resources.Values)
         {
             resources.Add(resource.ResourceId, resource.ResourceAmount);
-        }
-    }
-    
-    public void Initialize()
-    {
-        lives = MaxLives;
-    }
-
-    public void LoseLife()
-    {
-        lives--;
-        OnLoseLife?.Invoke(lives);
-
-        if (lives <= 0)
-        {
-            OnDie?.Invoke();
         }
     }
 
@@ -109,8 +88,7 @@ public class Player : MonoBehaviour
         playerIdleState = new(stateMachine, this, PlayerStateName.Idle);
         
         stateMachine.Initialize(playerIdleState);
-
-        playerData.Initialize();
+        
         playerData.BindData(playerRecord);
         
         playerUI.BindData(playerData);
@@ -173,21 +151,12 @@ public class Player : MonoBehaviour
 
     #endregion
 
-    #region Live
-
-    public void LoseLife()
-    {
-        playerData.LoseLife();
-        Debug.Log($"[Player {playerIndex}]: Player Lose Life");
-    }
-
-    #endregion
-
     #region Resource
 
     public void ChangeResourceAmount(Resource type, int amount)
     {
         playerData.ChangeResourceAmount(type, amount);
+        Debug.Log($"[Player {playerIndex}]: {type} {amount}");
     }
 
     #endregion
