@@ -7,9 +7,6 @@ using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
 {
-    [Header("Health")]
-    public Image[] healthUI;
-
     [Header("Resource")]
     public Transform resourceContent;
     public ResourceItemUI resourceItemUIPrefab;
