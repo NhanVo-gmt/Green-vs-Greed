@@ -37,7 +37,7 @@ public class CardDetailsPopupPresenter : BasePopupPresenter<CardDetailsPopupView
         this.cardRecord = record;
 
         this.View.Title.text       = record.Name;
-        this.View.Description.text = record.Description;
+        UpdateDescription(record);
         cardManager.GetIcon($"{record.PlayerType}Card")
             .ContinueWith(sprite => this.View.Card.sprite = sprite).Forget();
         
@@ -47,6 +47,17 @@ public class CardDetailsPopupPresenter : BasePopupPresenter<CardDetailsPopupView
         this.View.backBtn.onClick.AddListener(RemoveScreen);
         
         return UniTask.CompletedTask;
+    }
+
+    void UpdateDescription(CardRecord record)
+    {
+        string desc = record.Description;
+        foreach (var resource in record.Resources.Values)
+        {
+            desc = desc.Replace(resource.ResourceId.ToString(), $"{resource.ResourceAmount} <sprite name=\"{resource.ResourceId}\">");
+        }
+
+        this.View.Description.text = desc;
     }
 
     public override void Dispose()

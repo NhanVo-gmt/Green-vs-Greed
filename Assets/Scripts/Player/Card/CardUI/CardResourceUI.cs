@@ -30,13 +30,6 @@ public class CardResourceUI : MonoBehaviour
     {
         this.CardResourceRecord = resourceRecord;
 
-        if (resourceRecord.ResourceAmount >= 0)
-        {
-            signText.text = "+";
-        } else signText.text = "-";
-
-        numText.text = Mathf.Abs(resourceRecord.ResourceAmount).ToString();
-
         miscManager.GetIcon(resourceRecord.ResourceId.ToString()).ContinueWith((sprite) =>
         {
             image.sprite = sprite;
