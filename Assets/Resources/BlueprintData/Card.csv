@@ -1,11 +1,11 @@
 Id,Name,Description,PlayerType,Image,ResourceId,ResourceAmount
-1,Ship Surge,Raise the rates on maritime routes and increase shipping amount.,Corporation,Ship,Water,-1
-2,Chop Chop Chaos,Cut down more trees for a greater timber yield.,Corporation,Deforestation,Wood,-1
-3,Industrial Invasion,"Expand your manufacturing capabilities, but it will have adverse effect on the environment",Corporation,Industry,Wood,-1
-,,,,,Water,-1
-4,Wasteland,"Increase profits through efficient waste management, but risk environmental contamination.",Corporation,Water Pip,Water,-1
-5,Paper Recycling,Recycle paper to conserve wood resources and reduce waste.,Environment,Paper,Wood,1
-6,Leakage Lockdown,Implement water-saving measures and fixing leaks.,Environment,Prevent water leak,Water,1
-7,Forest Restoration,Plant trees to restore forests and create new habitats for animals.,Environment,Reforestation,Wood,1
-8,"Reduce, Reuse, Recycle",Reduce waste generation and promote sustainable consumption.,Environment,"Reduce, reuse, recycle",Wood,1
-,,,,,Water,1
+1,Ship Surge,Raise the rates on maritime routes and increase shipping amount.,Corporation,Ship,Water,-5
+2,Chop Chop Chaos,Cut down more trees for a greater timber yield.,Corporation,Deforestation,Wood,-5
+3,Industrial Invasion,"Expand your manufacturing capabilities, but it will have adverse effect on the environment",Corporation,Industry,Wood,-3
+,,,,,Water,-2
+4,Wasteland,"Increase profits through efficient waste management, but risk environmental contamination.",Corporation,Water Pip,Water,-4
+5,Paper Recycling,Recycle paper to conserve wood resources and reduce waste.,Environment,Paper,Wood,4
+6,Leakage Lockdown,Implement water-saving measures and fixing leaks.,Environment,Prevent water leak,Water,5
+7,Forest Restoration,Plant trees to restore forests and create new habitats for animals.,Environment,Reforestation,Wood,5
+8,"Reduce, Reuse, Recycle",Reduce waste generation and promote sustainable consumption.,Environment,"Reduce, reuse, recycle",Wood,2
+,,,,,Water,2
