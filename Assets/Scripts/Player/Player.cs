@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
     public PlayerData      playerData;
 
     public bool isBot = false;
+    public bool showView = false;
 
     public PlayerType playerType => playerRecord.PlayerType;
     
@@ -61,6 +62,7 @@ public class Player : MonoBehaviour
     public int shuffleLeft = 1;
 
     private PlayerRecord playerRecord;
+    public  GameManager  gameManager { get; private set; }
 
     #region State
 

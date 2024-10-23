@@ -14,18 +14,22 @@ namespace Blueprints
     [CsvHeaderKey("Id")]
     public class CardRecord
     {
-        public string                                           Id;
-        public string                                           Name;
-        public string                                           Description;
-        public PlayerType                                       PlayerType;
-        public string                                           Image;
+        public string                                   Id;
+        public string                                   Name;
+        public string                                   Description;
+        public PlayerType                               PlayerType;
+        public string                                   Image;
         public BlueprintByRow<Resource, ResourceRecord> Resources;
+        public EffectType                               Effect;
+        public bool                                     IsEndTurn;
+        public bool                                     UseImmediately;
     }
 
     public enum PlayerType
     {
         Environment = 0,
         Corporation = 1,
+        Effect = 2,
     }
 
     [CsvHeaderKey("ResourceId")]
@@ -40,5 +44,11 @@ namespace Blueprints
         Wood = 0,
         Water = 1,
         Money = 2
+    }
+
+    public enum EffectType
+    {
+        None = 0,
+        Shuffle = 1,
     }
 }

@@ -1,11 +1,12 @@
-Id,Name,Description,PlayerType,Image,ResourceId,ResourceAmount
-1,Ship Surge,Raise the rates on maritime routes and increase shipping amount Water.,Corporation,Ship,Water,-5
-2,Chop Chop Chaos,Cut down more trees for a greater timber yield Wood.,Corporation,Deforestation,Wood,-5
-3,Industrial Invasion,"Expand your manufacturing capabilities Wood, but it will have adverse effect on the river Water.",Corporation,Industry,Wood,-3
-,,,,,Water,-2
-4,Wasteland,Increase profits without spending on efficient waste management Water.,Corporation,Water Pip,Water,-4
-5,Paper Recycling,Recycle paper to conserve wood resources Wood and reduce waste.,Environment,Paper,Wood,4
-6,Leakage Lockdown,Implement water-saving measures Water and fixing leaks.,Environment,Prevent water leak,Water,5
-7,Forest Restoration,Plant trees to restore forests Wood and create new habitats for animals.,Environment,Reforestation,Wood,5
-8,"Reduce, Reuse, Recycle",Reduce waste generation Water and promote sustainable consumption Wood.,Environment,"Reduce, reuse, recycle",Wood,2
-,,,,,Water,2
+Id,Name,Description,PlayerType,Image,ResourceId,ResourceAmount,Effect,IsEndTurn,UseImmediately
+1,Ship Surge,Raise the rates on maritime routes and increase shipping amount Water.,Corporation,Ship,Water,-5,None,TRUE,FALSE
+2,Chop Chop Chaos,Cut down more trees for a greater timber yield Wood.,Corporation,Deforestation,Wood,-5,None,TRUE,FALSE
+3,Industrial Invasion,"Expand your manufacturing capabilities Wood, but it will have adverse effect on the river Water.",Corporation,Industry,Wood,-3,None,TRUE,FALSE
+,,,,,Water,-2,None,TRUE,FALSE
+4,Wasteland,Increase profits without spending on efficient waste management Water.,Corporation,Water Pip,Water,-4,None,TRUE,FALSE
+5,Paper Recycling,Recycle paper to conserve wood resources Wood and reduce waste.,Environment,Paper,Wood,4,None,TRUE,FALSE
+6,Leakage Lockdown,Implement water-saving measures Water and fixing leaks.,Environment,Prevent water leak,Water,5,None,TRUE,FALSE
+7,Forest Restoration,Plant trees to restore forests Wood and create new habitats for animals.,Environment,Reforestation,Wood,5,None,TRUE,FALSE
+8,"Reduce, Reuse, Recycle",Reduce waste generation Water and promote sustainable consumption Wood.,Environment,"Reduce, reuse, recycle",Wood,2,None,TRUE,FALSE
+,,,,,Water,2,None,TRUE,FALSE
+9,Shuffle,Change your current deck to new deck without effect cards.,Effect,Shuffle,,,Shuffle,FALSE,TRUE
