@@ -37,6 +37,7 @@ public class Player_PickState : PlayerState
         if (elapsedWaitTime <= 0f)
         {
             CanPick();
+            elapsedWaitTime = Random.Range(0f, waitTime);
         }
     }
 
@@ -51,6 +52,8 @@ public class Player_PickState : PlayerState
 
     private void ChangeState(CardRecord record)
     {
+        if (!record.IsEndTurn) return;
+        
         stateMachine.ChangeState(player.playerIdleState);
     }
 }

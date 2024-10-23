@@ -17,6 +17,18 @@ public class PlayedCardDeck : CardDeck
         }
     }
 
+    public override void DrawCard(CardRecord cardRecord)
+    {
+        if (cardRecord.UseImmediately)
+        {
+            // Use
+            GameManager.Instance.UseEffect(cardRecord.Effect);
+            return;
+        }
+        
+        base.DrawCard(cardRecord);
+    }
+
     public override void DrawSlot(CardSlot slot, CardRecord record)
     {
         base.DrawSlot(slot, record);

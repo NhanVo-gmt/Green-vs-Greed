@@ -61,6 +61,7 @@ public class Player : MonoBehaviour
     public int shuffleLeft = 1;
 
     private PlayerRecord playerRecord;
+    public  GameManager  gameManager { get; private set; }
 
     #region State
 

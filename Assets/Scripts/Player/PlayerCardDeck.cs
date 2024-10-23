@@ -39,16 +39,19 @@ public class PlayerCardDeck : CardDeck
     public override void PickCard(CardSlot cardSlot)
     {
         if (!CanPick) return;
-        
-        OnPickCard?.Invoke(cardSlot.card.GetCardRecord());
+
+        CardRecord pickCard = cardSlot.card.GetCardRecord();
         
         cardSlot.DisableVisual();
         cardSlot.card.Pick();
+        
         AvailableCardSlots.Remove(cardSlot);
-
+        
+        OnPickCard?.Invoke(pickCard);
     }
 
     #endregion
+    
 
     #region AI
 

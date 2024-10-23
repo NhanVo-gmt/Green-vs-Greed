@@ -9,11 +9,14 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 using UserData.Controller;
+using Watermelon;
 using Zenject;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+    
     [Header("Player")]
     [SerializeField] private int numberPlayers;
 
@@ -35,12 +38,13 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        this.GetCurrentContainer().Inject(this);
+        Instance = this;
     }
 
 
     private void Start()
     {
+        this.GetCurrentContainer().Inject(this);
         FindAllPlayers();
         gameUI.OnCloseHowToPlayScreen += StartGame;
     }
@@ -143,7 +147,14 @@ public class GameManager : MonoBehaviour
 
     void DrawCardEndTurn()
     {
-        if (currentPlayerIndex != -1) PlayerControllers[currentPlayerIndex].DrawCard(CardManager.DrawRandomCard(PlayerControllers[currentPlayerIndex].playerType));
+        if (currentPlayerIndex == -1) return;
+
+        int index = currentPlayerIndex;
+        Tween.DelayedCall(0.5f, () =>
+        {
+            PlayerControllers[index]
+                    .DrawCard(CardManager.DrawRandomCard(PlayerControllers[index].playerType));
+        });
     }
 
     
@@ -162,11 +173,26 @@ public class GameManager : MonoBehaviour
 
     #region Shuffle
 
+    public void UseEffect(EffectType type)
+    {
+        switch (type)
+        {
+            case EffectType.Shuffle:
+                Shuffle(1);
+                break;
+        }
+    }
+
     public void Shuffle()
+    {
+        Shuffle(0);
+    }
+
+    public void Shuffle(int usingCard)
     {
         Player currentPlayer = PlayerControllers[currentPlayerIndex];
 
-        int numCard = currentPlayer.GetCurrentNumberPlayerDeck();
+        int numCard = currentPlayer.GetCurrentNumberPlayerDeck() + usingCard;
         currentPlayer.DiscardAllCards();
         
         DrawRandomAllCards(currentPlayer, numCard);

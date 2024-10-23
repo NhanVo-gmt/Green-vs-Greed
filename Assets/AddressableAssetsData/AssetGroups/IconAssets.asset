@@ -82,6 +82,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 37890c629b15dbe448ca042cee190dbe
+    m_Address: Shuffle
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e91bc00edb2f2a0479fecb262bfb933c
+    m_Address: EffectCard
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: dd57ffa3a2092954fbd6d0cac301022a, type: 2}
   m_SchemaSet:
