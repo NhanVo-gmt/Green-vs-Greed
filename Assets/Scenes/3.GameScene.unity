@@ -978,6 +978,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1024892480}
     - target: {fileID: 7371829662327253705, guid: 77443e68d1560c84188f38dccfb569de, type: 3}
+      propertyPath: showView
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371829662327253705, guid: 77443e68d1560c84188f38dccfb569de, type: 3}
       propertyPath: playerType
       value: 1
       objectReference: {fileID: 0}
@@ -6740,6 +6744,10 @@ PrefabInstance:
       propertyPath: playerUI
       value: 
       objectReference: {fileID: 1042401288}
+    - target: {fileID: 7371829662327253705, guid: 77443e68d1560c84188f38dccfb569de, type: 3}
+      propertyPath: showView
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7371829662327253705, guid: 77443e68d1560c84188f38dccfb569de, type: 3}
       propertyPath: playerIndex
       value: 1

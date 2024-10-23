@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
     public PlayerData      playerData;
 
     public bool isBot = false;
+    public bool showView = false;
 
     public PlayerType playerType => playerRecord.PlayerType;
     

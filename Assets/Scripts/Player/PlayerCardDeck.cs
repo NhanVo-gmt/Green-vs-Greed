@@ -13,7 +13,7 @@ public class PlayerCardDeck : CardDeck
     {
         base.DrawSlot(slot, record);
         
-        slot.SetViewState(!player.isBot);
+        slot.SetViewState(player.showView);
         
         AvailableCardSlots.Add(slot);
     }
