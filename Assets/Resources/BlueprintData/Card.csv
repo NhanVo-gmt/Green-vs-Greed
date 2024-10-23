@@ -9,3 +9,4 @@ Id,Name,Description,PlayerType,Image,ResourceId,ResourceAmount
 7,Forest Restoration,Plant trees to restore forests Wood and create new habitats for animals.,Environment,Reforestation,Wood,5
 8,"Reduce, Reuse, Recycle",Reduce waste generation Water and promote sustainable consumption Wood.,Environment,"Reduce, reuse, recycle",Wood,2
 ,,,,,Water,2
+9,Shuffle,Change your current deck to new deck without effect cards.,Effect,Shuffle,,

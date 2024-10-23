@@ -17,8 +17,7 @@
         private readonly CardBlueprint CardBlueprint;
         private readonly IGameAssets GameAssets;
 
-        private List<CardRecord> EnvironmentCards = new();
-        private List<CardRecord> CorporationCards = new();
+        private Dictionary<PlayerType, List<CardRecord>> Cards = new();
 
         public static Action OnCardDataLoaded;
         
@@ -34,14 +33,12 @@
             
             foreach (CardRecord record in CardBlueprint.Values)
             {
-                if (record.PlayerType == PlayerType.Environment)
+                if (!Cards.ContainsKey(record.PlayerType))
                 {
-                    EnvironmentCards.Add(record);
+                    Cards[record.PlayerType] = new();
                 }
-                else
-                {
-                    CorporationCards.Add(record);
-                }
+                
+                Cards[record.PlayerType].Add(record);
             }
             
             OnCardDataLoaded?.Invoke();
@@ -49,22 +46,18 @@
         
         public List<CardRecord> GetCards(PlayerType playerType)
         {
-            if (playerType == PlayerType.Corporation)
-            {
-                return CorporationCards;
-            }
-            
-            return EnvironmentCards;
+            return Cards[playerType];
         }
 
         public CardRecord DrawRandomCard(PlayerType playerType)
         {
-            if (playerType == PlayerType.Corporation)
+            int rate = Random.Range(0, 100);
+            if (rate <= 20)
             {
-                return CorporationCards[Random.Range(0, CorporationCards.Count)];
+                return Cards[PlayerType.Effect][Random.Range(0, Cards[PlayerType.Effect].Count)];
             }
-            
-            return EnvironmentCards[Random.Range(0, EnvironmentCards.Count)];
+
+            return Cards[playerType][Random.Range(0, Cards[playerType].Count)];
         }
 
         public async UniTask<Sprite> GetIcon(string id)

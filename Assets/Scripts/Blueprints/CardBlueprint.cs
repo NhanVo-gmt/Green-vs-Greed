@@ -26,6 +26,7 @@ namespace Blueprints
     {
         Environment = 0,
         Corporation = 1,
+        Effect = 2,
     }
 
     [CsvHeaderKey("ResourceId")]
