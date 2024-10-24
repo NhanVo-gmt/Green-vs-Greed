@@ -173,7 +173,7 @@ public class GameManager : MonoBehaviour
     
     #endregion
 
-    #region Shuffle
+    #region Effect
 
     public void UseEffect(EffectType type)
     {
@@ -181,6 +181,9 @@ public class GameManager : MonoBehaviour
         {
             case EffectType.Shuffle:
                 Shuffle();
+                break;
+            case EffectType.Blind:
+                Blind();
                 break;
         }
     }
@@ -193,6 +196,11 @@ public class GameManager : MonoBehaviour
         currentPlayer.DiscardAllCards();
         
         DrawRandomAllCards(currentPlayer, numCard);
+    }
+    
+    public void Blind()
+    {
+        PlayerControllers[currentPlayerIndex].Blind();
     }
 
 
@@ -212,6 +220,9 @@ public class GameManager : MonoBehaviour
         gameUI.EndTurn();
         
         yield return new WaitForSeconds(waitTimeBeforeChecking);
+
+        PlayerControllers[0].playedCardDeck.View();
+        PlayerControllers[1].playedCardDeck.View();
         
         List<CardSlot> player0Cards = PlayerControllers[0].playedCardDeck.CardSlots;
         List<CardSlot> player1Cards = PlayerControllers[1].playedCardDeck.CardSlots;

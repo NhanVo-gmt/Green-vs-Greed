@@ -61,7 +61,7 @@ public class Card : MonoBehaviour
     {
         if (this.CardRecord == null) return;
         
-        
+        // Pick
 
         CardRecord = null;
         gameObject.SetActive(false);
@@ -70,6 +70,8 @@ public class Card : MonoBehaviour
     public void Use()
     {
         if (this.CardRecord == null) return;
+        
+        // Use
 
         CardRecord = null;
         gameObject.SetActive(false);
