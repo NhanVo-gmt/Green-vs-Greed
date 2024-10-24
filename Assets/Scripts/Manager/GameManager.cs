@@ -152,11 +152,13 @@ public class GameManager : MonoBehaviour
         int index = currentPlayerIndex;
         Tween.DelayedCall(0.5f, () =>
         {
-            PlayerControllers[index]
-                    .DrawCard(CardManager.DrawRandomCard(PlayerControllers[index].playerType));
+            for (int i = 0; i < PlayerControllers[index].effectCardPlayed + 1; i++)
+            {
+                PlayerControllers[index]
+                        .DrawCard(CardManager.DrawRandomCard(PlayerControllers[index].playerType));
+            }
         });
     }
-
     
 
     [Button("Draw Card")]
@@ -178,25 +180,21 @@ public class GameManager : MonoBehaviour
         switch (type)
         {
             case EffectType.Shuffle:
-                Shuffle(1);
+                Shuffle();
                 break;
         }
     }
 
     public void Shuffle()
     {
-        Shuffle(0);
-    }
-
-    public void Shuffle(int usingCard)
-    {
         Player currentPlayer = PlayerControllers[currentPlayerIndex];
 
-        int numCard = currentPlayer.GetCurrentNumberPlayerDeck() + usingCard;
+        int numCard = currentPlayer.GetCurrentNumberPlayerDeck();
         currentPlayer.DiscardAllCards();
         
         DrawRandomAllCards(currentPlayer, numCard);
     }
+
 
     #endregion
 

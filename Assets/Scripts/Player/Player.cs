@@ -61,6 +61,8 @@ public class Player : MonoBehaviour
     [Header("Debug")]
     public int shuffleLeft = 1;
 
+    public int effectCardPlayed = 0;
+
     private PlayerRecord playerRecord;
     public  GameManager  gameManager { get; private set; }
 
@@ -98,12 +100,22 @@ public class Player : MonoBehaviour
 
     void RegisterEvent()
     {
-        playerCardDeck.OnPickCard += playedCardDeck.DrawCard;
+        playerCardDeck.OnPickCard += OnPickPlayerCardDeck;
     }
 
     private void OnDestroy()
     {
-        playerCardDeck.OnPickCard -= playedCardDeck.DrawCard;
+        playerCardDeck.OnPickCard -= OnPickPlayerCardDeck;
+    }
+
+    void OnPickPlayerCardDeck(CardRecord cardRecord)
+    {
+        if (cardRecord.PlayerType == PlayerType.Effect)
+        {
+            effectCardPlayed++;
+        }
+        
+        playedCardDeck.DrawCard(cardRecord);
     }
 
     private void Update()
@@ -121,9 +133,10 @@ public class Player : MonoBehaviour
         shuffleLeft           =  shufflePerTurn;
         ShuffleCard.OnShuffle += Shuffle;
         
+        ResetData();
         stateMachine.ChangeState(playerPickState);
     }
-
+    
     public void FinishTurn()
     {
         ShuffleCard.OnShuffle -= Shuffle;
@@ -139,6 +152,11 @@ public class Player : MonoBehaviour
     public void DiscardAllCards()
     {
         playerCardDeck.DiscardAllCards();
+    }
+
+    public void ResetData()
+    {
+        effectCardPlayed = 0;
     }
 
     #region Shuffle

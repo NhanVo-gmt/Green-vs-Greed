@@ -50,5 +50,6 @@ namespace Blueprints
     {
         None = 0,
         Shuffle = 1,
+        Blind = 2,
     }
 }
