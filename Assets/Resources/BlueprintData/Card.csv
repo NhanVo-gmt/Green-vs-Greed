@@ -10,3 +10,4 @@ Id,Name,Description,PlayerType,Image,ResourceId,ResourceAmount,Effect,IsEndTurn,
 8,"Reduce, Reuse, Recycle",Reduce waste generation Water and promote sustainable consumption Wood.,Environment,"Reduce, reuse, recycle",Wood,2,None,TRUE,FALSE
 ,,,,,Water,2,None,TRUE,FALSE
 9,Shuffle,Change your current deck to new deck without effect cards.,Effect,Shuffle,,,Shuffle,FALSE,TRUE
+10,Blind,Your opponent can not see the content of your played cards.,Effect,Blind,,,Blind,FALSE,TRUE

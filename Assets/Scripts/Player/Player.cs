@@ -61,6 +61,9 @@ public class Player : MonoBehaviour
     [Header("Debug")]
     public int shuffleLeft = 1;
 
+    public int effectCardPlayed   = 0;
+    public int blindActivateRound = 0;
+
     private PlayerRecord playerRecord;
     public  GameManager  gameManager { get; private set; }
 
@@ -98,12 +101,22 @@ public class Player : MonoBehaviour
 
     void RegisterEvent()
     {
-        playerCardDeck.OnPickCard += playedCardDeck.DrawCard;
+        playerCardDeck.OnPickCard += OnPickPlayerCardDeck;
     }
 
     private void OnDestroy()
     {
-        playerCardDeck.OnPickCard -= playedCardDeck.DrawCard;
+        playerCardDeck.OnPickCard -= OnPickPlayerCardDeck;
+    }
+
+    void OnPickPlayerCardDeck(CardRecord cardRecord)
+    {
+        if (cardRecord.PlayerType == PlayerType.Effect)
+        {
+            effectCardPlayed++;
+        }
+        
+        playedCardDeck.DrawCard(cardRecord);
     }
 
     private void Update()
@@ -116,20 +129,36 @@ public class Player : MonoBehaviour
         stateMachine.FixedUpdate();
     }
 
+    #region Turn
+
     public void StartTurn()
     {
         shuffleLeft           =  shufflePerTurn;
         ShuffleCard.OnShuffle += Shuffle;
         
+        ResetData();
+        playedCardDeck.SetBlindState(blindActivateRound > 0);
         stateMachine.ChangeState(playerPickState);
     }
+    
+    public void ResetData()
+    {
+        effectCardPlayed = 0;
 
+        blindActivateRound--;
+    }
+    
     public void FinishTurn()
     {
         ShuffleCard.OnShuffle -= Shuffle;
         
         OnFinishTurn?.Invoke(this);
     }
+    
+
+    #endregion
+
+    #region Card
 
     public void DrawCard(CardRecord cardRecord)
     {
@@ -140,8 +169,11 @@ public class Player : MonoBehaviour
     {
         playerCardDeck.DiscardAllCards();
     }
+    
 
-    #region Shuffle
+    #endregion
+    
+    #region Effect
 
     public void Shuffle()
     {
@@ -149,6 +181,12 @@ public class Player : MonoBehaviour
 
         shuffleLeft--;
         OnShuffle?.Invoke();
+    }
+
+    public void Blind()
+    {
+        blindActivateRound = 1;
+        playedCardDeck.SetBlindState(true);
     }
 
     #endregion

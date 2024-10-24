@@ -152,11 +152,13 @@ public class GameManager : MonoBehaviour
         int index = currentPlayerIndex;
         Tween.DelayedCall(0.5f, () =>
         {
-            PlayerControllers[index]
-                    .DrawCard(CardManager.DrawRandomCard(PlayerControllers[index].playerType));
+            for (int i = 0; i < PlayerControllers[index].effectCardPlayed + 1; i++)
+            {
+                PlayerControllers[index]
+                        .DrawCard(CardManager.DrawRandomCard(PlayerControllers[index].playerType));
+            }
         });
     }
-
     
 
     [Button("Draw Card")]
@@ -171,32 +173,36 @@ public class GameManager : MonoBehaviour
     
     #endregion
 
-    #region Shuffle
+    #region Effect
 
     public void UseEffect(EffectType type)
     {
         switch (type)
         {
             case EffectType.Shuffle:
-                Shuffle(1);
+                Shuffle();
+                break;
+            case EffectType.Blind:
+                Blind();
                 break;
         }
     }
 
     public void Shuffle()
     {
-        Shuffle(0);
-    }
-
-    public void Shuffle(int usingCard)
-    {
         Player currentPlayer = PlayerControllers[currentPlayerIndex];
 
-        int numCard = currentPlayer.GetCurrentNumberPlayerDeck() + usingCard;
+        int numCard = currentPlayer.GetCurrentNumberPlayerDeck();
         currentPlayer.DiscardAllCards();
         
         DrawRandomAllCards(currentPlayer, numCard);
     }
+    
+    public void Blind()
+    {
+        PlayerControllers[currentPlayerIndex].Blind();
+    }
+
 
     #endregion
 
@@ -214,6 +220,9 @@ public class GameManager : MonoBehaviour
         gameUI.EndTurn();
         
         yield return new WaitForSeconds(waitTimeBeforeChecking);
+
+        PlayerControllers[0].playedCardDeck.View();
+        PlayerControllers[1].playedCardDeck.View();
         
         List<CardSlot> player0Cards = PlayerControllers[0].playedCardDeck.CardSlots;
         List<CardSlot> player1Cards = PlayerControllers[1].playedCardDeck.CardSlots;
