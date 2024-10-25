@@ -228,6 +228,8 @@ public class GameManager : MonoBehaviour
         List<CardSlot> player1Cards = PlayerControllers[1].playedCardDeck.CardSlots;
         for (int i = 0; i < player0Cards.Count; i++)
         {
+            if (player0Cards[i].card.GetCardRecord().Effect == EffectType.Permit || player1Cards[i].card.GetCardRecord().Effect == EffectType.Permit) continue;
+            
             var player0CardResources = player0Cards[i].card.GetCardRecord().Resources;
             var player1CardResources = player1Cards[i].card.GetCardRecord().Resources;
 

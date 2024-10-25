@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="183aa535-458a-4c9a-a18f-e0b9b9d9f9d9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Green-vs-Greed/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Green-vs-Greed/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/IconAssets.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/IconAssets.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/BlueprintData/Card.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/BlueprintData/Card.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Blueprints/CardBlueprint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Blueprints/CardBlueprint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +51,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature/blind",
+    "git-widget-placeholder": "feature/permit-card",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -130,6 +135,7 @@
       <workItem from="1729611861531" duration="651000" />
       <workItem from="1729699252379" duration="4338000" />
       <workItem from="1729783467227" duration="1908000" />
+      <workItem from="1729835077120" duration="1294000" />
     </task>
     <servers />
   </component>
