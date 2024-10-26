@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 using Blueprints;
 using UnityEngine;
@@ -7,6 +8,9 @@ using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
 {
+    [Header("End Turn")]
+    public Button endTurnBtn;
+    
     [Header("Resource")]
     public Transform resourceContent;
     public ResourceItemUI resourceItemUIPrefab;
@@ -15,16 +19,20 @@ public class PlayerUI : MonoBehaviour
     private PlayerRecord                         playerRecord;
     private Dictionary<Resource, ResourceItemUI> resourceItemUis = new();
 
+    public Action OnEndTurnButtonClicked;
+
     public void BindData(PlayerData playerData)
     {
         this.playerData   = playerData;
         SpawnResourceUI();
         
+        endTurnBtn.onClick.AddListener(EndTurn);
         playerData.OnUpdateResource += UpdateUI;
     }
 
     private void OnDestroy()
     {
+        endTurnBtn.onClick.RemoveListener(EndTurn);
         playerData.OnUpdateResource -= UpdateUI;
     }
 
@@ -44,4 +52,18 @@ public class PlayerUI : MonoBehaviour
     {
         resourceItemUis[type].UpdateAmountUI(newAmount);
     }
+
+    #region End Turn
+
+    public void SetStateEndTurn(bool state)
+    {
+        endTurnBtn.gameObject.SetActive(state);
+    }
+
+    public void EndTurn()
+    {
+        OnEndTurnButtonClicked?.Invoke();
+    }
+
+    #endregion
 }
