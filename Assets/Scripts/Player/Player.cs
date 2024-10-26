@@ -59,9 +59,6 @@ public class Player : MonoBehaviour
     public PlayerUI playerUI;
 
     [Header("Debug")]
-    public int shuffleLeft = 1;
-
-    public int effectCardPlayed   = 0;
     public int blindActivateRound = 0;
 
     private PlayerRecord playerRecord;
@@ -111,11 +108,6 @@ public class Player : MonoBehaviour
 
     void OnPickPlayerCardDeck(CardRecord cardRecord)
     {
-        if (cardRecord.PlayerType == PlayerType.Effect)
-        {
-            effectCardPlayed++;
-        }
-        
         playedCardDeck.DrawCard(cardRecord);
     }
 
@@ -133,9 +125,6 @@ public class Player : MonoBehaviour
 
     public void StartTurn()
     {
-        shuffleLeft           =  shufflePerTurn;
-        ShuffleCard.OnShuffle += Shuffle;
-        
         ResetData();
         playedCardDeck.SetBlindState(blindActivateRound > 0);
         stateMachine.ChangeState(playerPickState);
@@ -143,15 +132,11 @@ public class Player : MonoBehaviour
     
     public void ResetData()
     {
-        effectCardPlayed = 0;
-
         blindActivateRound--;
     }
     
     public void FinishTurn()
     {
-        ShuffleCard.OnShuffle -= Shuffle;
-        
         OnFinishTurn?.Invoke(this);
     }
     
@@ -174,14 +159,7 @@ public class Player : MonoBehaviour
     #endregion
     
     #region Effect
-
-    public void Shuffle()
-    {
-        if (shuffleLeft <= 0) return;
-
-        shuffleLeft--;
-        OnShuffle?.Invoke();
-    }
+    
 
     public void Blind()
     {
