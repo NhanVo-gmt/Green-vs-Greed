@@ -1,0 +1,4 @@
+Id,Name,Description,PlayerType,Image,ResourceId,ResourceAmount,Effect,IsEndTurn,UseImmediately
+1,Shuffle,Change your current deck to new deck without effect cards.,Effect,Shuffle,,,Shuffle,FALSE,TRUE
+2,Blind,Your opponent can not see the content of your played cards.,Effect,Blind,,,Blind,FALSE,TRUE
+3,Permit,Can be used to defend against any card,Effect,Permit,,,Permit,TRUE,FALSE

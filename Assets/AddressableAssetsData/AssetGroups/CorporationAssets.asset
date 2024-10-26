@@ -17,13 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 0cb35dcf22cbbbc4b83e835a1dc6634d
   m_SerializeEntries:
-  - m_GUID: 960ea4ec937953e40a56ceda9ba7fb23
-    m_Address: Deforestation
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f18e2fdcdf115264f903cfe5c6ce9209
-    m_Address: Industry
+  - m_GUID: 509e8031a7e6f964ab432693a4b8092c
+    m_Address: Water Pip
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -32,8 +27,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 509e8031a7e6f964ab432693a4b8092c
-    m_Address: Water Pip
+  - m_GUID: f18e2fdcdf115264f903cfe5c6ce9209
+    m_Address: Industry
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 960ea4ec937953e40a56ceda9ba7fb23
+    m_Address: Deforestation
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
