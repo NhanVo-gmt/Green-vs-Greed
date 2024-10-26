@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         foreach (var player in GameObject.FindObjectsOfType<Player>(true))
         {
             player.BindData(PlayerManager.GetPlayerRecord(player.playerIndex));
-            player.OnShuffle        += Shuffle;
+            player.OnShuffle        += Draw;
             player.OnFinishTurn     += NextPlayerTurn;
             player.playerData.OnDie += EndGame;
             
@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
         
         foreach (var player in PlayerControllers.Values)
         {
-            player.OnShuffle        -= Shuffle;
+            player.OnShuffle        -= Draw;
             player.OnFinishTurn     -= NextPlayerTurn;
             player.playerData.OnDie -= EndGame;
         }
@@ -148,8 +148,8 @@ public class GameManager : MonoBehaviour
     {
         switch (type)
         {
-            case EffectType.Shuffle:
-                Shuffle();
+            case EffectType.Draw:
+                Draw();
                 break;
             case EffectType.Blind:
                 Blind();
@@ -157,14 +157,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void Shuffle()
+    public void Draw()
     {
         Player currentPlayer = PlayerControllers[currentPlayerIndex];
-
-        int numCard = currentPlayer.GetCurrentNumberPlayerDeck();
-        currentPlayer.DiscardAllCards();
         
-        DrawRandomAllCards(currentPlayer, numCard);
+        DrawRandomAllCards(currentPlayer, 1);
     }
     
     public void Blind()

@@ -48,7 +48,7 @@ namespace Blueprints
     public enum EffectType
     {
         None = 0,
-        Shuffle = 1,
+        Draw = 1,
         Blind = 2,
         Permit = 3,
     }
