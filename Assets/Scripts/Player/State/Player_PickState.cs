@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class Player_PickState : PlayerState
 {
-    private float waitTime        = 2f;
+    private float maxWaitTime        = 2f;
+    private float minWaitTime        = 1f;
     private float elapsedWaitTime = 0f;
 
     private int maxCard         = 3;
+    private int minCard         = 1;
     private int randomCardPick  = 0;
     private int currentCardPick = 0;
     
@@ -30,8 +32,8 @@ public class Player_PickState : PlayerState
         currentCardPick = 0;
         if (player.isBot)
         {
-            randomCardPick = Random.Range(0, maxCard);
-            elapsedWaitTime = Random.Range(0f, waitTime);
+            randomCardPick  = Random.Range(minCard, maxCard);
+            elapsedWaitTime = Random.Range(minWaitTime, maxWaitTime);
         }
     }
     
@@ -63,7 +65,7 @@ public class Player_PickState : PlayerState
         if (elapsedWaitTime <= 0f)
         {
             player.playerCardDeck.PickRandomCard();
-            elapsedWaitTime = Random.Range(0f, waitTime);
+            elapsedWaitTime = Random.Range(0f, maxWaitTime);
         }
     }
 
