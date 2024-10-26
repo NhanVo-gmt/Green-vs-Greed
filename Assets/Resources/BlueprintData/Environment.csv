@@ -4,3 +4,5 @@ Id,Name,Description,PlayerType,Image,ResourceId,ResourceAmount,Effect,IsEndTurn,
 3,Forest Restoration,Plant trees to restore forests Wood and create new habitats for animals.,Environment,Reforestation,Wood,5,None,TRUE,FALSE
 4,"Reduce, Reuse, Recycle",Reduce waste generation Water and promote sustainable consumption Wood.,Environment,"Reduce, reuse, recycle",Wood,2,None,TRUE,FALSE
 ,,,,,Water,2,None,TRUE,FALSE
+5,Plant tree,Plant a tree to restore forests Wood.,Environment,Plant tree,Wood,2,None,TRUE,FALSE
+6,Save water,Use water wisely Water.,Environment,Save water,Water,2,None,TRUE,FALSE
