@@ -190,6 +190,7 @@ public class Player : MonoBehaviour
     }
 
     #endregion
+    
 
     #region Resource
 

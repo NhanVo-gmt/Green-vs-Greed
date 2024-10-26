@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
             DrawAllCards(player);
         }
 
-        NextPlayerTurn();
+        StartPlayerTurn();
     }
 
     public void DrawAllCards(Player player)
@@ -112,37 +112,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void NextPlayerTurn(Player player)
-    {
-        if (player.playerIndex != currentPlayerIndex) return;
-        
-        NextPlayerTurn();
-    }
-
-    void NextPlayerTurn()
-    {
-        DrawCardEndTurn();
-        
-        if (currentPlayerIndex >= numberPlayers - 1)
-        {
-            EndBothTurn();
-        }
-        else
-        {
-            int newIndex = currentPlayerIndex >= numberPlayers - 1 ? 0 : currentPlayerIndex + 1;
-            Debug.Log($"[Game Manager]: Change Player from {currentPlayerIndex} to {newIndex}");
-
-            currentPlayerIndex = newIndex;
-            StartPlayerTurn();
-        }
-    }
-    
-    void StartPlayerTurn()
-    {
-        gameUI.SetTurn(currentPlayerIndex);
-        PlayerControllers[currentPlayerIndex].StartTurn();
-    }
-
     #region Draw Card
 
     void DrawCardEndTurn()
@@ -152,7 +121,7 @@ public class GameManager : MonoBehaviour
         int index = currentPlayerIndex;
         Tween.DelayedCall(0.5f, () =>
         {
-            for (int i = 0; i < PlayerControllers[index].effectCardPlayed + 1; i++)
+            for (int i = 0; i < 5 - PlayerControllers[index].playerCardDeck.GetCurrentNumberCards(); i++)
             {
                 PlayerControllers[index]
                         .DrawCard(CardManager.DrawRandomCard(PlayerControllers[index].playerType));
@@ -208,38 +177,48 @@ public class GameManager : MonoBehaviour
 
     #region End Turn
 
-    public void EndBothTurn()
+    void NextPlayerTurn(Player player)
     {
-        StartCoroutine(EndBothTurnCoroutine());
+        if (player.playerIndex != currentPlayerIndex) return;
+        
+        NextPlayerTurn();
     }
 
+    void NextPlayerTurn()
+    {
+        DrawCardEndTurn();
 
-    IEnumerator EndBothTurnCoroutine()
+        // Check coroutine
+        StartCoroutine(EndCoroutine());
+    }
+    
+    void StartPlayerTurn()
+    {
+        int newIndex = currentPlayerIndex >= numberPlayers - 1 ? 0 : currentPlayerIndex + 1;
+        Debug.Log($"[Game Manager]: Change Player from {currentPlayerIndex} to {newIndex}");
+
+        currentPlayerIndex = newIndex;
+        
+        gameUI.SetTurn(currentPlayerIndex);
+        PlayerControllers[currentPlayerIndex].StartTurn();
+    }
+
+    IEnumerator EndCoroutine()
     {
         Debug.Log($"[Game Manager]: Check End Turn");
         gameUI.EndTurn();
         
         yield return new WaitForSeconds(waitTimeBeforeChecking);
-
-        PlayerControllers[0].playedCardDeck.View();
-        PlayerControllers[1].playedCardDeck.View();
         
-        List<CardSlot> player0Cards = PlayerControllers[0].playedCardDeck.CardSlots;
-        List<CardSlot> player1Cards = PlayerControllers[1].playedCardDeck.CardSlots;
-        for (int i = 0; i < player0Cards.Count; i++)
+        List<CardSlot> playerCards = PlayerControllers[currentPlayerIndex].playedCardDeck.CardSlots;
+        for (int i = 0; i < playerCards.Count; i++)
         {
-            if (player0Cards[i].card.GetCardRecord().Effect == EffectType.Permit || player1Cards[i].card.GetCardRecord().Effect == EffectType.Permit) continue;
-            
-            var player0CardResources = player0Cards[i].card.GetCardRecord().Resources;
-            var player1CardResources = player1Cards[i].card.GetCardRecord().Resources;
+            if (!playerCards[i].card.HasCard()) continue;
+            var playerCardResources = playerCards[i].card.GetCardRecord().Resources;
 
-            foreach (var cardResourceRecord in player0CardResources.Values)
+            foreach (var cardResourceRecord in playerCardResources.Values)
             {
-                PlayerControllers[1].ChangeResourceAmount(cardResourceRecord.ResourceId, cardResourceRecord.ResourceAmount);
-            }
-            
-            foreach (var cardResourceRecord in player1CardResources.Values)
-            {
+                // Use Effect on Environment
                 PlayerControllers[1].ChangeResourceAmount(cardResourceRecord.ResourceId, cardResourceRecord.ResourceAmount);
             }
 
@@ -248,12 +227,8 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(waitTimeAfterChecking);
 
-        foreach (Player controller in PlayerControllers.Values)
-        {
-            controller.playedCardDeck.DiscardAllCards();
-        }
+        PlayerControllers[currentPlayerIndex].playedCardDeck.DiscardAllCards();
         
-        currentPlayerIndex = 0;
         StartPlayerTurn();
     }
 
