@@ -14,34 +14,42 @@
 
     public class CardManager : BaseDataManager<UserProfile>
     {
-        private readonly CardBlueprint CardBlueprint;
-        private readonly IGameAssets GameAssets;
+        private readonly CorporationCardBlueprint corporationCardBlueprint;
+        private readonly EnvironmentCardBlueprint environmentCardBlueprint;
+        private readonly EffectCardBlueprint      effectCardBlueprint;
+        private readonly IGameAssets              GameAssets;
 
         private Dictionary<PlayerType, List<CardRecord>> Cards = new();
 
         public static Action OnCardDataLoaded;
         
-        public CardManager(MasterDataManager masterDataManager, CardBlueprint cardBlueprint, IGameAssets gameAssets) : base(masterDataManager)
+        public CardManager(MasterDataManager masterDataManager, EffectCardBlueprint effectCardBlueprint, IGameAssets gameAssets, 
+                           CorporationCardBlueprint corporationCardBlueprint, EnvironmentCardBlueprint environmentCardBlueprint) : base(masterDataManager)
         {
-            this.CardBlueprint = cardBlueprint;
-            this.GameAssets    = gameAssets;
+            this.corporationCardBlueprint = corporationCardBlueprint;
+            this.environmentCardBlueprint = environmentCardBlueprint;
+            this.effectCardBlueprint      = effectCardBlueprint;
+            this.GameAssets               = gameAssets;
         }
 
         protected override void OnDataLoaded()
         {
             base.OnDataLoaded();
-            
-            foreach (CardRecord record in CardBlueprint.Values)
-            {
-                if (!Cards.ContainsKey(record.PlayerType))
-                {
-                    Cards[record.PlayerType] = new();
-                }
-                
-                Cards[record.PlayerType].Add(record);
-            }
+
+            LoadCard(PlayerType.Corporation, corporationCardBlueprint);
+            LoadCard(PlayerType.Environment, environmentCardBlueprint);
+            LoadCard(PlayerType.Effect, effectCardBlueprint);
             
             OnCardDataLoaded?.Invoke();
+        }
+
+        void LoadCard(PlayerType playerType, CardBlueprint cardBlueprint)
+        {
+            Cards.Add(playerType, new());
+            foreach (CardRecord record in cardBlueprint.Values)
+            {
+                Cards[playerType].Add(record);
+            }
         }
         
         public List<CardRecord> GetCards(PlayerType playerType)

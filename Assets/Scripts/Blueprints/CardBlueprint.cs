@@ -4,8 +4,7 @@ namespace Blueprints
     using System.Collections.Generic;
     using DataManager.Blueprint.BlueprintReader;
     using UnityEngine;
-
-    [BlueprintReader("Card")]
+    
     public class CardBlueprint : GenericBlueprintReaderByRow<string, CardRecord>
     {
        
