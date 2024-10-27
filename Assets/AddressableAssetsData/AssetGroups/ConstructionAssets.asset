@@ -10,16 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: CurrencyAssets
+  m_Name: ConstructionAssets
   m_EditorClassIdentifier: 
-  m_GroupName: CurrencyAssets
+  m_GroupName: ConstructionAssets
   m_Data:
     m_SerializedData: []
-  m_GUID: 6fa5bf58b6e7b3742be9535b47abf68f
-  m_SerializeEntries: []
+  m_GUID: 4c35e0504444a634ab88a6a63b139939
+  m_SerializeEntries:
+  - m_GUID: 2376224fc98bb954d848a289180125f3
+    m_Address: Home
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: dd57ffa3a2092954fbd6d0cac301022a, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 2493e1325c9f93f40a358f011eb4c816, type: 2}
-    - {fileID: 11400000, guid: 49d8aa59882a70f48a6303dbe0977e5e, type: 2}
+    - {fileID: 11400000, guid: d765fd3d3c36f534c9fc93aaf705894c, type: 2}
+    - {fileID: 11400000, guid: f9419a332921443469c2feca495e7666, type: 2}

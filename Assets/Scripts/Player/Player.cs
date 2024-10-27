@@ -55,6 +55,9 @@ public class Player : MonoBehaviour
     public PlayedCardDeck playedCardDeck;
     public int            shufflePerTurn = 1;
 
+    [Header("Site")]
+    public PlayerConstruction construction;
+
     [Header("UI")]
     public PlayerUI playerUI;
 
@@ -92,8 +95,8 @@ public class Player : MonoBehaviour
         stateMachine.Initialize(playerIdleState);
         
         playerData.BindData(playerRecord);
-        
         playerUI.BindData(playerData);
+        construction.BindData(playerData, playerRecord.PlayerUpgrades);
     }
 
     void RegisterEvent()

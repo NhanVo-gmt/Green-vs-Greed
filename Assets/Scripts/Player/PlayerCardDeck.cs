@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class PlayerCardDeck : CardDeck
 {
-    private List<CardSlot>   AvailableCardSlots = new();
+    public List<CardSlot> AvailableCardSlots = new();
     
     public override void DrawSlot(CardSlot slot, CardRecord record)
     {
