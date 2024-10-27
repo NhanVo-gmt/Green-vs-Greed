@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
         int index      = currentPlayerIndex;
         int numberDraw = 5 - PlayerControllers[index].playerCardDeck.GetCurrentNumberCards();
         
-        for (int i = 0; i < numberDraw; i++)
+        for (int i = 0; i < 1; i++)
         {
             PlayerControllers[index]
                 .DrawCard(CardManager.DrawRandomCard(PlayerControllers[index].playerType));
