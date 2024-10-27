@@ -23,7 +23,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 37890c629b15dbe448ca042cee190dbe
-    m_Address: Shuffle
+    m_Address: Draw
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
