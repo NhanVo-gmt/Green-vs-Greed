@@ -14,21 +14,20 @@ namespace Blueprints
         public int                                      Id;
         public PlayerType                               PlayerType;
         public BlueprintByRow<Resource, ResourceRecord> Resources;
-        public BlueprintByRow<PlayerUpgrade>            PlayerUpgrades;
+        public BlueprintByRow<Resource, PlayerUpgrade>  PlayerUpgrades;
     }
 
-    [CsvHeaderKey("Level")]
+    [CsvHeaderKey("ResourceUpgrade")]
     public class PlayerUpgrade
     {
-        public int                                                Level;
-        public BlueprintByRow<Resource, PlayerUpgradeRequirement> Requirements;
+        public Resource                                 ResourceUpgrade;
+        public BlueprintByRow<PlayerUpgradeRequirement> Requirements;
     }
-
-    [CsvHeaderKey("ResourceRequirement")]
+    
     public class PlayerUpgradeRequirement
     {
-        public Resource ResourceRequirement;
-        public int      ResourceRequirementValue;
+        public int Level;
+        public int ResourceRequirementValue;
     }
 
 }

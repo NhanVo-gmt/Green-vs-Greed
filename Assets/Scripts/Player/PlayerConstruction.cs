@@ -4,19 +4,46 @@ using System.Collections.Generic;
 using Blueprints;
 using UnityEngine;
 
+[Serializable]
+public class PlayerSite
+{
+    public Resource     Resource;
+    public GameObject[] Sites;
+    public int          CurrentLevel = 0;
+    
+    public void UpdateLevel(int newLevel)
+    {
+        CurrentLevel = newLevel;
+        ChangeSite();
+    }
+    
+    public void ChangeSite()
+    {
+        for (int i = 0; i < Sites.Length; i++)
+        {
+            Sites[i].SetActive(i == CurrentLevel - 1);
+        }
+    }
+}
+
 public class PlayerConstruction : MonoBehaviour
 {
     [Header("Site")]
-    [SerializeField] private GameObject[] sites;
+    public PlayerSite[] sites;
+    
+    private PlayerData                          playerData;
+    private Dictionary<Resource, PlayerUpgrade> playerUpgrades = new();
+    private Dictionary<Resource, PlayerSite> playerSites = new();
 
-    [Header("Debug")]
-    public int currentLevel = 0;
-    
-    
-    private PlayerData          playerData;
-    private List<PlayerUpgrade> playerUpgrades;
-    
-    public void BindData(PlayerData playerData, List<PlayerUpgrade> playerUpgrades)
+    private void Awake()
+    {
+        foreach (var site in sites)
+        {
+            playerSites.Add(site.Resource, site);
+        }
+    }
+
+    public void BindData(PlayerData playerData, Dictionary<Resource, PlayerUpgrade> playerUpgrades)
     {
         this.playerData     = playerData;
         this.playerUpgrades = playerUpgrades;
@@ -42,32 +69,20 @@ public class PlayerConstruction : MonoBehaviour
 
     void CheckLevel()
     {
-        for (int i = 0; i < playerUpgrades.Count; i++)
+        foreach (var upgrade in playerUpgrades.Values)
         {
-            PlayerUpgrade upgrade = playerUpgrades[i];
-
-            foreach (var resource in upgrade.Requirements.Values)
+            for (int i = 0; i < upgrade.Requirements.Count; i++)
             {
-                if (resource.ResourceRequirementValue > playerData.resources[resource.ResourceRequirement])
+                if (playerData.resources[upgrade.ResourceUpgrade] < upgrade.Requirements[i].ResourceRequirementValue)
                 {
-                    UpdateLevel(i + 1);
-                    return;
+                    playerSites[upgrade.ResourceUpgrade].UpdateLevel(i + 1);
+                    break;
                 }
             }
         }
     }
 
-    void UpdateLevel(int newLevel)
-    {
-        currentLevel = newLevel;
-        ChangeSite();
-    }
+    
 
-    void ChangeSite()
-    {
-        for (int i = 0; i < sites.Length; i++)
-        {
-            sites[i].SetActive(i == currentLevel - 1);
-        }
-    }
+    
 }
