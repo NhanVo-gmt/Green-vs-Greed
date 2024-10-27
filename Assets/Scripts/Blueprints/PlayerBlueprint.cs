@@ -20,7 +20,7 @@ namespace Blueprints
     [CsvHeaderKey("Level")]
     public class PlayerUpgrade
     {
-        public int                                      Level;
+        public int                                                Level;
         public BlueprintByRow<Resource, PlayerUpgradeRequirement> Requirements;
     }
 
@@ -30,4 +30,5 @@ namespace Blueprints
         public Resource ResourceRequirement;
         public int      ResourceRequirementValue;
     }
+
 }

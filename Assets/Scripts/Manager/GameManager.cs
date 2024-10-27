@@ -118,15 +118,22 @@ public class GameManager : MonoBehaviour
     {
         if (currentPlayerIndex == -1) return;
 
-        int index = currentPlayerIndex;
-        Tween.DelayedCall(0.5f, () =>
+        StartCoroutine(DrawCardEndTurnCoroutine());
+    }
+
+    IEnumerator DrawCardEndTurnCoroutine()
+    {
+        yield return new WaitForSeconds(0.5f);
+        
+        int index      = currentPlayerIndex;
+        int numberDraw = 5 - PlayerControllers[index].playerCardDeck.GetCurrentNumberCards();
+        
+        for (int i = 0; i < numberDraw; i++)
         {
-            for (int i = 0; i < 5 - PlayerControllers[index].playerCardDeck.GetCurrentNumberCards(); i++)
-            {
-                PlayerControllers[index]
-                        .DrawCard(CardManager.DrawRandomCard(PlayerControllers[index].playerType));
-            }
-        });
+            PlayerControllers[index]
+                .DrawCard(CardManager.DrawRandomCard(PlayerControllers[index].playerType));
+            yield return null;
+        }
     }
     
 
@@ -178,13 +185,6 @@ public class GameManager : MonoBehaviour
     {
         if (player.playerIndex != currentPlayerIndex) return;
         
-        NextPlayerTurn();
-    }
-
-    void NextPlayerTurn()
-    {
-        DrawCardEndTurn();
-
         // Check coroutine
         StartCoroutine(EndCoroutine());
     }
@@ -202,6 +202,9 @@ public class GameManager : MonoBehaviour
 
     IEnumerator EndCoroutine()
     {
+        Debug.Log($"[Game Manager]: Draw Card End Turn");
+        yield return DrawCardEndTurnCoroutine();
+        
         Debug.Log($"[Game Manager]: Check End Turn");
         gameUI.EndTurn();
         
