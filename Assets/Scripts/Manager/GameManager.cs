@@ -114,13 +114,6 @@ public class GameManager : MonoBehaviour
 
     #region Draw Card
 
-    void DrawCardEndTurn()
-    {
-        if (currentPlayerIndex == -1) return;
-
-        StartCoroutine(DrawCardEndTurnCoroutine());
-    }
-
     IEnumerator DrawCardEndTurnCoroutine()
     {
         yield return new WaitForSeconds(0.5f);
@@ -218,8 +211,16 @@ public class GameManager : MonoBehaviour
 
             foreach (var cardResourceRecord in playerCardResources.Values)
             {
-                // Use Effect on Environment
-                PlayerControllers[1].ChangeResourceAmount(cardResourceRecord.ResourceId, cardResourceRecord.ResourceAmount);
+                if (cardResourceRecord.ResourceId == Resource.Money)
+                {
+                    // Money
+                    PlayerControllers[0].ChangeResourceAmount(cardResourceRecord.ResourceId, cardResourceRecord.ResourceAmount);
+                }
+                else
+                {
+                    // Wood, Water
+                    PlayerControllers[1].ChangeResourceAmount(cardResourceRecord.ResourceId, cardResourceRecord.ResourceAmount);
+                }
             }
 
             yield return null;
