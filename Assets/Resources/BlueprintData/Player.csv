@@ -1,4 +1,10 @@
-Id,PlayerType,ResourceId,ResourceAmount
-0,Corporation,Money,100
-1,Environment,Wood,20
-,,Water,20
+Id,PlayerType,ResourceId,ResourceAmount,Level,ResourceRequirement,ResourceRequirementValue
+0,Corporation,Money,25,1,Money,20
+,,,,2,Money,30
+,,,,3,Money,40
+1,Environment,Wood,15,1,Wood,10
+,,Water,15,,Water,10
+,,,,2,Wood,20
+,,,,,Water,20
+,,,,3,Wood,30
+,,,,,Water,30
