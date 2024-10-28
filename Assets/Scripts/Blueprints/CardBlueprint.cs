@@ -51,5 +51,6 @@ namespace Blueprints
         Draw = 1,
         Blind = 2,
         Permit = 3,
+        DrawCardFromResource = 4,
     }
 }

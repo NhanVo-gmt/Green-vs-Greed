@@ -60,7 +60,6 @@ public class GameManager : MonoBehaviour
         foreach (var player in GameObject.FindObjectsOfType<Player>(true))
         {
             player.BindData(PlayerManager.GetPlayerRecord(player.playerIndex));
-            player.OnShuffle        += Draw;
             player.OnFinishTurn     += NextPlayerTurn;
             player.playerData.OnDie += EndGame;
             
@@ -76,7 +75,6 @@ public class GameManager : MonoBehaviour
         
         foreach (var player in PlayerControllers.Values)
         {
-            player.OnShuffle        -= Draw;
             player.OnFinishTurn     -= NextPlayerTurn;
             player.playerData.OnDie -= EndGame;
         }
@@ -129,17 +127,6 @@ public class GameManager : MonoBehaviour
         }
     }
     
-
-    [Button("Draw Card")]
-    public void DrawCard()
-    {
-        if (currentPlayerIndex == 0)
-        {
-            PlayerControllers[currentPlayerIndex].DrawCard(CardManager.DrawRandomCard(PlayerType.Environment));
-        }
-        else PlayerControllers[currentPlayerIndex].DrawCard(CardManager.DrawRandomCard(PlayerType.Corporation));
-    }
-    
     #endregion
 
     #region Effect
@@ -149,19 +136,22 @@ public class GameManager : MonoBehaviour
         switch (type)
         {
             case EffectType.Draw:
-                Draw();
+                Draw(1);
                 break;
             case EffectType.Blind:
                 Blind();
                 break;
+            case EffectType.DrawCardFromResource:
+                DrawCardFromResource();
+                break;
         }
     }
 
-    public void Draw()
+    public void Draw(int number)
     {
         Player currentPlayer = PlayerControllers[currentPlayerIndex];
         
-        DrawRandomAllCards(currentPlayer, 1);
+        DrawRandomAllCards(currentPlayer, number);
     }
     
     public void Blind()
@@ -169,6 +159,21 @@ public class GameManager : MonoBehaviour
         PlayerControllers[currentPlayerIndex].Blind();
     }
 
+    public void DrawCardFromResource()
+    {
+        Draw(2);
+        
+        // Wood, Water
+        int rand = Random.Range(0, 2);
+        if (rand == 0)
+        {
+            PlayerControllers[1].ChangeResourceAmount(Resource.Wood, -3);
+        }
+        else
+        {
+            PlayerControllers[1].ChangeResourceAmount(Resource.Water, -3);
+        }
+    }
 
     #endregion
 

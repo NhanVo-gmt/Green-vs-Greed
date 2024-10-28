@@ -53,7 +53,6 @@ public class Player : MonoBehaviour
     [Header("Card")]
     public PlayerCardDeck playerCardDeck;
     public PlayedCardDeck playedCardDeck;
-    public int            shufflePerTurn = 1;
 
     [Header("Site")]
     public PlayerConstruction construction;
@@ -74,8 +73,7 @@ public class Player : MonoBehaviour
     public Player_IdleState playerIdleState { get; private set; }
     public Player_PickState playerPickState { get; private set; }
     public Player_DrawState playerDrawState { get; private set; }
-
-    public Action OnShuffle;
+    
     public Action<Player> OnFinishTurn;
 
     #endregion
