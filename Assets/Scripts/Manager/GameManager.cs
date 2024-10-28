@@ -256,9 +256,9 @@ public class GameManager : MonoBehaviour
 
     #region End Game
 
-    private void EndGame()
+    private void EndGame(int index)
     {
-        ScreenManager.OpenScreen<LoseScreenPopupPresenter>();
+        ScreenManager.OpenScreen<GameOverScreenPopupPresenter, GameOverScreenPopupModel>(new GameOverScreenPopupModel(index != 1));
     }
 
     #endregion

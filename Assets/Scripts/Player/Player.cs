@@ -9,7 +9,7 @@ public class PlayerData
 {
     public Action<int>           OnLoseLife;
     public Action<Resource, int> OnUpdateResource;
-    public Action                OnDie;
+    public Action<int>                OnDie;
 
     public PlayerRecord              record;
     public Dictionary<Resource, int> resources = new();
@@ -31,7 +31,7 @@ public class PlayerData
         if (resources[type] <= 0)
         {
             resources[type] = 0;
-            OnDie?.Invoke();
+            OnDie?.Invoke(record.Id);
         }
     }
 }

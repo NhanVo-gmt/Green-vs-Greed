@@ -33,15 +33,7 @@ public class PlayerConstruction : MonoBehaviour
     
     private PlayerData                          playerData;
     private Dictionary<Resource, PlayerUpgrade> playerUpgrades = new();
-    private Dictionary<Resource, PlayerSite> playerSites = new();
-
-    private void Awake()
-    {
-        foreach (var site in sites)
-        {
-            playerSites.Add(site.Resource, site);
-        }
-    }
+    
 
     public void BindData(PlayerData playerData, Dictionary<Resource, PlayerUpgrade> playerUpgrades)
     {
@@ -69,13 +61,16 @@ public class PlayerConstruction : MonoBehaviour
 
     void CheckLevel()
     {
-        foreach (var upgrade in playerUpgrades.Values)
+        foreach (var site in sites)
         {
+            if (!playerUpgrades.ContainsKey(site.Resource)) continue;
+            
+            var upgrade = playerUpgrades[site.Resource];
             for (int i = 0; i < upgrade.Requirements.Count; i++)
             {
                 if (playerData.resources[upgrade.ResourceUpgrade] < upgrade.Requirements[i].ResourceRequirementValue)
                 {
-                    playerSites[upgrade.ResourceUpgrade].UpdateLevel(i + 1);
+                    site.UpdateLevel(i + 1);
                     break;
                 }
             }

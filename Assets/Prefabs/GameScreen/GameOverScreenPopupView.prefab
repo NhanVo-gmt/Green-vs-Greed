@@ -695,7 +695,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3490610340683094571, guid: 2f431abb86d3b6c43af971de5b1f2833, type: 3}
       propertyPath: m_Name
-      value: LoseScreenPopupView
+      value: GameOverScreenPopupView
       objectReference: {fileID: 0}
     - target: {fileID: 4613682197113720899, guid: 2f431abb86d3b6c43af971de5b1f2833, type: 3}
       propertyPath: m_Pivot.x
@@ -789,13 +789,13 @@ PrefabInstance:
       addedObject: {fileID: 2490297195700264158}
     - targetCorrespondingSourceObject: {fileID: 475200305426243243, guid: 2f431abb86d3b6c43af971de5b1f2833, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 7543096571295703744}
+    - targetCorrespondingSourceObject: {fileID: 475200305426243243, guid: 2f431abb86d3b6c43af971de5b1f2833, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 6784375141405049245}
     - targetCorrespondingSourceObject: {fileID: 475200305426243243, guid: 2f431abb86d3b6c43af971de5b1f2833, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6542682597192315478}
-    - targetCorrespondingSourceObject: {fileID: 475200305426243243, guid: 2f431abb86d3b6c43af971de5b1f2833, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7543096571295703744}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3490610340683094571, guid: 2f431abb86d3b6c43af971de5b1f2833, type: 3}
       insertIndex: -1
@@ -835,6 +835,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRoot: {fileID: 0}
   screenTransition: {fileID: 0}
+  text: {fileID: 2656501119746864584}
   restartBtn: {fileID: 3390939304291464554}
   menuBtn: {fileID: 3163144605273458337}
 --- !u!224 &3727657991779627882 stripped

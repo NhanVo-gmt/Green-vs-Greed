@@ -6,9 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="183aa535-458a-4c9a-a18f-e0b9b9d9f9d9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Green-vs-Greed/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Green-vs-Greed/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/BlueprintData/Effect.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/BlueprintData/Effect.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/UIAssets.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/UIAssets.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameScreen/LoseScreenPopupView.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameScreen/LoseScreenPopupView.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/GameUI/GameCompletePopupView.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/GameUI/GameCompletePopupView.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/GameUI/GameLosePopupView.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/GameUI/GameLosePopupView.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerConstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerConstruction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIFeatures/GameScene/LoseScreenPopupView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIFeatures/GameScene/GameOverScreenPopupView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIFeatures/GameScene/LoseScreenPopupView.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIFeatures/GameScene/GameOverScreenPopupView.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +59,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature/new-permit-card",
+    "git-widget-placeholder": "feature/win-lose-screen",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -141,6 +150,7 @@
       <workItem from="1730013277713" duration="5193000" />
       <workItem from="1730035660745" duration="2205000" />
       <workItem from="1730097482381" duration="1642000" />
+      <workItem from="1730130629971" duration="763000" />
     </task>
     <servers />
   </component>
