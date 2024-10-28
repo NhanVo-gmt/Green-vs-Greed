@@ -63,6 +63,8 @@ public class Player : MonoBehaviour
     [Header("Debug")]
     public int blindActivateRound = 0;
 
+    public int block = 0;
+
     private PlayerRecord playerRecord;
     public  GameManager  gameManager { get; private set; }
 
@@ -168,6 +170,11 @@ public class Player : MonoBehaviour
         playedCardDeck.SetBlindState(true);
     }
 
+    public void Permit()
+    {
+        block = 3;
+    }
+
     #endregion
     
 
@@ -175,6 +182,12 @@ public class Player : MonoBehaviour
 
     public void ChangeResourceAmount(Resource type, int amount)
     {
+        if (block > 0)
+        {
+            block--;
+            return;
+        }
+        
         playerData.ChangeResourceAmount(type, amount);
         Debug.Log($"[Player {playerIndex}]: {type} {amount}");
     }

@@ -60,7 +60,7 @@
         public CardRecord DrawRandomCard(PlayerType playerType)
         {
             int rate = Random.Range(0, 100);
-            if (rate <= 20)
+            if (rate <= 100)
             {
                 return Cards[PlayerType.Effect][Random.Range(0, Cards[PlayerType.Effect].Count)];
             }
