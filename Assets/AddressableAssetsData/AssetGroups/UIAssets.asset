@@ -23,7 +23,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b74e5427492a67146bd709bf8ba9789a
-    m_Address: LoseScreenPopupView
+    m_Address: GameOverScreenPopupView
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
