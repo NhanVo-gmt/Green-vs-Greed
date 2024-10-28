@@ -141,6 +141,9 @@ public class GameManager : MonoBehaviour
             case EffectType.Blind:
                 Blind();
                 break;
+            case EffectType.Permit:
+                Permit();
+                break;
             case EffectType.DrawCardFromResource:
                 DrawCardFromResource();
                 break;
@@ -156,7 +159,12 @@ public class GameManager : MonoBehaviour
     
     public void Blind()
     {
-        PlayerControllers[currentPlayerIndex].Blind();
+        PlayerControllers[currentPlayerIndex].Blind(1);
+    }
+    
+    public void Permit()
+    {
+        PlayerControllers[currentPlayerIndex].Permit(2);
     }
 
     public void DrawCardFromResource()
@@ -212,7 +220,8 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < playerCards.Count; i++)
         {
             if (!playerCards[i].card.HasCard()) continue;
-            var playerCardResources = playerCards[i].card.GetCardRecord().Resources;
+            var playerCardRecord    = playerCards[i].card.GetCardRecord();
+            var playerCardResources = playerCardRecord.Resources;
 
             foreach (var cardResourceRecord in playerCardResources.Values)
             {
@@ -226,6 +235,11 @@ public class GameManager : MonoBehaviour
                     // Wood, Water
                     PlayerControllers[1].ChangeResourceAmount(cardResourceRecord.ResourceId, cardResourceRecord.ResourceAmount);
                 }
+            }
+
+            if (playerCardRecord.Effect != EffectType.None)
+            {
+                UseEffect(playerCardRecord.Effect);
             }
 
             yield return null;
