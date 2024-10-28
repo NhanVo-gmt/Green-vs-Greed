@@ -167,11 +167,11 @@ public class GameManager : MonoBehaviour
         int rand = Random.Range(0, 2);
         if (rand == 0)
         {
-            PlayerControllers[1].ChangeResourceAmount(Resource.Wood, -3);
+            PlayerControllers[1].ChangeResourceAmount(Resource.Wood, -2);
         }
         else
         {
-            PlayerControllers[1].ChangeResourceAmount(Resource.Water, -3);
+            PlayerControllers[1].ChangeResourceAmount(Resource.Water, -2);
         }
     }
 

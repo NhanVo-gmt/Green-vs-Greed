@@ -12,5 +12,5 @@ Id,Name,Description,PlayerType,Image,ResourceId,ResourceAmount,Effect,IsEndTurn,
 ,,,,,Money,-1,,,
 6,Save water,Use water wisely Water Money.,Environment,Save water,Water,1,None,TRUE,FALSE
 ,,,,,Money,-1,,,
-7,Resource to card,Use Water or Wood to draw 2 card,Environment,Draw Card From Resource,Water,-3,DrawCardFromResource,FALSE,TRUE
-,,,,,Wood,-3,,,
+7,Resource to card,Use Water or Wood to draw 2 card,Environment,Draw Card From Resource,Water,-2,DrawCardFromResource,FALSE,TRUE
+,,,,,Wood,-2,,,

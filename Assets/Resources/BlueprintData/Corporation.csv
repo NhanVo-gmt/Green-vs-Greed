@@ -1,10 +1,10 @@
 Id,Name,Description,PlayerType,Image,ResourceId,ResourceAmount,Effect,IsEndTurn,UseImmediately
-1,Ship Surge,Raise the rates on maritime routes Money and increase shipping amount Water.,Corporation,Ship,Water,-5,None,TRUE,FALSE
+1,Ship Surge,Raise the rates on maritime routes Money and increase shipping amount Water.,Corporation,Ship,Water,-3,None,TRUE,FALSE
 ,,,,,Money,3,,,
-2,Chop Chop Chaos,Cut down more trees Wood for a greater materials Money.,Corporation,Deforestation,Wood,-5,None,TRUE,FALSE
+2,Chop Chop Chaos,Cut down more trees Wood for a greater materials Money.,Corporation,Deforestation,Wood,-3,None,TRUE,FALSE
 ,,,,,Money,3,,,
-3,Industrial Invasion,"Expand your factory Wood Money, but it will pollute more rivers Water.",Corporation,Industry,Wood,-3,None,TRUE,FALSE
+3,Industrial Invasion,"Expand your factory Wood Money, but it will pollute more rivers Water.",Corporation,Industry,Wood,-1,None,TRUE,FALSE
 ,,,,,Water,-2,None,TRUE,FALSE
 ,,,,,Money,3,,,
-4,Wasteland,Increase profits Money without efficient waste management Water.,Corporation,Water Pip,Water,-4,None,TRUE,FALSE
+4,Wasteland,Increase profits Money without efficient waste management Water.,Corporation,Water Pip,Water,-3,None,TRUE,FALSE
 ,,,,,Money,3,,,
