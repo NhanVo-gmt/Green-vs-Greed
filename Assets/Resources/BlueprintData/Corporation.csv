@@ -8,3 +8,6 @@ Id,Name,Description,PlayerType,Image,ResourceId,ResourceAmount,Effect,IsEndTurn,
 ,,,,,Money,3,,,
 4,Wasteland,Increase profits Money without efficient waste management Water.,Corporation,Water Pip,Water,-3,None,TRUE,FALSE
 ,,,,,Money,3,,,
+5,Small Industry,Build your factory Wood Water Money .,Corporation,Small Industry,Wood,-1,None,TRUE,FALSE
+,,,,,Water,-1,,,
+,,,,,Money,1,,,
