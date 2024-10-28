@@ -1,4 +1,4 @@
 Id,Name,Description,PlayerType,Image,ResourceId,ResourceAmount,Effect,IsEndTurn,UseImmediately
 1,Draw,Discard this card and draw a new one.,Effect,Draw,,,Draw,FALSE,TRUE
 2,Blind,Your opponent can not see the content of your played cards.,Effect,Blind,,,Blind,FALSE,TRUE
-3,Permit,Can be used to defend against any card,Effect,Permit,,,Permit,FALSE,FALSE
+3,Permit,Block 2 damage to your resources,Effect,Permit,,,Permit,FALSE,FALSE

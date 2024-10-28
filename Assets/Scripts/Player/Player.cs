@@ -164,15 +164,15 @@ public class Player : MonoBehaviour
     #region Effect
     
 
-    public void Blind()
+    public void Blind(int blindRound)
     {
-        blindActivateRound = 1;
+        blindActivateRound = blindRound;
         playedCardDeck.SetBlindState(true);
     }
 
-    public void Permit()
+    public void Permit(int blockRound)
     {
-        block = 3;
+        block = blockRound;
     }
 
     #endregion

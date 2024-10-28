@@ -159,12 +159,12 @@ public class GameManager : MonoBehaviour
     
     public void Blind()
     {
-        PlayerControllers[currentPlayerIndex].Blind();
+        PlayerControllers[currentPlayerIndex].Blind(1);
     }
     
     public void Permit()
     {
-        PlayerControllers[currentPlayerIndex].Permit();
+        PlayerControllers[currentPlayerIndex].Permit(2);
     }
 
     public void DrawCardFromResource()
