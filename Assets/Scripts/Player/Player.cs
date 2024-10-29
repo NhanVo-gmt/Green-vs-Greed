@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class PlayerData
 {
     public Action<int>           OnLoseLife;
+    public Action<Resource, int> OnAddResource;
     public Action<Resource, int> OnUpdateResource;
     public Action<int>                OnDie;
 
@@ -26,6 +27,7 @@ public class PlayerData
     public void ChangeResourceAmount(Resource type, int amount)
     {
         resources[type] += + amount;
+        OnAddResource?.Invoke(type, amount);
         OnUpdateResource?.Invoke(type, resources[type]);
         
         if (resources[type] <= 0)
