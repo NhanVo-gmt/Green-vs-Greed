@@ -125,4 +125,29 @@ public class CardSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
 
     #endregion
 
+    #region Animation
+
+    public void Shake()
+    {
+        CameraShake.Instance.CardAttackShake();
+    }
+
+    public void PlayAttackAnim(bool isEnemy)
+    {
+        if (!isEnemy)
+        {
+            anim.Play("Attack");
+        }
+        else
+        {
+            anim.Play("EnemyAttack");
+        }
+    }
+
+    public float GetClipLength()
+    {
+        return anim.runtimeAnimatorController.animationClips[0].length;
+    }
+
+    #endregion
 }

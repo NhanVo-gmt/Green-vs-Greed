@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
     [Header("Card")]
     public PlayerCardDeck playerCardDeck;
     public PlayedCardDeck playedCardDeck;
+    public Transform      target;
 
     [Header("Site")]
     public PlayerConstruction construction;
