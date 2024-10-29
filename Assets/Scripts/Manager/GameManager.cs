@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Blueprints;
+using DG.Tweening;
 using GameFoundation.Scripts.UIModule.ScreenFlow.Managers;
 using GameFoundation.Scripts.Utilities.Extension;
 using Sirenix.OdinInspector;
@@ -223,6 +224,10 @@ public class GameManager : MonoBehaviour
             var playerCardRecord    = playerCards[i].card.GetCardRecord();
             var playerCardResources = playerCardRecord.Resources;
 
+            // Anim
+            playerCards[i].PlayAttackAnim(currentPlayerIndex == 0);
+            yield return new WaitForSeconds(playerCards[i].GetClipLength());
+            
             foreach (var cardResourceRecord in playerCardResources.Values)
             {
                 if (cardResourceRecord.ResourceId == Resource.Money)
