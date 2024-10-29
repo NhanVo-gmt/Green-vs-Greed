@@ -27,12 +27,14 @@ public class PlayerUI : MonoBehaviour
         SpawnResourceUI();
         
         endTurnBtn.onClick.AddListener(EndTurn);
+        playerData.OnAddResource    += SpawnAddedAmountText;
         playerData.OnUpdateResource += UpdateUI;
     }
 
     private void OnDestroy()
     {
         endTurnBtn.onClick.RemoveListener(EndTurn);
+        playerData.OnAddResource    -= SpawnAddedAmountText;
         playerData.OnUpdateResource -= UpdateUI;
     }
 
@@ -51,6 +53,11 @@ public class PlayerUI : MonoBehaviour
     private void UpdateUI(Resource type, int newAmount)
     {
         resourceItemUis[type].UpdateAmountUI(newAmount);
+    }
+    
+    private void SpawnAddedAmountText(Resource type, int newAmount)
+    {
+        resourceItemUis[type].SpawnAddedAmountText(newAmount);
     }
 
     #region End Turn
