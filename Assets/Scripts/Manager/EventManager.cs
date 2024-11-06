@@ -1,9 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Blueprints;
+using Cysharp.Threading.Tasks;
+using GameFoundation.Scripts.UIModule.ScreenFlow.Managers;
 using GameFoundation.Scripts.Utilities.Extension;
 using UnityEngine;
+using UserData.Controller;
 using Zenject;
 using EventType = Blueprints.EventType;
 using Random = UnityEngine.Random;
@@ -53,6 +57,8 @@ public class EventData
 public class EventManager : MonoBehaviour
 {
     [Inject] private EventBlueprint eventBlueprint;
+    [Inject] private CardManager cardManager;
+    [Inject] private IScreenManager screenManager;
 
     private List<EventData> GameEventDatas   = new();
     private List<EventType>     CurrentEventList = new();
@@ -112,7 +118,22 @@ public class EventManager : MonoBehaviour
         switch (eventType)
         {
             case EventType.Quiz:
+                StartQuizEvent();
                 break;
         }
+    }
+
+    public void StartQuizEvent()
+    {
+        CardRecord   record = cardManager.DrawRandomPlayerCard();
+        List<string> answerList = new();
+        answerList.Add(record.Name);
+        answerList.Add(record.Name);
+        answerList.Add(record.Name);
+        answerList.Add(record.Name);
+
+        QuizModel model = new(record, answerList.ShuffleSource().ToArray());
+        
+        screenManager.OpenScreen<QuizPopupPresenter, QuizModel>(model);
     }
 }

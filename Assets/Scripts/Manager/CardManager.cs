@@ -67,6 +67,19 @@
 
             return Cards[playerType][Random.Range(0, Cards[playerType].Count)];
         }
+        
+        public CardRecord DrawRandomPlayerCard()
+        {
+            int rate = Random.Range(0, 100);
+            
+            PlayerType playerType = PlayerType.Corporation;
+            if (rate <= 50)
+            {
+                playerType = PlayerType.Environment;
+            }
+
+            return Cards[playerType][Random.Range(0, Cards[playerType].Count)];
+        }
 
         public async UniTask<Sprite> GetIcon(string id)
         {
