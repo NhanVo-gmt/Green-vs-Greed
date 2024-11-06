@@ -8,7 +8,7 @@ using Zenject;
 using EventType = Blueprints.EventType;
 using Random = UnityEngine.Random;
 
-public class GameEventData
+public class EventData
 {
     public EventRecord eventRecord { get; private set; }
 
@@ -17,7 +17,7 @@ public class GameEventData
 
     public bool canStart { get; private set; } = false;
 
-    public GameEventData(EventRecord eventRecord)
+    public EventData(EventRecord eventRecord)
     {
         this.eventRecord = eventRecord;
         isStarted        = false;
@@ -29,6 +29,7 @@ public class GameEventData
         if (round >= eventRecord.StartRound)
         {
             isStarted = true;
+            Debug.Log($"[Event Manager]: Unlock Event {eventRecord.EventType.ToString()}");
         }
 
         if (isStarted)
@@ -45,15 +46,15 @@ public class GameEventData
     public void StartEvent()
     {
         canStart    = false;
-        roundElapse = eventRecord.DelayEachRound;
+        roundElapse = eventRecord.DelayRound;
     }
 }
 
-public class GameEventManager : MonoBehaviour
+public class EventManager : MonoBehaviour
 {
     [Inject] private EventBlueprint eventBlueprint;
 
-    private List<GameEventData> GameEventDatas   = new();
+    private List<EventData> GameEventDatas   = new();
     private List<EventType>     CurrentEventList = new();
 
     private void Awake()
@@ -94,7 +95,7 @@ public class GameEventManager : MonoBehaviour
     {
         foreach (var eventRecord in eventBlueprint.Values)
         {
-            GameEventData gameEventData = new(eventRecord);
+            EventData gameEventData = new(eventRecord);
             GameEventDatas.Add(gameEventData);
         }
     }
