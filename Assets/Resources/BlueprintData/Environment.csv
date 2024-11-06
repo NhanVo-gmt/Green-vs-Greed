@@ -3,7 +3,7 @@ Id,Name,Description,PlayerType,Image,ResourceId,ResourceAmount,Effect,IsEndTurn,
 ,,,,,Money,-2,,,
 2,Leakage Lockdown,Implement water-saving measures Water and fixing leaks Money.,Environment,Prevent water leak,Water,3,None,TRUE,FALSE
 ,,,,,Money,-2,,,
-3,Forest Restoration,Plant trees to restore forests Wood and create new habitats for animals Money.,Environment,Reforestation,Wood,3,None,TRUE,FALSE
+3,Forest Restoration,"Plant trees to restore forests Wood and create new habitats for animals Money. If you have ""Plant Tree"" card played, Wood.",Environment,Reforestation,Wood,2,None,TRUE,FALSE
 ,,,,,Money,-2,,,
 4,"Reduce, Reuse, Recycle",Reduce waste generation Water and promote sustainable consumption Wood Money.,Environment,"Reduce, reuse, recycle",Wood,2,None,TRUE,FALSE
 ,,,,,Water,2,None,TRUE,FALSE
