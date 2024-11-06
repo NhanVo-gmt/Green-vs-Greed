@@ -39,7 +39,7 @@ public class EventData
         if (isStarted)
         {
             roundElapse--;
-            if (roundElapse == 0)
+            if (roundElapse <= 0)
             {
                 canStart = true;
             }
@@ -63,6 +63,8 @@ public class EventManager : MonoBehaviour
     private List<EventData> GameEventDatas   = new();
     private List<EventType>     CurrentEventList = new();
 
+    public bool startingEvent { get; private set; } = false;
+
     private void Awake()
     {
         this.GetCurrentContainer().Inject(this);
@@ -70,17 +72,7 @@ public class EventManager : MonoBehaviour
         CreateEvents();
     }
 
-    private void Start()
-    {
-        GameManager.Instance.OnNewRound += OnNewRound;
-    }
-
-    private void OnDestroy()
-    {
-        GameManager.Instance.OnNewRound -= OnNewRound;
-    }
-
-    private void OnNewRound(int newRound)
+    public void OnNewRound(int newRound)
     {
         CurrentEventList.Clear();
         
@@ -109,7 +101,8 @@ public class EventManager : MonoBehaviour
     public void StartRandomEvent()
     {
         if (CurrentEventList.Count <= 0) return;
-        
+
+        startingEvent = true;
         StartEvent(CurrentEventList[Random.Range(0, CurrentEventList.Count)]);
     }
 
@@ -132,8 +125,13 @@ public class EventManager : MonoBehaviour
         answerList.Add(record.Name);
         answerList.Add(record.Name);
 
-        QuizModel model = new(record, answerList.ShuffleSource().ToArray());
+        QuizModel model = new(record, answerList.ShuffleSource().ToArray(), this);
         
         screenManager.OpenScreen<QuizPopupPresenter, QuizModel>(model);
+    }
+
+    public void EndEvent()
+    {
+        startingEvent = false;
     }
 }

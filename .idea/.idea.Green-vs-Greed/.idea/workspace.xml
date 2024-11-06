@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="183aa535-458a-4c9a-a18f-e0b9b9d9f9d9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UIFeatures/GameScene/QuizButton.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Green-vs-Greed/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Green-vs-Greed/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/UIAssets.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/UIAssets.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/CardManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/CardManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/3.GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/3.GameScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/EventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/EventManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIFeatures/GameScene/QuizPopupView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIFeatures/GameScene/QuizPopupView.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,10 +108,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="80820">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="80820" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -148,7 +150,7 @@
       <workItem from="1730097482381" duration="1642000" />
       <workItem from="1730130629971" duration="763000" />
       <workItem from="1730204019828" duration="3680000" />
-      <workItem from="1730910952264" duration="5119000" />
+      <workItem from="1730910952264" duration="6056000" />
     </task>
     <servers />
   </component>

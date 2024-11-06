@@ -6,6 +6,7 @@ using GameFoundation.Scripts.UIModule.ScreenFlow.BaseScreen.Presenter;
 using GameFoundation.Scripts.UIModule.ScreenFlow.BaseScreen.View;
 using GameFoundation.Scripts.Utilities.LogService;
 using TMPro;
+using UIFeatures.GameScene;
 using UnityEngine;
 using UnityEngine.UI;
 using UserData.Controller;
@@ -13,21 +14,22 @@ using Zenject;
 
 public class QuizModel
 {
-    public CardRecord record;
-    public string[]   answers;
+    public CardRecord   record;
+    public string[]     answers;
+    public EventManager eventManager;
 
-    public QuizModel(CardRecord record, string[] answers)
+    public QuizModel(CardRecord record, string[] answers, EventManager eventManager)
     {
-        this.record  = record;
-        this.answers = answers;
+        this.record       = record;
+        this.answers      = answers;
+        this.eventManager = eventManager;
     }
 }
 
 public class QuizPopupView : BaseView
 {
     public Image    questionImg;
-    public Button[] answerBtns;
-    public TextMeshProUGUI[]   answerTexts;
+    public QuizButton[] answerBtns;
 }
 
 [PopupInfo(nameof(QuizPopupView), false, false)]
@@ -57,7 +59,8 @@ public class QuizPopupPresenter : BasePopupPresenter<QuizPopupView, QuizModel>
         
         for (int i = 0; i < this.View.answerBtns.Length; i++)
         {
-            this.View.answerBtns[i].onClick.RemoveAllListeners();
+            this.View.answerBtns[i].OnClick -= ChooseAnswer;
+            this.View.answerBtns[i].Dispose();
         }
     }
 
@@ -65,10 +68,10 @@ public class QuizPopupPresenter : BasePopupPresenter<QuizPopupView, QuizModel>
     {
         cardManager.GetIcon(model.record.Image).ContinueWith(img => this.View.questionImg.sprite = img).Forget();
         
-        for (int i = 0; i < this.View.answerTexts.Length; i++)
+        for (int i = 0; i < this.model.answers.Length; i++)
         {
-            this.View.answerTexts[i].SetText($"{i}. {model.answers[i]}");
-            this.View.answerBtns[i].onClick.AddListener(() => ChooseAnswer(model.answers[i]));
+            this.View.answerBtns[i].BindData(i, this.model.answers[i]);
+            this.View.answerBtns[i].OnClick += ChooseAnswer;
         }
     }
 
@@ -77,12 +80,14 @@ public class QuizPopupPresenter : BasePopupPresenter<QuizPopupView, QuizModel>
         if (answer == model.record.Name)
         {
             Debug.Log("Right");
+            
         }
         else
         {
             Debug.Log("Wrong");
         }
         
+        this.model.eventManager.EndEvent();
         CloseView();
     }
 }

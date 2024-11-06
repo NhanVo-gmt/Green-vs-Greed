@@ -17,6 +17,9 @@ using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    [Header("Manager")]
+    public EventManager eventManager;
     
     [Header("Player")]
     [SerializeField] private int numberPlayers;
@@ -201,12 +204,19 @@ public class GameManager : MonoBehaviour
     
     void StartPlayerTurn()
     {
+        StartCoroutine(StartTurnCoroutine());
+    }
+
+    IEnumerator StartTurnCoroutine()
+    {
         int newIndex = currentPlayerIndex >= numberPlayers - 1 ? 0 : currentPlayerIndex + 1;
         Debug.Log($"[Game Manager]: Change Player from {currentPlayerIndex} to {newIndex}");
 
         currentPlayerIndex = newIndex;
         currentRound++;
-        OnNewRound?.Invoke(currentRound);
+        eventManager.OnNewRound(currentRound);
+
+        yield return new WaitUntil(() => eventManager.startingEvent == false);
         
         gameUI.SetTurn(currentPlayerIndex);
         PlayerControllers[currentPlayerIndex].StartTurn();

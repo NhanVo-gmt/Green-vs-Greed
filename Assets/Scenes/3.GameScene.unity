@@ -5755,6 +5755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ea3facf66fa6c4e944fde01919e5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventManager: {fileID: 649235993}
   numberPlayers: 0
   gameUI: {fileID: 1770760154}
   waitTimeBeforeChecking: 0.5
