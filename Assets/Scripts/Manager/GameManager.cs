@@ -27,11 +27,14 @@ public class GameManager : MonoBehaviour
     [Header("Time")]
     [SerializeField] private float waitTimeBeforeChecking = 0.5f;
     [SerializeField] private float waitTimeAfterChecking = 1f;
-    
+
     [Header("Debug")]
+    public int currentRound = -1;
     [SerializeField] private int currentPlayerIndex = -1;
 
     private Dictionary<int, Player> PlayerControllers = new();
+
+    public Action<int> OnNewRound;
 
     [Inject] private PlayerManager  PlayerManager;
     [Inject] private CardManager    CardManager;
@@ -202,6 +205,8 @@ public class GameManager : MonoBehaviour
         Debug.Log($"[Game Manager]: Change Player from {currentPlayerIndex} to {newIndex}");
 
         currentPlayerIndex = newIndex;
+        currentRound++;
+        OnNewRound?.Invoke(currentRound);
         
         gameUI.SetTurn(currentPlayerIndex);
         PlayerControllers[currentPlayerIndex].StartTurn();
