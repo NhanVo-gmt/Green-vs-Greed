@@ -22,6 +22,17 @@ namespace Blueprints
         public EffectType                               Effect;
         public bool                                     IsEndTurn;
         public bool                                     UseImmediately;
+
+        [NestedBlueprint] public CardNeededEffect CardNeededEffect;
+    }
+
+    [CsvHeaderKey("CardNeededId")]
+    public class CardNeededEffect
+    {
+        public string       CardNeededId;
+        public CardDeckType CardDeckType;
+        public Resource     RewardResourceId;
+        public int          RewardResourceAmount;
     }
 
     public enum PlayerType
