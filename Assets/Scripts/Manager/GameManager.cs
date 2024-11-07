@@ -12,11 +12,15 @@ using UnityEngine.UI;
 using UserData.Controller;
 using Watermelon;
 using Zenject;
+using EventType = Blueprints.EventType;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    [Header("Manager")]
+    public EventManager eventManager;
     
     [Header("Player")]
     [SerializeField] private int numberPlayers;
@@ -27,11 +31,14 @@ public class GameManager : MonoBehaviour
     [Header("Time")]
     [SerializeField] private float waitTimeBeforeChecking = 0.5f;
     [SerializeField] private float waitTimeAfterChecking = 1f;
-    
+
     [Header("Debug")]
+    public int currentRound = -1;
     [SerializeField] private int currentPlayerIndex = -1;
 
     private Dictionary<int, Player> PlayerControllers = new();
+
+    public Action<int> OnNewRound;
 
     [Inject] private PlayerManager  PlayerManager;
     [Inject] private CardManager    CardManager;
@@ -47,7 +54,18 @@ public class GameManager : MonoBehaviour
     {
         this.GetCurrentContainer().Inject(this);
         FindAllPlayers();
+        
         gameUI.OnCloseHowToPlayScreen += StartGame;
+        eventManager.OnRewardEvent    += OnRewardEvent;
+    }
+    private void OnRewardEvent(EventType type)
+    {
+        switch (type)
+        {
+            case EventType.Quiz:
+                DrawCardForPlayerIndex(1);
+                break;
+        }
     }
 
     void StartGame()
@@ -73,6 +91,7 @@ public class GameManager : MonoBehaviour
     private void OnDestroy()
     {
         gameUI.OnCloseHowToPlayScreen -= StartGame;
+        eventManager.OnRewardEvent    -= OnRewardEvent;
         
         foreach (var player in PlayerControllers.Values)
         {
@@ -122,10 +141,15 @@ public class GameManager : MonoBehaviour
         
         for (int i = 0; i < MathF.Min(numberDraw, 1); i++)
         {
-            PlayerControllers[index]
-                .DrawCard(CardManager.DrawRandomCard(PlayerControllers[index].playerType));
+            DrawCardForPlayerIndex(index);
             yield return null;
         }
+    }
+
+    public void DrawCardForPlayerIndex(int index)
+    {
+        PlayerControllers[index]
+            .DrawCard(CardManager.DrawRandomCard(PlayerControllers[index].playerType));
     }
     
     #endregion
@@ -198,10 +222,19 @@ public class GameManager : MonoBehaviour
     
     void StartPlayerTurn()
     {
+        StartCoroutine(StartTurnCoroutine());
+    }
+
+    IEnumerator StartTurnCoroutine()
+    {
         int newIndex = currentPlayerIndex >= numberPlayers - 1 ? 0 : currentPlayerIndex + 1;
         Debug.Log($"[Game Manager]: Change Player from {currentPlayerIndex} to {newIndex}");
 
         currentPlayerIndex = newIndex;
+        currentRound++;
+        eventManager.OnNewRound(currentRound);
+
+        yield return new WaitUntil(() => eventManager.startingEvent == false);
         
         gameUI.SetTurn(currentPlayerIndex);
         PlayerControllers[currentPlayerIndex].StartTurn();
