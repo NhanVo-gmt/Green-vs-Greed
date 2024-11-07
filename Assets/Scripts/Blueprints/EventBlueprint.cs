@@ -19,6 +19,7 @@
 
     public enum EventType
     {
+        None,
         Quiz
     }
 }

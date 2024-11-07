@@ -80,14 +80,15 @@ public class QuizPopupPresenter : BasePopupPresenter<QuizPopupView, QuizModel>
         if (answer == model.record.Name)
         {
             Debug.Log("Right");
+            this.model.eventManager.EndEvent(true);
             
         }
         else
         {
             Debug.Log("Wrong");
+            this.model.eventManager.EndEvent(false);
         }
         
-        this.model.eventManager.EndEvent();
         CloseView();
     }
 }

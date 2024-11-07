@@ -63,7 +63,10 @@ public class EventManager : MonoBehaviour
     private List<EventData> GameEventDatas   = new();
     private List<EventType>     CurrentEventList = new();
 
-    public bool startingEvent { get; private set; } = false;
+    public bool      startingEvent { get; private set; } = false;
+    public EventType CurrentEvent = EventType.Quiz;
+
+    public Action<EventType> OnRewardEvent;
 
     private void Awake()
     {
@@ -118,20 +121,33 @@ public class EventManager : MonoBehaviour
 
     public void StartQuizEvent()
     {
-        CardRecord   record = cardManager.DrawRandomPlayerCard();
-        List<string> answerList = new();
+        CardRecord       record      = cardManager.DrawRandomPlayerCard();
+        List<CardRecord> playerCards = new(cardManager.GetPlayerCards());
+        playerCards.ShuffleSource();
+        
+        List<string>     answerList  = new();
         answerList.Add(record.Name);
-        answerList.Add(record.Name);
-        answerList.Add(record.Name);
-        answerList.Add(record.Name);
+
+        int index = -1;
+        while (answerList.Count < 4)
+        {
+            index++;
+            if (playerCards[index].Name == record.Name) continue;
+            
+            answerList.Add(playerCards[index].Name);
+        }
 
         QuizModel model = new(record, answerList.ShuffleSource().ToArray(), this);
         
         screenManager.OpenScreen<QuizPopupPresenter, QuizModel>(model);
     }
 
-    public void EndEvent()
+    public void EndEvent(bool isWin)
     {
         startingEvent = false;
+
+        if (!isWin) return;
+        
+        OnRewardEvent?.Invoke(CurrentEvent);
     }
 }

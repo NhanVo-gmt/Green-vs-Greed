@@ -20,6 +20,7 @@
         private readonly IGameAssets              GameAssets;
 
         private Dictionary<PlayerType, List<CardRecord>> Cards = new();
+        private List<CardRecord> PlayerCards = new();
 
         public static Action OnCardDataLoaded;
         
@@ -50,6 +51,8 @@
             {
                 Cards[playerType].Add(record);
             }
+            
+            if (playerType != PlayerType.Effect) PlayerCards.AddRange(Cards[playerType]);
         }
         
         public List<CardRecord> GetCards(PlayerType playerType)
@@ -79,6 +82,11 @@
             }
 
             return Cards[playerType][Random.Range(0, Cards[playerType].Count)];
+        }
+
+        public List<CardRecord> GetPlayerCards()
+        {
+            return PlayerCards;
         }
 
         public async UniTask<Sprite> GetIcon(string id)

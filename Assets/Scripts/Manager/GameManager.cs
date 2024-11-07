@@ -12,6 +12,7 @@ using UnityEngine.UI;
 using UserData.Controller;
 using Watermelon;
 using Zenject;
+using EventType = Blueprints.EventType;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
@@ -53,7 +54,18 @@ public class GameManager : MonoBehaviour
     {
         this.GetCurrentContainer().Inject(this);
         FindAllPlayers();
+        
         gameUI.OnCloseHowToPlayScreen += StartGame;
+        eventManager.OnRewardEvent    += OnRewardEvent;
+    }
+    private void OnRewardEvent(EventType type)
+    {
+        switch (type)
+        {
+            case EventType.Quiz:
+                DrawCardForPlayerIndex(1);
+                break;
+        }
     }
 
     void StartGame()
@@ -79,6 +91,7 @@ public class GameManager : MonoBehaviour
     private void OnDestroy()
     {
         gameUI.OnCloseHowToPlayScreen -= StartGame;
+        eventManager.OnRewardEvent    -= OnRewardEvent;
         
         foreach (var player in PlayerControllers.Values)
         {
@@ -128,10 +141,15 @@ public class GameManager : MonoBehaviour
         
         for (int i = 0; i < MathF.Min(numberDraw, 1); i++)
         {
-            PlayerControllers[index]
-                .DrawCard(CardManager.DrawRandomCard(PlayerControllers[index].playerType));
+            DrawCardForPlayerIndex(index);
             yield return null;
         }
+    }
+
+    public void DrawCardForPlayerIndex(int index)
+    {
+        PlayerControllers[index]
+            .DrawCard(CardManager.DrawRandomCard(PlayerControllers[index].playerType));
     }
     
     #endregion
