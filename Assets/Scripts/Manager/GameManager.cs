@@ -270,7 +270,7 @@ public class GameManager : MonoBehaviour
             {
                 for (int j = 0; j < playerCards.Count; j++)
                 {
-                    if (playerCards[j].card.GetCardRecord().Id == playerCardRecord.CardNeededEffect.CardNeededId)
+                    if (playerCards[j].card.HasCard() && playerCards[j].card.GetCardRecord().Id == playerCardRecord.CardNeededEffect.CardNeededId)
                     {
                         yield return PlayCardAnimCoroutine(playerCards[i]);
                         
