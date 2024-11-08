@@ -71,14 +71,14 @@ public class EventData
     public void EnableEvent()
     {
         ChangePhase(EventPhase.CanStart);
-        Debug.Log($"[Event Manager]: Unlock Event {eventRecord.EventType.ToString()}");
+        Debug.Log($"[Event Manager]: Unlock Event {eventRecord.Id}");
     }
     
     public void StartEvent()
     {
         ChangePhase(EventPhase.Playing);
         roundElapse = eventRecord.LastRound;
-        Debug.Log($"[Event Manager]: Play Event {eventRecord.EventType.ToString()}");
+        Debug.Log($"[Event Manager]: Play Event {eventRecord.Id}");
     }
     
     public void FinishEvent()
@@ -87,7 +87,7 @@ public class EventData
         roundElapse = eventRecord.DelayRound;
         
         OnFinished?.Invoke(this);
-        Debug.Log($"[Event Manager]: Finish Event {eventRecord.EventType.ToString()}");
+        Debug.Log($"[Event Manager]: Finish Event {eventRecord.Id}");
     }
 
     public void ChangePhase(EventPhase newPhase)
@@ -102,10 +102,10 @@ public class EventManager : MonoBehaviour
     [Inject] private CardManager cardManager;
     [Inject] private IScreenManager screenManager;
 
-    private List<EventData> GameEventDatas   = new();
-    private List<EventData> CurrentEvents   = new();
+    private List<EventData> GameEventDatas = new();
+    public  List<EventData> CurrentEvents { get; private set; } = new();
 
-    public bool      startingEvent { get; private set; } = false;
+    public bool      eventPlaying { get; private set; } = false;
     public EventType CurrentEvent = EventType.Quiz;
 
     public Action<EventType> OnRewardEvent;
@@ -147,7 +147,7 @@ public class EventManager : MonoBehaviour
     {
         if (roundEvents.Count <= 0) return;
 
-        startingEvent = true;
+        eventPlaying = true;
         
         EventData eventData = roundEvents[Random.Range(0, roundEvents.Count)];
         eventData.OnFinished += FinishEvent;
@@ -171,7 +171,7 @@ public class EventManager : MonoBehaviour
                 StartQuizEvent();
                 break;
             case EventType.Natural:
-                // todo
+                eventPlaying = false;
                 break;
         }
     }
@@ -201,7 +201,7 @@ public class EventManager : MonoBehaviour
 
     public void EndEvent(bool isWin)
     {
-        startingEvent = false;
+        eventPlaying = false;
 
         if (!isWin) return;
         

@@ -12,6 +12,7 @@
     public class EventRecord
     {
         public string                                   Id;
+        public string                                   Image;
         public EventType                                EventType;
         public int                                      StartRound;
         public int                                      DelayRound;
