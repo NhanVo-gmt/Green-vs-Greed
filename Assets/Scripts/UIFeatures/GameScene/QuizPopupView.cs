@@ -10,6 +10,7 @@ using UIFeatures.GameScene;
 using UnityEngine;
 using UnityEngine.UI;
 using UserData.Controller;
+using Watermelon;
 using Zenject;
 
 public class QuizModel
@@ -77,18 +78,36 @@ public class QuizPopupPresenter : BasePopupPresenter<QuizPopupView, QuizModel>
 
     void ChooseAnswer(string answer)
     {
-        if (answer == model.record.Name)
+        UpdateUIAnswer();
+        bool right = answer == model.record.Name;
+        if (right)
         {
             Debug.Log("Right");
-            this.model.eventManager.EndEvent(true);
-            
         }
         else
         {
             Debug.Log("Wrong");
-            this.model.eventManager.EndEvent(false);
         }
         
-        CloseView();
+        Tween.DelayedCall(2f, () =>
+        {
+            this.model.eventManager.EndEvent(right);
+            CloseView();
+        });
+    }
+
+    void UpdateUIAnswer()
+    {
+        for (int i = 0; i < this.model.answers.Length; i++)
+        {
+            if (this.View.answerBtns[i].answer == model.record.Name)
+            {
+                this.View.answerBtns[i].UpdateAnswerColor(Color.green);
+            }
+            else
+            {
+                this.View.answerBtns[i].UpdateAnswerColor(Color.red);
+            }
+        }
     }
 }
