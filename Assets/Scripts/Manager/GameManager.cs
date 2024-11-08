@@ -258,20 +258,26 @@ public class GameManager : MonoBehaviour
             var playerCardResources = playerCardRecord.Resources;
 
             // Anim
-            playerCards[i].PlayAttackAnim(currentPlayerIndex == 0);
-            yield return new WaitForSeconds(playerCards[i].GetClipLength());
+            yield return PlayCardAnimCoroutine(playerCards[i]);
             
             foreach (var cardResourceRecord in playerCardResources.Values)
             {
-                if (cardResourceRecord.ResourceId == Resource.Money)
+                GrantPlayerResource(cardResourceRecord.ResourceId, cardResourceRecord.ResourceAmount);
+            }
+            
+            // Card side effect
+            if (playerCardRecord.CardNeededEffect != null)
+            {
+                for (int j = 0; j < playerCards.Count; j++)
                 {
-                    // Money
-                    PlayerControllers[0].ChangeResourceAmount(cardResourceRecord.ResourceId, cardResourceRecord.ResourceAmount);
-                }
-                else
-                {
-                    // Wood, Water
-                    PlayerControllers[1].ChangeResourceAmount(cardResourceRecord.ResourceId, cardResourceRecord.ResourceAmount);
+                    if (playerCards[j].card.GetCardRecord().Id == playerCardRecord.CardNeededEffect.CardNeededId)
+                    {
+                        yield return PlayCardAnimCoroutine(playerCards[i]);
+                        
+                        GrantPlayerResource(playerCardRecord.CardNeededEffect.RewardResourceId, playerCardRecord.CardNeededEffect.RewardResourceAmount);
+
+                        break;
+                    }
                 }
             }
 
@@ -288,6 +294,27 @@ public class GameManager : MonoBehaviour
         PlayerControllers[currentPlayerIndex].playedCardDeck.DiscardAllCards();
         
         StartPlayerTurn();
+    }
+
+    IEnumerator PlayCardAnimCoroutine(CardSlot slot)
+    {
+        // Anim
+        slot.PlayAttackAnim(currentPlayerIndex == 0);
+        yield return new WaitForSeconds(slot.GetClipLength());
+    }
+
+    void GrantPlayerResource(Resource resourceId, int resourceAmount)
+    {
+        if (resourceId == Resource.Money)
+        {
+            // Money
+            PlayerControllers[0].ChangeResourceAmount(resourceId, resourceAmount);
+        }
+        else
+        {
+            // Wood, Water
+            PlayerControllers[1].ChangeResourceAmount(resourceId, resourceAmount);
+        }
     }
 
     #endregion

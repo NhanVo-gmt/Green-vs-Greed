@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using Blueprints;
 using UnityEngine;
 
+public enum CardDeckType
+{
+    Hand,
+    Played
+}
+
 public class CardDeck : MonoBehaviour
 {
     [Header("Card Index")]
