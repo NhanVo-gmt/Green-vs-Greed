@@ -153,8 +153,7 @@ public class EventManager : MonoBehaviour
         eventData.OnFinished += FinishEvent;
         CurrentEvents.Add(eventData);
         
-        eventData.StartEvent();
-        StartEvent(eventData.eventRecord.EventType);
+        StartEvent(eventData);
     }
 
     void FinishEvent(EventData eventData)
@@ -163,15 +162,16 @@ public class EventManager : MonoBehaviour
         CurrentEvents.Remove(eventData);
     }
 
-    public void StartEvent(EventType eventType)
+    public void StartEvent(EventData data)
     {
-        switch (eventType)
+        data.StartEvent();
+        switch (data.eventRecord.EventType)
         {
             case EventType.Quiz:
                 StartQuizEvent();
                 break;
             case EventType.Natural:
-                eventPlaying = false;
+                screenManager.OpenScreen<NaturalEventPopupPresenter, NaturalEventModel>(new(data.eventRecord, this));
                 break;
         }
     }
