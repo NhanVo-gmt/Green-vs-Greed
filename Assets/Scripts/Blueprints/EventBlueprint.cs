@@ -11,15 +11,20 @@
 
     public class EventRecord
     {
-        public string    Id;
-        public EventType EventType;
-        public int       StartRound;
-        public int       DelayRound;
+        public string                                   Id;
+        public string                                   Description;
+        public string                                   Image;
+        public EventType                                EventType;
+        public int                                      StartRound;
+        public int                                      DelayRound;
+        public int                                      LastRound;
+        public BlueprintByRow<Resource, ResourceRecord> Effects;
     }
 
     public enum EventType
     {
         None,
-        Quiz
+        Quiz,
+        Natural
     }
 }

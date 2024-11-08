@@ -234,7 +234,7 @@ public class GameManager : MonoBehaviour
         currentRound++;
         eventManager.OnNewRound(currentRound);
 
-        yield return new WaitUntil(() => eventManager.startingEvent == false);
+        yield return new WaitUntil(() => eventManager.eventPlaying == false);
         
         gameUI.SetTurn(currentPlayerIndex);
         PlayerControllers[currentPlayerIndex].StartTurn();
@@ -305,6 +305,16 @@ public class GameManager : MonoBehaviour
 
     void GrantPlayerResource(Resource resourceId, int resourceAmount)
     {
+        // Natural event
+        foreach (var eventData in eventManager.CurrentEvents)
+        {
+            if (eventData.eventRecord.EventType == EventType.Natural &&
+                eventData.eventRecord.Effects.TryGetValue(resourceId, out ResourceRecord naturalRecord))
+            {
+                resourceAmount += naturalRecord.ResourceAmount;
+            }
+        }
+        
         if (resourceId == Resource.Money)
         {
             // Money

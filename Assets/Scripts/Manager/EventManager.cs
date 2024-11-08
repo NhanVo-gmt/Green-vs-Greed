@@ -14,43 +14,85 @@ using Random = UnityEngine.Random;
 
 public class EventData
 {
+    public enum EventPhase
+    {
+        Lock,
+        Wait,
+        CanStart,
+        Playing,
+    }
+    
     public EventRecord eventRecord { get; private set; }
-
-    private bool isStarted   = false;
+    public EventPhase  phase;
+    
     private int  roundElapse = 0;
 
-    public bool canStart { get; private set; } = false;
+    public Action<EventData> OnFinished;
 
     public EventData(EventRecord eventRecord)
     {
         this.eventRecord = eventRecord;
-        isStarted        = false;
-        canStart         = false;
+        phase            = EventPhase.Lock;
     }
 
     public void NewRound(int round)
     {
-        if (round >= eventRecord.StartRound)
+        switch (phase)
         {
-            isStarted = true;
-            Debug.Log($"[Event Manager]: Unlock Event {eventRecord.EventType.ToString()}");
+            case EventPhase.Lock:
+                if (round >= eventRecord.StartRound)
+                {
+                    EnableEvent();
+                }
+                break;
+            case EventPhase.Wait:
+                if (roundElapse <= 0)
+                {
+                    roundElapse = eventRecord.DelayRound;
+                    ChangePhase(EventPhase.CanStart);
+                }
+                break;
+            case EventPhase.CanStart:
+                if (roundElapse != eventRecord.DelayRound)
+                {
+                    ChangePhase(EventPhase.Wait);
+                }
+                break;
+            case EventPhase.Playing:
+                if (roundElapse <= 0)
+                {
+                    FinishEvent();
+                }
+                break;
         }
+        roundElapse--;
+    }
 
-        if (isStarted)
-        {
-            roundElapse--;
-            if (roundElapse <= 0)
-            {
-                canStart = true;
-            }
-        }
+    public void EnableEvent()
+    {
+        ChangePhase(EventPhase.CanStart);
+        Debug.Log($"[Event Manager]: Unlock Event {eventRecord.Id}");
     }
     
-
     public void StartEvent()
     {
-        canStart    = false;
+        ChangePhase(EventPhase.Playing);
+        roundElapse = eventRecord.LastRound;
+        Debug.Log($"[Event Manager]: Play Event {eventRecord.Id}");
+    }
+    
+    public void FinishEvent()
+    {
+        ChangePhase(EventPhase.Wait);
         roundElapse = eventRecord.DelayRound;
+        
+        OnFinished?.Invoke(this);
+        Debug.Log($"[Event Manager]: Finish Event {eventRecord.Id}");
+    }
+
+    public void ChangePhase(EventPhase newPhase)
+    {
+        phase = newPhase;
     }
 }
 
@@ -60,10 +102,10 @@ public class EventManager : MonoBehaviour
     [Inject] private CardManager cardManager;
     [Inject] private IScreenManager screenManager;
 
-    private List<EventData> GameEventDatas   = new();
-    private List<EventType>     CurrentEventList = new();
+    private List<EventData> GameEventDatas = new();
+    public  List<EventData> CurrentEvents { get; private set; } = new();
 
-    public bool      startingEvent { get; private set; } = false;
+    public bool      eventPlaying { get; private set; } = false;
     public EventType CurrentEvent = EventType.Quiz;
 
     public Action<EventType> OnRewardEvent;
@@ -77,19 +119,19 @@ public class EventManager : MonoBehaviour
 
     public void OnNewRound(int newRound)
     {
-        CurrentEventList.Clear();
+        List<EventData> roundEvents = new();
         
         foreach (var gameEventData in GameEventDatas)
         {
             gameEventData.NewRound(newRound);
 
-            if (gameEventData.canStart)
+            if (gameEventData.phase == EventData.EventPhase.CanStart)
             {
-                CurrentEventList.Add(gameEventData.eventRecord.EventType);
+                roundEvents.Add(gameEventData);
             }
         }
         
-        StartRandomEvent();
+        StartRandomEvent(roundEvents);
     }
 
     void CreateEvents()
@@ -101,20 +143,35 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    public void StartRandomEvent()
+    public void StartRandomEvent(List<EventData> roundEvents)
     {
-        if (CurrentEventList.Count <= 0) return;
+        if (roundEvents.Count <= 0) return;
 
-        startingEvent = true;
-        StartEvent(CurrentEventList[Random.Range(0, CurrentEventList.Count)]);
+        eventPlaying = true;
+        
+        EventData eventData = roundEvents[Random.Range(0, roundEvents.Count)];
+        eventData.OnFinished += FinishEvent;
+        CurrentEvents.Add(eventData);
+        
+        StartEvent(eventData);
     }
 
-    public void StartEvent(EventType eventType)
+    void FinishEvent(EventData eventData)
     {
-        switch (eventType)
+        eventData.OnFinished -= FinishEvent;
+        CurrentEvents.Remove(eventData);
+    }
+
+    public void StartEvent(EventData data)
+    {
+        data.StartEvent();
+        switch (data.eventRecord.EventType)
         {
             case EventType.Quiz:
                 StartQuizEvent();
+                break;
+            case EventType.Natural:
+                screenManager.OpenScreen<NaturalEventPopupPresenter, NaturalEventModel>(new(data.eventRecord, this));
                 break;
         }
     }
@@ -144,7 +201,7 @@ public class EventManager : MonoBehaviour
 
     public void EndEvent(bool isWin)
     {
-        startingEvent = false;
+        eventPlaying = false;
 
         if (!isWin) return;
         
