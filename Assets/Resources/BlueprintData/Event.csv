@@ -1,2 +1,2 @@
-Id,EventType,StartRound,DelayRound
-1,Quiz,3,4
+Id,EventType,StartRound,DelayRound,LastRound,ResourceId,ResourceAmount
+1,Quiz,3,4,1,,
