@@ -1,3 +1,3 @@
 Id,Description,Image,EventType,StartRound,DelayRound,LastRound,ResourceId,ResourceAmount
 Quiz,,,Quiz,3,4,1,,
-LandSlide,All cards played this turn -1 Wood,LandSlide,Natural,1,6,1,Wood,-1
+LandSlide,All cards played this turn -1 Wood. Last 1 round.,LandSlide,Natural,1,6,1,Wood,-1
