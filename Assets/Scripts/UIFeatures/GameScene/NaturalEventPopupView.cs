@@ -31,6 +31,7 @@ public class NaturalEventPopupView : BaseView
 {
     public Image           img;
     public TextMeshProUGUI des;
+    public Button          closeBtn;
 }
 
 [PopupInfo(nameof(NaturalEventPopupView), false, false)]
@@ -52,9 +53,15 @@ public class NaturalEventPopupPresenter : BasePopupPresenter<NaturalEventPopupVi
         UpdateImage().Forget();
         this.View.des.text = model.eventRecord.Description;
 
-        Tween.DelayedCall(3f, Finish);
+        this.View.closeBtn.onClick.AddListener(Finish);
         
         return UniTask.CompletedTask;
+    }
+
+    public override void Dispose()
+    {
+        base.Dispose();
+        this.View.closeBtn.onClick.RemoveAllListeners();
     }
 
     async UniTask UpdateImage()
