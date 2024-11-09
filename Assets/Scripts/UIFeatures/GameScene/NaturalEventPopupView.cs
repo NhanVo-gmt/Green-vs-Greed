@@ -30,6 +30,7 @@ public class NaturalEventModel
 public class NaturalEventPopupView : BaseView
 {
     public Image           img;
+    public TextMeshProUGUI title;
     public TextMeshProUGUI des;
     public Button          closeBtn;
 }
@@ -51,6 +52,8 @@ public class NaturalEventPopupPresenter : BasePopupPresenter<NaturalEventPopupVi
         this.model = popupModel;
         
         UpdateImage().Forget();
+        
+        this.View.title.text = model.eventRecord.Id;
         this.View.des.text = model.eventRecord.Description;
 
         this.View.closeBtn.onClick.AddListener(Finish);
@@ -66,6 +69,7 @@ public class NaturalEventPopupPresenter : BasePopupPresenter<NaturalEventPopupVi
 
     async UniTask UpdateImage()
     {
+        this.View.img.sprite = null;
         this.View.img.sprite = await gameAssets.LoadAssetAsync<Sprite>(model.eventRecord.Image);
     }
 

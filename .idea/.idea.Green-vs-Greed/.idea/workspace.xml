@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="183aa535-458a-4c9a-a18f-e0b9b9d9f9d9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Green-vs-Greed/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Green-vs-Greed/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameScreen/NaturalEventPopupView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameScreen/NaturalEventPopupView.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/BlueprintData/Event.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/BlueprintData/Event.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/3.GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/3.GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIFeatures/GameScene/NaturalEventPopupView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIFeatures/GameScene/NaturalEventPopupView.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +152,7 @@
       <workItem from="1730910952264" duration="6056000" />
       <workItem from="1730996048669" duration="1187000" />
       <workItem from="1731083174271" duration="343000" />
-      <workItem from="1731129055548" duration="311000" />
+      <workItem from="1731129055548" duration="1070000" />
     </task>
     <servers />
   </component>
