@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="183aa535-458a-4c9a-a18f-e0b9b9d9f9d9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Green-vs-Greed/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Green-vs-Greed/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/BlueprintData/Effect.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/BlueprintData/Effect.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Card/CardDeck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Card/CardDeck.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayedCardDeck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayedCardDeck.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCardDeck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCardDeck.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/State/Player_PickState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/Player_PickState.cs" afterDir="false" />
-    </list>
+    <list default="true" id="183aa535-458a-4c9a-a18f-e0b9b9d9f9d9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,6 +149,7 @@
       <workItem from="1731083174271" duration="343000" />
       <workItem from="1731129055548" duration="1070000" />
       <workItem from="1731211849957" duration="5514000" />
+      <workItem from="1731243770957" duration="397000" />
     </task>
     <servers />
   </component>
@@ -178,24 +171,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Player/Player.cs</url>
-          <line>117</line>
-          <properties documentPath="D:\UTSSS\Serious Game\Green-vs-Greed\Assets\Scripts\Player\Player.cs" initialLine="117" containingFunctionPresentation="Method 'CanPickCard'">
-            <startOffsets>
-              <option value="3123" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3140" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
