@@ -37,13 +37,13 @@ public class CardDeck : MonoBehaviour
         }
     }
 
-    public virtual void DrawCard(CardRecord cardRecord)
+    public virtual void DrawCard(CardRecord cardRecord, Transform target)
     {
         foreach (CardSlot slot in CardSlots)
         {
             if (slot.CanGetCard())
             {
-                DrawSlot(slot, cardRecord);
+                DrawSlot(slot, cardRecord, target);
                 return;
             }
         }
@@ -51,11 +51,11 @@ public class CardDeck : MonoBehaviour
 
     #region Draw
 
-    public virtual void DrawSlot(CardSlot slot, CardRecord record)
+    public virtual void DrawSlot(CardSlot slot, CardRecord record, Transform target)
     {
         occupiedSlot++;
         
-        slot.DrawCard(record);
+        slot.DrawCard(record, target);
         slot.SetViewState(!player.isBot);
         
         OnDrawCard?.Invoke(record);

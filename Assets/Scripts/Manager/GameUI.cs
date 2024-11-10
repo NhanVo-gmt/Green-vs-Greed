@@ -48,6 +48,6 @@ public class GameUI : MonoBehaviour
 
     public void EndTurn()
     {
-        gameText.text = "Checking...";
+        gameText.text = "";
     }
 }
