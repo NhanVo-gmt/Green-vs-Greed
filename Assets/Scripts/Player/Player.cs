@@ -86,9 +86,7 @@ public class Player : MonoBehaviour
     public void BindData(PlayerRecord playerRecord)
     {
         this.playerRecord = playerRecord;
-        
-        RegisterEvent();
-        
+
         stateMachine = new();
 
         playerDrawState = new(stateMachine, this, PlayerStateName.Draw);
@@ -102,19 +100,44 @@ public class Player : MonoBehaviour
         construction.BindData(playerData, playerRecord.PlayerUpgrades);
     }
 
-    void RegisterEvent()
+    public void PickCard(CardDeckType deckType, CardRecord record)
     {
-        playerCardDeck.OnPickCard += OnPickPlayerCardDeck;
+        switch (deckType)
+        {
+            case CardDeckType.Hand:
+                playedCardDeck.DrawCard(record);
+                break;
+            case CardDeckType.Played:
+                playerCardDeck.DrawCard(record);
+                break;
+        }
     }
 
-    private void OnDestroy()
+    public bool CanPickCard(CardDeckType deckType)
     {
-        playerCardDeck.OnPickCard -= OnPickPlayerCardDeck;
+        switch (deckType)
+        {
+            case CardDeckType.Hand:
+                return !playedCardDeck.IsFull();
+            case CardDeckType.Played:
+                return !playerCardDeck.IsFull();
+        }
+
+        return false;
     }
 
     void OnPickPlayerCardDeck(CardRecord cardRecord)
     {
         playedCardDeck.DrawCard(cardRecord);
+
+        if (playedCardDeck.IsFull())
+        {
+            playerCardDeck.SetPickState(false);
+        }
+        else
+        {
+            
+        }
     }
 
     private void Update()

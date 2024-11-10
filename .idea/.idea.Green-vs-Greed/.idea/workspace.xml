@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="183aa535-458a-4c9a-a18f-e0b9b9d9f9d9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Green-vs-Greed/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Green-vs-Greed/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/BlueprintData/Effect.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/BlueprintData/Effect.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Card/CardDeck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Card/CardDeck.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayedCardDeck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayedCardDeck.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCardDeck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCardDeck.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/State/Player_PickState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/Player_PickState.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,10 +110,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="15548">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="15548" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -150,7 +156,7 @@
       <workItem from="1730996048669" duration="1187000" />
       <workItem from="1731083174271" duration="343000" />
       <workItem from="1731129055548" duration="1070000" />
-      <workItem from="1731211849957" duration="2722000" />
+      <workItem from="1731211849957" duration="5360000" />
     </task>
     <servers />
   </component>
@@ -172,5 +178,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Player/Player.cs</url>
+          <line>122</line>
+          <properties documentPath="D:\UTSSS\Serious Game\Green-vs-Greed\Assets\Scripts\Player\Player.cs" initialLine="122" containingFunctionPresentation="Method 'CanPickCard'">
+            <startOffsets>
+              <option value="3290" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3322" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
