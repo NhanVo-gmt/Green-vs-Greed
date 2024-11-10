@@ -48,8 +48,15 @@ public class PlayedCardDeck : CardDeck
     {
         if (!CanPickCard()) return;
         
-        player.playerCardDeck.DrawCard(cardSlot.card.GetCardRecord());
-        base.PickCard(cardSlot);
+        occupiedSlot--;
+
+        CardRecord pickCard = cardSlot.card.GetCardRecord();
+        
+        cardSlot.DisableVisual();
+        cardSlot.card.Pick();
+        
+        player.playerCardDeck.DrawCard(pickCard);
+        OnPickCard?.Invoke(pickCard);
     }
 
     public override bool CanPickCard()
