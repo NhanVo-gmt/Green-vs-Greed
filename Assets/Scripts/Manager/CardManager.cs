@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using Blueprints;
     using Cysharp.Threading.Tasks;
     using DataManager.MasterData;
@@ -19,8 +20,11 @@
         private readonly EffectCardBlueprint      effectCardBlueprint;
         private readonly IGameAssets              GameAssets;
 
-        private Dictionary<PlayerType, List<CardRecord>> Cards = new();
-        private List<CardRecord> PlayerCards = new();
+        private Dictionary<PlayerType, List<CardRecord>> Cards                     = new();
+        private List<CardRecord>                         PlayerCards               = new();
+        private Dictionary<Resource, List<CardRecord>>   playerResourceCards = new();
+
+        private Resource currentResource = Resource.Wood;
 
         public static Action OnCardDataLoaded;
         
@@ -41,6 +45,8 @@
             LoadCard(PlayerType.Environment, environmentCardBlueprint);
             LoadCard(PlayerType.Effect, effectCardBlueprint);
             
+            playerResourceCards = LoadResourceCard(environmentCardBlueprint);
+            
             OnCardDataLoaded?.Invoke();
         }
 
@@ -54,6 +60,26 @@
             
             if (playerType != PlayerType.Effect) PlayerCards.AddRange(Cards[playerType]);
         }
+
+        Dictionary<Resource, List<CardRecord>> LoadResourceCard(CardBlueprint cardBlueprint)
+        {
+            Dictionary<Resource, List<CardRecord>> resourceCardRecords = new();
+            var                                    resourceEnums = Enum.GetValues(typeof(Resource)).Cast<Resource>();
+            foreach (var resourceEnum in resourceEnums)
+            {
+                resourceCardRecords.Add(resourceEnum, new());
+            }
+            
+            foreach (CardRecord record in cardBlueprint.Values)
+            {
+                foreach (var recordResource in record.Resources.Values)
+                {
+                    resourceCardRecords[recordResource.ResourceId].Add(record);
+                }
+            }
+
+            return resourceCardRecords;
+        }
         
         public List<CardRecord> GetCards(PlayerType playerType)
         {
@@ -62,16 +88,52 @@
 
         public CardRecord DrawRandomCard(PlayerType playerType)
         {
+            switch (playerType)
+            {
+                case PlayerType.Environment:
+                    return DrawRandomPlayerCard();
+                case PlayerType.Corporation:
+                    return DrawRandomCorporationCard();
+                default:
+                    return null;
+            }
+        }
+        
+        
+        public CardRecord DrawRandomPlayerCard()
+        {
             int rate = Random.Range(0, 100);
             if (rate <= 20)
             {
                 return Cards[PlayerType.Effect][Random.Range(0, Cards[PlayerType.Effect].Count)];
             }
 
-            return Cards[playerType][Random.Range(0, Cards[playerType].Count)];
+            switch (currentResource)
+            {
+                case Resource.Wood:
+                    currentResource = Resource.Water;
+                    break;
+                case Resource.Water:
+                    currentResource = Resource.Wood;
+                    break;
+            }
+
+            return playerResourceCards[currentResource][Random.Range(0, playerResourceCards[currentResource].Count)];
         }
         
-        public CardRecord DrawRandomPlayerCard()
+        public CardRecord DrawRandomCorporationCard()
+        {
+            int rate = Random.Range(0, 100);
+            if (rate <= 20)
+            {
+                return Cards[PlayerType.Effect][Random.Range(0, Cards[PlayerType.Effect].Count)];
+            }
+            
+            return Cards[PlayerType.Corporation][Random.Range(0, Cards[PlayerType.Corporation].Count)];
+        }
+        
+        
+        public CardRecord DrawRandomQuizCard()
         {
             int rate = Random.Range(0, 100);
             

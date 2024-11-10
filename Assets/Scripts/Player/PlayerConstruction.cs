@@ -68,7 +68,7 @@ public class PlayerConstruction : MonoBehaviour
             var upgrade = playerUpgrades[site.Resource];
             for (int i = 0; i < upgrade.Requirements.Count; i++)
             {
-                if (playerData.resources[upgrade.ResourceUpgrade] < upgrade.Requirements[i].ResourceRequirementValue)
+                if (playerData.resources[upgrade.ResourceUpgrade] <= upgrade.Requirements[i].ResourceRequirementValue)
                 {
                     site.UpdateLevel(i + 1);
                     break;

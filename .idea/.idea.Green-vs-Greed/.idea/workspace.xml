@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="183aa535-458a-4c9a-a18f-e0b9b9d9f9d9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Green-vs-Greed/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Green-vs-Greed/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameScreen/NaturalEventPopupView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameScreen/NaturalEventPopupView.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/3.GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/3.GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIFeatures/GameScene/NaturalEventPopupView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIFeatures/GameScene/NaturalEventPopupView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/BlueprintData/Corporation.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/BlueprintData/Corporation.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/BlueprintData/Player.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/BlueprintData/Player.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/CardManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/CardManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/EventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/EventManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerConstruction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerConstruction.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +58,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "feature/design-v1.0.1",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -153,6 +155,7 @@
       <workItem from="1730996048669" duration="1187000" />
       <workItem from="1731083174271" duration="343000" />
       <workItem from="1731129055548" duration="1070000" />
+      <workItem from="1731211849957" duration="1795000" />
     </task>
     <servers />
   </component>
