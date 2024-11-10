@@ -5757,6 +5757,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventManager: {fileID: 649235993}
   numberPlayers: 0
+  maxStartCard: 3
+  cardDeckVisual: {fileID: 432329516}
   gameUI: {fileID: 1770760154}
   waitTimeBeforeChecking: 0.5
   waitTimeAfterChecking: 1

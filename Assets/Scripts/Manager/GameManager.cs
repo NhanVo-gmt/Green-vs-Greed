@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int maxStartCard = 3;
 
+    public GameObject cardDeckVisual;
+
     [Header("UI")]
     [SerializeField] private GameUI gameUI;
 
@@ -72,7 +74,7 @@ public class GameManager : MonoBehaviour
 
     void StartGame()
     {
-        DrawAllCards();
+        StartCoroutine(DrawAllCardsCoroutine());
     }
     
     void FindAllPlayers()
@@ -103,15 +105,14 @@ public class GameManager : MonoBehaviour
         PlayerControllers.Clear();
     }
     
-    private void DrawAllCards()
+    IEnumerator DrawAllCardsCoroutine()
     {
-        if (CardManager.GetCards(PlayerType.Corporation).Count == 0) return;
-        
         foreach (var player in PlayerControllers.Values)
         {
             DrawAllCards(player);
         }
 
+        yield return new WaitForSeconds(1f);
         StartPlayerTurn();
     }
 
@@ -121,7 +122,7 @@ public class GameManager : MonoBehaviour
         foreach (var cardRecord in CardManager.GetCards(player.playerType))
         {
             index++;
-            player.DrawCard(cardRecord);
+            player.DrawCard(cardRecord, cardDeckVisual.transform);
 
             if (index >= maxStartCard)
             {
@@ -135,7 +136,7 @@ public class GameManager : MonoBehaviour
         var cards = CardManager.GetCards(player.playerType);
         for (int i = 0; i < num; i++)
         {
-            player.DrawCard(cards[Random.Range(0, cards.Count)]);
+            player.DrawCard(cards[Random.Range(0, cards.Count)], cardDeckVisual.transform);
         }
     }
 
@@ -158,7 +159,7 @@ public class GameManager : MonoBehaviour
     public void DrawCardForPlayerIndex(int index)
     {
         PlayerControllers[index]
-            .DrawCard(CardManager.DrawRandomCard(PlayerControllers[index].playerType));
+            .DrawCard(CardManager.DrawRandomCard(PlayerControllers[index].playerType), cardDeckVisual.transform);
     }
     
     #endregion

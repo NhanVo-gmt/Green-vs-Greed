@@ -100,15 +100,15 @@ public class Player : MonoBehaviour
         construction.BindData(playerData, playerRecord.PlayerUpgrades);
     }
 
-    public void PickCard(CardDeckType deckType, CardRecord record)
+    public void PickCard(CardDeckType deckType, CardRecord record, Transform target)
     {
         switch (deckType)
         {
             case CardDeckType.Hand:
-                playedCardDeck.DrawCard(record);
+                playedCardDeck.DrawCard(record, target);
                 break;
             case CardDeckType.Played:
-                playerCardDeck.DrawCard(record);
+                playerCardDeck.DrawCard(record, target);
                 break;
         }
     }
@@ -124,20 +124,6 @@ public class Player : MonoBehaviour
         }
 
         return false;
-    }
-
-    void OnPickPlayerCardDeck(CardRecord cardRecord)
-    {
-        playedCardDeck.DrawCard(cardRecord);
-
-        if (playedCardDeck.IsFull())
-        {
-            playerCardDeck.SetPickState(false);
-        }
-        else
-        {
-            
-        }
     }
 
     private void Update()
@@ -174,9 +160,9 @@ public class Player : MonoBehaviour
 
     #region Card
 
-    public void DrawCard(CardRecord cardRecord)
+    public void DrawCard(CardRecord cardRecord, Transform target)
     {
-        playerCardDeck.DrawCard(cardRecord);
+        playerCardDeck.DrawCard(cardRecord, target);
     }
 
     public void DiscardAllCards()

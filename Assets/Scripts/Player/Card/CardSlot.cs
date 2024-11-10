@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Blueprints;
 using GameFoundation.Scripts.UIModule.ScreenFlow.Managers;
 using GameFoundation.Scripts.Utilities.Extension;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Watermelon;
@@ -41,9 +42,23 @@ public class CardSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
     }
 
 
-    public void DrawCard(CardRecord cardRecord)
+    public void DrawCard(CardRecord cardRecord, Transform target)
     {
         this.card.BindData(cardRecord);
+        PlayDrawCardAnimation(target);
+    }
+
+    [Button("Play Draw Card Animation")]
+    public void PlayDrawCardAnimation(Transform target)
+    {
+        Vector3 startPos       = transform.position;
+        float   dis            = Vector2.Distance(target.position, startPos);
+        bool    startHoverState = CanHover;
+        
+        SetHoverState(false);
+        transform.DOMove(target.position, 0f, 0).
+            OnComplete(() => transform.DOMove(startPos, 0.05f * dis).SetEasing(Ease.Type.SineIn)
+                .OnComplete(() => SetHoverState(startHoverState)));
     }
 
     public bool CanGetCard()

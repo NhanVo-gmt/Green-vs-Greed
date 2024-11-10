@@ -19,7 +19,7 @@ public class PlayedCardDeck : CardDeck
         }
     }
 
-    public override void DrawCard(CardRecord cardRecord)
+    public override void DrawCard(CardRecord cardRecord, Transform target)
     {
         if (cardRecord.UseImmediately)
         {
@@ -28,12 +28,12 @@ public class PlayedCardDeck : CardDeck
             return;
         }
         
-        base.DrawCard(cardRecord);
+        base.DrawCard(cardRecord, target);
     }
 
-    public override void DrawSlot(CardSlot slot, CardRecord record)
+    public override void DrawSlot(CardSlot slot, CardRecord record, Transform target)
     {
-        base.DrawSlot(slot, record);
+        base.DrawSlot(slot, record, target);
         slot.SetViewState(canView);
     }
 
@@ -55,7 +55,7 @@ public class PlayedCardDeck : CardDeck
         cardSlot.DisableVisual();
         cardSlot.card.Pick();
         
-        player.playerCardDeck.DrawCard(pickCard);
+        player.playerCardDeck.DrawCard(pickCard, cardSlot.transform);
         OnPickCard?.Invoke(pickCard);
     }
 

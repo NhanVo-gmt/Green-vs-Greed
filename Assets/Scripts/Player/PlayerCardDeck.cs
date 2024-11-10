@@ -9,9 +9,9 @@ public class PlayerCardDeck : CardDeck
 {
     public List<CardSlot> AvailableCardSlots = new();
     
-    public override void DrawSlot(CardSlot slot, CardRecord record)
+    public override void DrawSlot(CardSlot slot, CardRecord record, Transform target)
     {
-        base.DrawSlot(slot, record);
+        base.DrawSlot(slot, record, target);
         
         slot.SetViewState(player.showView);
         
@@ -60,7 +60,7 @@ public class PlayerCardDeck : CardDeck
         AvailableCardSlots.Remove(cardSlot);
         OnPickCard?.Invoke(pickCard);
         
-        player.PickCard(GetCardDeckType(), pickCard);
+        player.PickCard(GetCardDeckType(), pickCard, cardSlot.transform);
     }
 
     #endregion
