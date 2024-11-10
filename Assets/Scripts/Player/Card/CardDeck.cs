@@ -14,10 +14,12 @@ public class CardDeck : MonoBehaviour
     [Header("Card Index")]
     public List<CardSlot> CardSlots = new();
 
+    public int occupiedSlot = 0;
+
     public Action<CardRecord> OnDrawCard;
     public Action<CardRecord> OnPickCard;
 
-    public bool CanPick { get; protected set; } = false;
+    public bool isPickState { get; protected set; } = false;
     
     protected Player player;
 
@@ -42,7 +44,6 @@ public class CardDeck : MonoBehaviour
             if (slot.CanGetCard())
             {
                 DrawSlot(slot, cardRecord);
-                
                 return;
             }
         }
@@ -52,6 +53,8 @@ public class CardDeck : MonoBehaviour
 
     public virtual void DrawSlot(CardSlot slot, CardRecord record)
     {
+        occupiedSlot++;
+        
         slot.DrawCard(record);
         slot.SetViewState(!player.isBot);
         
@@ -59,22 +62,47 @@ public class CardDeck : MonoBehaviour
     }
 
     #endregion
+    
+    public bool IsEmpty()
+    {
+        return occupiedSlot == 0;
+    }
+
+    public bool IsFull()
+    {
+        return occupiedSlot == CardSlots.Count;
+    }
+
+    public virtual CardDeckType GetCardDeckType()
+    {
+        return CardDeckType.Played;
+    }
 
     #region Pick
     
     
     public virtual void SetPickState(bool state)
     {
-        CanPick = state;
+        isPickState = state;
+    }
+
+    public virtual bool CanPickCard()
+    {
+        return isPickState;
     }
     
     public virtual void PickCard(CardSlot cardSlot)
     {
-        if (!CanPick) return;
+        if (!CanPickCard()) return;
+        
+        occupiedSlot--;
+
+        CardRecord pickCard = cardSlot.card.GetCardRecord();
         
         cardSlot.DisableVisual();
+        cardSlot.card.Pick();
         
-        OnPickCard?.Invoke(cardSlot.card.GetCardRecord());
+        OnPickCard?.Invoke(pickCard);
     }
 
     #endregion
@@ -83,6 +111,7 @@ public class CardDeck : MonoBehaviour
     
     public virtual void DiscardAllCards()
     {
+        occupiedSlot = 0;
         foreach (CardSlot slot in CardSlots)
         {
             slot.card.Use();

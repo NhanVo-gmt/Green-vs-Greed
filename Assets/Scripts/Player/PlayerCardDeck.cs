@@ -23,22 +23,34 @@ public class PlayerCardDeck : CardDeck
         return AvailableCardSlots.Count;
     }
 
+    public override CardDeckType GetCardDeckType()
+    {
+        return CardDeckType.Hand;
+    }
+
     #region Pick
     
     
     public override void SetPickState(bool state)
     {
-        CanPick = state;
+        isPickState = state;
 
         if (player.isBot)
         {
             PickRandomCard();
         }
     }
-    
+
+    public override bool CanPickCard()
+    {
+        return isPickState && player.CanPickCard(GetCardDeckType());
+    }
+
     public override void PickCard(CardSlot cardSlot)
     {
-        if (!CanPick) return;
+        if (!CanPickCard()) return;
+
+        occupiedSlot--;
 
         CardRecord pickCard = cardSlot.card.GetCardRecord();
         
@@ -46,8 +58,9 @@ public class PlayerCardDeck : CardDeck
         cardSlot.card.Pick();
         
         AvailableCardSlots.Remove(cardSlot);
-        
         OnPickCard?.Invoke(pickCard);
+        
+        player.PickCard(GetCardDeckType(), pickCard);
     }
 
     #endregion

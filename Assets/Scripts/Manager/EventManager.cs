@@ -48,15 +48,12 @@ public class EventData
             case EventPhase.Wait:
                 if (roundElapse <= 0)
                 {
-                    roundElapse = eventRecord.DelayRound;
                     ChangePhase(EventPhase.CanStart);
                 }
                 break;
             case EventPhase.CanStart:
-                if (roundElapse != eventRecord.DelayRound)
-                {
-                    ChangePhase(EventPhase.Wait);
-                }
+                roundElapse = eventRecord.DelayRound;
+                ChangePhase(EventPhase.Wait);
                 break;
             case EventPhase.Playing:
                 if (roundElapse <= 0)
@@ -178,7 +175,7 @@ public class EventManager : MonoBehaviour
 
     public void StartQuizEvent()
     {
-        CardRecord       record      = cardManager.DrawRandomPlayerCard();
+        CardRecord       record      = cardManager.DrawRandomQuizCard();
         List<CardRecord> playerCards = new(cardManager.GetPlayerCards());
         playerCards.ShuffleSource();
         

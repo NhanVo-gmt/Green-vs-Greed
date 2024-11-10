@@ -44,12 +44,13 @@ public class Player_PickState : PlayerState
         
         player.playerCardDeck.OnPickCard += OnPickCard;
         player.playerCardDeck.SetPickState(true);
+        player.playedCardDeck.SetPickState(true);
     }
     
     private void OnPickCard(CardRecord card)
     {
         currentCardPick++;
-        if (currentCardPick >= randomCardPick && player.isBot)
+        if ((currentCardPick >= randomCardPick && player.isBot) || (player.isBot && player.playerCardDeck.IsEmpty()))
         {
             ChangeState();
         }
@@ -83,6 +84,8 @@ public class Player_PickState : PlayerState
         
         player.playerCardDeck.SetPickState(false);
         player.playerCardDeck.OnPickCard -= OnPickCard;
+        
+        player.playedCardDeck.SetPickState(false);
     }
 
     private void ChangeState()

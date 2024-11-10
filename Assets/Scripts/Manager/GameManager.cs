@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     [Header("Player")]
     [SerializeField] private int numberPlayers;
 
+    [SerializeField] private int maxStartCard = 3;
+
     [Header("UI")]
     [SerializeField] private GameUI gameUI;
 
@@ -115,9 +117,16 @@ public class GameManager : MonoBehaviour
 
     public void DrawAllCards(Player player)
     {
+        int index = 0;
         foreach (var cardRecord in CardManager.GetCards(player.playerType))
         {
+            index++;
             player.DrawCard(cardRecord);
+
+            if (index >= maxStartCard)
+            {
+                return;
+            }
         }
     }
     
@@ -161,7 +170,7 @@ public class GameManager : MonoBehaviour
         switch (type)
         {
             case EffectType.Draw:
-                Draw(1);
+                Draw(2);
                 break;
             case EffectType.Blind:
                 Blind();

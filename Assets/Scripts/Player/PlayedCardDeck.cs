@@ -13,7 +13,7 @@ public class PlayedCardDeck : CardDeck
         
         foreach (var slot in CardSlots)
         {
-            slot.SetPickState(false);
+            slot.SetPickState(true);
             slot.SetHoverState(false);
             slot.SetViewState(canView);
         }
@@ -41,6 +41,30 @@ public class PlayedCardDeck : CardDeck
     {
         return CardSlots[index];
     }
+
+    #region Pick
+
+    public override void PickCard(CardSlot cardSlot)
+    {
+        if (!CanPickCard()) return;
+        
+        occupiedSlot--;
+
+        CardRecord pickCard = cardSlot.card.GetCardRecord();
+        
+        cardSlot.DisableVisual();
+        cardSlot.card.Pick();
+        
+        player.playerCardDeck.DrawCard(pickCard);
+        OnPickCard?.Invoke(pickCard);
+    }
+
+    public override bool CanPickCard()
+    {
+        return isPickState && player.CanPickCard(GetCardDeckType());
+    }
+
+    #endregion
 
     #region Effect
     
