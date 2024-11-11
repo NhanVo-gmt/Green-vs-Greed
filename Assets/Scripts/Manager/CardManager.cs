@@ -26,7 +26,7 @@
 
         private Resource currentResource = Resource.Wood;
 
-        private float randomRateEffectCard = 100;
+        private float randomRateEffectCard = 25;
 
         public static Action OnCardDataLoaded;
         
