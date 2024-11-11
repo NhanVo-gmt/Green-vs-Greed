@@ -533,13 +533,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundDatas:
   - SoundType: 0
-    Clip: {fileID: 8300000, guid: c8b29b95ceaac474f83e9eff5e33ea53, type: 3}
+    Clip: {fileID: 8300000, guid: d7b4e1df09510e349b60e32a7c389b2c, type: 3}
     Volume: 1
   - SoundType: 4
     Clip: {fileID: 8300000, guid: 717ee85e708e2b341be085bf744e73ec, type: 3}
     Volume: 1
   - SoundType: 5
     Clip: {fileID: 8300000, guid: 5312303daf6afb24da9d25829e376194, type: 3}
+    Volume: 1
+  - SoundType: 1
+    Clip: {fileID: 8300000, guid: ab495f041200bef49b4d97f7866750ef, type: 3}
+    Volume: 1
+  - SoundType: 2
+    Clip: {fileID: 8300000, guid: 50a2dbf7a549fc248839301f38eb09ae, type: 3}
+    Volume: 1
+  - SoundType: 3
+    Clip: {fileID: 8300000, guid: 50a2dbf7a549fc248839301f38eb09ae, type: 3}
     Volume: 1
   Source: {fileID: 490922349}
 --- !u!224 &1784087029 stripped

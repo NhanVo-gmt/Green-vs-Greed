@@ -294,10 +294,10 @@ public class GameManager : MonoBehaviour
             {
                 UseEffect(playerCardRecord.Effect);
             }
-            
-            Debug.Log($"[Game Manager]: Draw Card End Turn");
-            yield return DrawCardEndTurnCoroutine();
         }
+        
+        Debug.Log($"[Game Manager]: Draw Card End Turn");
+        yield return DrawCardEndTurnCoroutine();
 
         yield return new WaitForSeconds(waitTimeAfterChecking);
 

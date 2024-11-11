@@ -156,6 +156,7 @@ public class Player : MonoBehaviour
         if (block == 0)
         {
             shieldVFX.Play("LoseShield");
+            SoundManager.Instance.PlayOneShot(SoundType.LoseShield);
         }
     }
     
@@ -196,6 +197,7 @@ public class Player : MonoBehaviour
         if (block > 0)
         {
             shieldVFX.Play("GetShield");
+            SoundManager.Instance.PlayOneShot(SoundType.GetShield);
         }
     }
 
@@ -213,6 +215,7 @@ public class Player : MonoBehaviour
                 shieldVFX.Play("EnemyDefend");
             }
             else shieldVFX.Play("Defend");
+            SoundManager.Instance.PlayOneShot(SoundType.UseShield);
             return;
         }
         

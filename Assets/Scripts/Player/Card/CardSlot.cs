@@ -153,6 +153,7 @@ public class CardSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
         spawnedVFX.Play("Idle");
         Destroy(spawnedVFX, 1f);
         
+        SoundManager.Instance.PlayOneShot(SoundType.HitImpact);
         CameraShake.Instance.CardAttackShake();
     }
 
