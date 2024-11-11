@@ -5,6 +5,7 @@ using Blueprints;
 using GameFoundation.Scripts.UIModule.ScreenFlow.Managers;
 using GameFoundation.Scripts.Utilities.Extension;
 using Sirenix.OdinInspector;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Watermelon;
@@ -21,6 +22,9 @@ public class CardSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
     public float hoverY = 1f;
 
     public float hoverTime = 0.2f;
+    
+    [Header("VFX")]
+    [SerializeField] private VFX attackImpactVFX;
 
     public Action<CardSlot> OnPickCard;
 
@@ -142,8 +146,13 @@ public class CardSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
 
     #region Animation
 
-    public void Shake()
+    public void AttackImpact()
     {
+        VFX spawnedVFX = Instantiate(attackImpactVFX, attackImpactVFX.transform.position, quaternion.identity);
+        spawnedVFX.gameObject.SetActive(true);
+        spawnedVFX.Play("Idle");
+        Destroy(spawnedVFX, 1f);
+        
         CameraShake.Instance.CardAttackShake();
     }
 

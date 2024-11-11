@@ -26,6 +26,8 @@
 
         private Resource currentResource = Resource.Wood;
 
+        private float randomRateEffectCard = 25;
+
         public static Action OnCardDataLoaded;
         
         public CardManager(MasterDataManager masterDataManager, EffectCardBlueprint effectCardBlueprint, IGameAssets gameAssets, 
@@ -103,7 +105,7 @@
         public CardRecord DrawRandomPlayerCard()
         {
             int rate = Random.Range(0, 100);
-            if (rate <= 20)
+            if (rate <= randomRateEffectCard)
             {
                 return Cards[PlayerType.Effect][Random.Range(0, Cards[PlayerType.Effect].Count)];
             }

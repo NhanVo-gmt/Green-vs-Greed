@@ -252,9 +252,6 @@ public class GameManager : MonoBehaviour
 
     IEnumerator EndCoroutine()
     {
-        Debug.Log($"[Game Manager]: Draw Card End Turn");
-        yield return DrawCardEndTurnCoroutine();
-        
         Debug.Log($"[Game Manager]: Check End Turn");
         gameUI.EndTurn();
         
@@ -290,13 +287,16 @@ public class GameManager : MonoBehaviour
                     }
                 }
             }
+            
+            yield return null;
 
             if (playerCardRecord.Effect != EffectType.None)
             {
                 UseEffect(playerCardRecord.Effect);
             }
-
-            yield return null;
+            
+            Debug.Log($"[Game Manager]: Draw Card End Turn");
+            yield return DrawCardEndTurnCoroutine();
         }
 
         yield return new WaitForSeconds(waitTimeAfterChecking);
