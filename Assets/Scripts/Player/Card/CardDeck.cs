@@ -57,6 +57,12 @@ public class CardDeck : MonoBehaviour
         
         slot.DrawCard(record, target);
         slot.SetViewState(!player.isBot);
+
+        if (target.GetComponent<CardSlot>())
+        {
+            SoundManager.Instance.PlayOneShot(SoundType.PickCard);
+        }
+        else SoundManager.Instance.PlayOneShot(SoundType.DrawCard);
         
         OnDrawCard?.Invoke(record);
     }
