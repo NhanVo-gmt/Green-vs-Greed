@@ -1,2 +1,3 @@
 Id,Name,Description,PlayerType,Image,ResourceId,ResourceAmount,Effect,IsEndTurn,UseImmediately,CardNeededId,CardDeckType,RewardResourceId,RewardResourceAmount
 1,Draw,Discard this card and draw a new one.,Effect,Draw,,,Draw,FALSE,TRUE,,,,
+2,Permit,Can be used to defend against any card,Effect,Permit,,,Permit,TRUE,FALSE,,,,

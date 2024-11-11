@@ -143,14 +143,21 @@ public class Player : MonoBehaviour
 
     public void StartTurn()
     {
-        ResetData();
+        NextRound();
         playedCardDeck.SetBlindState(blindActivateRound > 0);
         stateMachine.ChangeState(playerPickState);
     }
     
-    public void ResetData()
+    public void NextRound()
     {
         blindActivateRound--;
+        block--;
+
+        if (block == 0)
+        {
+            shieldVFX.gameObject.SetActive(true);
+            shieldVFX.Play("LoseShield");
+        }
     }
     
     public void FinishTurn()
@@ -177,7 +184,6 @@ public class Player : MonoBehaviour
     #endregion
     
     #region Effect
-    
 
     public void Blind(int blindRound)
     {
@@ -190,6 +196,7 @@ public class Player : MonoBehaviour
         block = blockRound;
         if (block > 0)
         {
+            shieldVFX.gameObject.SetActive(true);
             shieldVFX.Play("GetShield");
         }
     }
@@ -203,15 +210,8 @@ public class Player : MonoBehaviour
     {
         if (block > 0)
         {
-            block--;
-            if (block == 0)
-            {
-                shieldVFX.Play("LoseShield");
-            }
-            else
-            {
-                shieldVFX.Play("Defend");
-            }
+            shieldVFX.gameObject.SetActive(true);
+            shieldVFX.Play("Defend");
             return;
         }
         
