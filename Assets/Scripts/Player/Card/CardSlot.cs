@@ -150,6 +150,8 @@ public class CardSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
     {
         VFX spawnedVFX = Instantiate(attackImpactVFX, attackImpactVFX.transform.position, quaternion.identity);
         spawnedVFX.gameObject.SetActive(true);
+        spawnedVFX.Play("Idle");
+        Destroy(spawnedVFX, 1f);
         
         CameraShake.Instance.CardAttackShake();
     }

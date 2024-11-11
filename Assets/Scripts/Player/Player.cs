@@ -63,6 +63,9 @@ public class Player : MonoBehaviour
     [Header("UI")]
     public PlayerUI playerUI;
 
+    [Header("VFX")]
+    public VFX shieldVFX;
+
     [Header("Debug")]
     public int blindActivateRound = 0;
 
@@ -185,6 +188,10 @@ public class Player : MonoBehaviour
     public void Permit(int blockRound)
     {
         block = blockRound;
+        if (block > 0)
+        {
+            shieldVFX.Play("GetShield");
+        }
     }
 
     #endregion
@@ -197,6 +204,14 @@ public class Player : MonoBehaviour
         if (block > 0)
         {
             block--;
+            if (block == 0)
+            {
+                shieldVFX.Play("LoseShield");
+            }
+            else
+            {
+                shieldVFX.Play("Defend");
+            }
             return;
         }
         

@@ -12,17 +12,9 @@ public class VFX : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    private void Start()
+    public void Play(string animName)
     {
-        if (anim != null)
-        {
-            anim.Rebind();
-            anim.Update(0f);
-        }
-        
-        gameObject.SetActive(true);
-        
-        Destroy(gameObject, 1f);
+        anim.Play(animName);
     }
 
 }

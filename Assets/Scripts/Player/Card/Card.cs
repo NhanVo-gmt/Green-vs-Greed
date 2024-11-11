@@ -21,10 +21,6 @@ public class Card : MonoBehaviour
 
     [Inject] private CardManager CardManager;
 
-    private void Awake()
-    {
-        
-    }
 
     public void BindData(CardRecord cardRecord)
     {
