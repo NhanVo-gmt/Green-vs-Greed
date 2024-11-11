@@ -155,7 +155,6 @@ public class Player : MonoBehaviour
 
         if (block == 0)
         {
-            shieldVFX.gameObject.SetActive(true);
             shieldVFX.Play("LoseShield");
         }
     }
@@ -196,7 +195,6 @@ public class Player : MonoBehaviour
         block = blockRound;
         if (block > 0)
         {
-            shieldVFX.gameObject.SetActive(true);
             shieldVFX.Play("GetShield");
         }
     }
@@ -210,8 +208,11 @@ public class Player : MonoBehaviour
     {
         if (block > 0)
         {
-            shieldVFX.gameObject.SetActive(true);
-            shieldVFX.Play("Defend");
+            if (isBot)
+            {
+                shieldVFX.Play("EnemyDefend");
+            }
+            else shieldVFX.Play("Defend");
             return;
         }
         

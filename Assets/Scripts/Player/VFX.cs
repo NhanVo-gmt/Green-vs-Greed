@@ -14,7 +14,8 @@ public class VFX : MonoBehaviour
 
     public void Play(string animName)
     {
-        anim.Play(animName);
+        anim.Rebind();
+        anim.Play(animName, 0, 0f);
     }
 
 }
