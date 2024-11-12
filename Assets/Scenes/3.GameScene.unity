@@ -15558,8 +15558,12 @@ MonoBehaviour:
   m_text: 'Left-click to pick a card to fight against your opponent.
 
 
-    Right-click
-    on a card to view its content.
+    Left-click
+    on played deck to retrieve your card.
+
+
+    Right-click on a card to view its
+    content.
 
 '
   m_isRightToLeft: 0

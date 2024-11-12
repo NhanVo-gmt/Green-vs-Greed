@@ -21,7 +21,8 @@ public class CardSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
     [Header("Anim")]
     public float hoverY = 1f;
 
-    public float hoverTime = 0.2f;
+    public float hoverTime              = 0.2f;
+    public float drawCardTimeMultiplier = 0.1f;
     
     [Header("VFX")]
     [SerializeField] private VFX attackImpactVFX;
@@ -61,7 +62,7 @@ public class CardSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
         
         SetHoverState(false);
         transform.DOMove(target.position, 0f, 0).
-            OnComplete(() => transform.DOMove(startPos, 0.05f * dis).SetEasing(Ease.Type.SineIn)
+            OnComplete(() => transform.DOMove(startPos, drawCardTimeMultiplier * dis).SetEasing(Ease.Type.SineIn)
                 .OnComplete(() => SetHoverState(startHoverState)));
     }
 

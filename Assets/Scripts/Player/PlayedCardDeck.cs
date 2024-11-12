@@ -14,6 +14,8 @@ public class PlayedCardDeck : CardDeck
             slot.SetPickState(true);
             slot.SetHoverState(false);
             slot.SetViewState(canView);
+            
+            slot.OnPickCard += PickCard;
         }
     }
 
