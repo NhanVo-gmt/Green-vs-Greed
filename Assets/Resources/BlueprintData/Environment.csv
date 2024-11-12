@@ -1,16 +1,16 @@
 Id,Name,Description,PlayerType,Image,ResourceId,ResourceAmount,Effect,IsEndTurn,UseImmediately,CardNeededId,CardDeckType,RewardResourceId,RewardResourceAmount
-1,Paper Recycling,Recycle paper to conserve wood resources Wood and reduce waste Money.,Environment,Paper,Wood,2,None,TRUE,FALSE,,,,
+1,Paper Recycling,Recycle paper to conserve wood Wood.,Environment,Paper,Wood,2,None,TRUE,FALSE,,,,
 ,,,,,,,,,,,,,
-2,Leakage Lockdown,"Implement water-saving measures Water and fixing leaks Money. If you have ""Save water"" card played, Water.",Environment,Prevent water leak,Water,2,None,TRUE,FALSE,6,Played,Water,2
+2,Leakage Lockdown,"Saving water and prevent leaks Water. If you have ""Save water"" card played, WaterEffect.",Environment,Prevent water leak,Water,2,None,TRUE,FALSE,6,Played,Water,1
 ,,,,,,,,,,,,,
-3,Forest Restoration,"Plant trees to restore forests Wood and create new habitats for animals Money. If you have ""Plant Tree"" card played, Wood.",Environment,Reforestation,Wood,2,None,TRUE,FALSE,5,Played,Wood,2
+3,Forest Restoration,"Plant many trees to restore forests Wood. If you have ""Plant Tree"" card played, WoodEffect.",Environment,Reforestation,Wood,2,None,TRUE,FALSE,5,Played,Wood,1
 ,,,,,,,,,,,,,
-4,"Reduce, Reuse, Recycle",Reduce waste generation Water and promote sustainable consumption Wood Money.,Environment,"Reduce, reuse, recycle",Wood,1,None,TRUE,FALSE,,,,
+4,"Reduce, Reuse, Recycle",Reduce waste Water and recycle used things Wood.,Environment,"Reduce, reuse, recycle",Wood,1,None,TRUE,FALSE,,,,
 ,,,,,Water,2,None,TRUE,FALSE,,,,
 ,,,,,,,,,,,,,
-5,Plant tree,Plant a tree Money to restore forests Wood.,Environment,Plant tree,Wood,1,None,TRUE,FALSE,,,,
+5,Plant tree,Plant a tree Wood.,Environment,Plant tree,Wood,1,None,TRUE,FALSE,,,,
 ,,,,,,,,,,,,,
-6,Save water,Use water wisely Water Money.,Environment,Save water,Water,1,None,TRUE,FALSE,,,,
+6,Save water,Use water wisely Water.,Environment,Save water,Water,1,None,TRUE,FALSE,,,,
 ,,,,,,,,,,,,,
-7,Resource to card,Use Water or Wood to draw 2 card,Environment,Draw Card From Resource,Water,-2,DrawCardFromResource,FALSE,TRUE,,,,
+7,Resource to card,Use Water or Wood to draw 2 card.,Environment,Draw Card From Resource,Water,-2,DrawCardFromResource,FALSE,TRUE,,,,
 ,,,,,Wood,-2,,,,,,,

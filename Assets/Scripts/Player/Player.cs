@@ -193,16 +193,20 @@ public class Player : MonoBehaviour
 
     public void Permit(int blockRound)
     {
+        if (block > 0 && blockRound <= 0)
+        {
+            block = blockRound;
+            shieldVFX.Play("LoseShield");
+            SoundManager.Instance.PlayOneShot(SoundType.LoseShield);
+
+            return;
+        }
+        
         block = blockRound;
         if (block > 0)
         {
             shieldVFX.Play("GetShield");
             SoundManager.Instance.PlayOneShot(SoundType.GetShield);
-        }
-        else
-        {
-            shieldVFX.Play("LoseShield");
-            SoundManager.Instance.PlayOneShot(SoundType.LoseShield);
         }
     }
 

@@ -32,7 +32,8 @@ public class Player_PickState : PlayerState
         currentCardPick = 0;
         if (player.isBot)
         {
-            randomCardPick  = Random.Range(minCard, maxCard);
+            int currentNumber = player.playerCardDeck.GetCurrentNumberCards();
+            randomCardPick  = Random.Range(Mathf.Max(1, currentNumber - 2), currentNumber);
             elapsedWaitTime = Random.Range(minWaitTime, maxWaitTime);
         }
     }

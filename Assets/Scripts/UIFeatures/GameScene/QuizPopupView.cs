@@ -86,18 +86,26 @@ public class QuizPopupPresenter : BasePopupPresenter<QuizPopupView, QuizModel>
         bool right = answer == model.record.Name;
         if (right)
         {
-            this.View.winGO.SetActive(true);
+            Tween.DelayedCall(1f, () =>
+            {
+                this.View.winGO.SetActive(true);
+            });
+            
             SoundManager.Instance.PlayOneShot(SoundType.RightAnswer);
             Debug.Log("Right");
         }
         else
         {
-            this.View.loseGO.SetActive(true);
+            Tween.DelayedCall(1f, () =>
+            {
+                this.View.loseGO.SetActive(true);
+            });
+            
             SoundManager.Instance.PlayOneShot(SoundType.WrongAnswer);
             Debug.Log("Wrong");
         }
         
-        Tween.DelayedCall(2f, () =>
+        Tween.DelayedCall(3f, () =>
         {
             this.model.eventManager.EndEvent(right);
             CloseView();

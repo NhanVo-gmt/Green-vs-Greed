@@ -1,4 +1,5 @@
-﻿using Blueprints;
+﻿using System.Text.RegularExpressions;
+using Blueprints;
 using Cysharp.Threading.Tasks;
 using GameFoundation.Scripts.UIModule.ScreenFlow.BaseScreen.Presenter;
 using GameFoundation.Scripts.UIModule.ScreenFlow.BaseScreen.View;
@@ -52,10 +53,15 @@ public class CardDetailsPopupPresenter : BasePopupPresenter<CardDetailsPopupView
     void UpdateDescription(CardRecord record)
     {
         string desc = record.Description;
+        
         foreach (var resource in record.Resources.Values)
         {
-            desc = desc.Replace(resource.ResourceId.ToString(), $"{resource.ResourceAmount} <sprite name=\"{resource.ResourceId}\">");
+            string pattern = $@"\b{resource.ResourceId}\b";
+            desc = Regex.Replace(desc, pattern, $"{resource.ResourceAmount} <sprite name=\"{resource.ResourceId}\">");
         }
+
+        CardNeededEffect effect = record.CardNeededEffect;
+        desc = desc.Replace($"{effect.RewardResourceId}Effect", $"{effect.RewardResourceAmount} <sprite name=\"{effect.RewardResourceId}\">");
 
         this.View.Description.text = desc;
     }
