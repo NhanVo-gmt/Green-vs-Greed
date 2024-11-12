@@ -11,6 +11,9 @@ public enum SoundType
     LoseShield,
     DrawCard,
     PickCard,
+    RightAnswer,
+    WrongAnswer,
+    Reward,
 }
 
 [Serializable]

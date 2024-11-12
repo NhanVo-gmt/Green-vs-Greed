@@ -202,6 +202,7 @@ public class EventManager : MonoBehaviour
 
         if (!isWin) return;
         
+        SoundManager.Instance.PlayOneShot(SoundType.Reward);
         OnRewardEvent?.Invoke(CurrentEvent);
     }
 }
