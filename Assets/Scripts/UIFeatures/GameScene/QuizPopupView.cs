@@ -29,8 +29,10 @@ public class QuizModel
 
 public class QuizPopupView : BaseView
 {
-    public Image    questionImg;
+    public Image        questionImg;
     public QuizButton[] answerBtns;
+    public GameObject   winGO;
+    public GameObject   loseGO;
 }
 
 [PopupInfo(nameof(QuizPopupView), false, false)]
@@ -49,6 +51,8 @@ public class QuizPopupPresenter : BasePopupPresenter<QuizPopupView, QuizModel>
     {
         this.model = popupModel;
         
+        this.View.winGO.SetActive(false);
+        this.View.loseGO.SetActive(false);
         UpdateUI();
         
         return UniTask.CompletedTask;
@@ -82,10 +86,14 @@ public class QuizPopupPresenter : BasePopupPresenter<QuizPopupView, QuizModel>
         bool right = answer == model.record.Name;
         if (right)
         {
+            this.View.winGO.SetActive(true);
+            SoundManager.Instance.PlayOneShot(SoundType.RightAnswer);
             Debug.Log("Right");
         }
         else
         {
+            this.View.loseGO.SetActive(true);
+            SoundManager.Instance.PlayOneShot(SoundType.WrongAnswer);
             Debug.Log("Wrong");
         }
         

@@ -550,6 +550,15 @@ MonoBehaviour:
   - SoundType: 3
     Clip: {fileID: 8300000, guid: 50a2dbf7a549fc248839301f38eb09ae, type: 3}
     Volume: 1
+  - SoundType: 7
+    Clip: {fileID: 8300000, guid: 28230a6f26bdb9d4d9ed87e3a43edb3c, type: 3}
+    Volume: 1
+  - SoundType: 6
+    Clip: {fileID: 8300000, guid: 95f169d940c036d45baee64a3728a8ed, type: 3}
+    Volume: 1
+  - SoundType: 8
+    Clip: {fileID: 8300000, guid: 50dc1653bfcad2b49ade2fd5a5042e72, type: 3}
+    Volume: 1
   Source: {fileID: 490922349}
 --- !u!224 &1784087029 stripped
 RectTransform:

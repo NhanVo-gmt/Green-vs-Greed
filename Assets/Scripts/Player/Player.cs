@@ -208,7 +208,7 @@ public class Player : MonoBehaviour
 
     public void ChangeResourceAmount(Resource type, int amount)
     {
-        if (block > 0)
+        if (amount < 0 && block > 0)
         {
             if (isBot)
             {

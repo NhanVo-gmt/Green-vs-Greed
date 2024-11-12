@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="183aa535-458a-4c9a-a18f-e0b9b9d9f9d9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Card/CardSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Card/CardSlot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Green-vs-Greed/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Green-vs-Greed/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameScreen/QuizPopupView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameScreen/QuizPopupView.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1.StartScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1.StartScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/EventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/EventManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/SoundManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIFeatures/GameScene/QuizPopupView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIFeatures/GameScene/QuizPopupView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Audio/right answer.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Assets/Audio/right answer.mp3.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +62,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature/sound-effects",
+    "git-widget-placeholder": "feature/quiz-sound",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -158,6 +164,7 @@
       <workItem from="1731297568496" duration="5283000" />
       <workItem from="1731303315206" duration="36000" />
       <workItem from="1731346783760" duration="2146000" />
+      <workItem from="1731382415959" duration="331000" />
     </task>
     <servers />
   </component>
