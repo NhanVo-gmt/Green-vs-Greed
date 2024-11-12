@@ -1,6 +1,7 @@
 Id,Description,Image,EventType,StartRound,DelayRound,LastRound,ResourceId,ResourceAmount
 Quiz,,,Quiz,3,4,1,,
 LandSlide,"A large amount of earth, rock, and other material that moves down a steep slope. All cards played this turn -1 Wood. Last 1 Round.",LandSlide,Natural,7,10,2,Wood,-1
-RainFall,Drops of water that form in the clouds and fall from the sky to the earth. All cards played this turn -1 Water. Last 1 Round.,RainFall,Natural,7,10,2,Water,1
+RainFall,Drops of water that form in the clouds and fall from the sky to the earth. All cards played this turn +1 Water. Last 1 Round.,RainFall,Natural,7,10,2,Water,1
 Wildfire,"An uncontrolled fire that starts burning in wildland, such as a forest, grassland, or the edge of an urban area. All cards played this turn -1 Wood. Last 1 Round.",Wildfire,Natural,7,10,2,Wood,-1
 EarthHour,An annual event for people around the world switch off all lights for one hour. All cards played this turn -1 Money. Last 1 Round.,EarthHour,Natural,10,10,2,Money,-1
+ContaminatedWater,"Dangerous chemicals and other harmful substances in lakes, rivers. All cards played this turn -1 Water. Last 1 Round.",PoisonWater,Natural,7,10,2,Water,-1
