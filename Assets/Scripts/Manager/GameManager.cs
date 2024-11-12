@@ -199,22 +199,33 @@ public class GameManager : MonoBehaviour
     
     public void Permit()
     {
-        PlayerControllers[currentPlayerIndex].Permit(2);
+        if (currentPlayerIndex == 1)
+        {
+            PlayerControllers[currentPlayerIndex].Permit(2);
+        }
+        else PlayerControllers[1].Permit(0);
     }
 
     public void DrawCardFromResource()
     {
         Draw(2);
-        
-        // Wood, Water
-        int rand = Random.Range(0, 2);
-        if (rand == 0)
+
+        if (currentPlayerIndex == 1)
         {
-            PlayerControllers[1].ChangeResourceAmount(Resource.Wood, -2);
+            // Wood, Water
+            int rand = Random.Range(0, 2);
+            if (rand == 0)
+            {
+                PlayerControllers[1].ChangeResourceAmount(Resource.Wood, -2);
+            }
+            else
+            {
+                PlayerControllers[1].ChangeResourceAmount(Resource.Water, -2);
+            }
         }
         else
         {
-            PlayerControllers[1].ChangeResourceAmount(Resource.Water, -2);
+            PlayerControllers[0].ChangeResourceAmount(Resource.Money, -2);
         }
     }
 

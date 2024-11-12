@@ -4668,6 +4668,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuestionBtn
       objectReference: {fileID: 0}
+    - target: {fileID: 3508190394641201363, guid: f884622225175424bb628d9ae8a032c3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4996063366499227670, guid: f884622225175424bb628d9ae8a032c3, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8

@@ -199,6 +199,11 @@ public class Player : MonoBehaviour
             shieldVFX.Play("GetShield");
             SoundManager.Instance.PlayOneShot(SoundType.GetShield);
         }
+        else
+        {
+            shieldVFX.Play("LoseShield");
+            SoundManager.Instance.PlayOneShot(SoundType.LoseShield);
+        }
     }
 
     #endregion
