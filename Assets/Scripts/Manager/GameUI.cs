@@ -13,7 +13,7 @@ public class GameUI : MonoBehaviour
     [Header("In Game")]
     public TextMeshProUGUI gameText;
 
-    public Action OnCloseHowToPlayScreen;
+    public static Action OnCloseHowToPlayScreen;
 
     private void Awake()
     {

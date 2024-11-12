@@ -26,7 +26,17 @@ public class CardDeck : MonoBehaviour
     protected virtual void Awake()
     {
         player = GetComponentInParent<Player>();
-        
+
+        GameUI.OnCloseHowToPlayScreen += InitSlot;
+    }
+
+    private void OnDestroy()
+    {
+        GameUI.OnCloseHowToPlayScreen -= InitSlot;
+    }
+
+    protected virtual void InitSlot()
+    {
         foreach (var slot in CardSlots)
         {
             slot.SetPickState(!player.isBot);
