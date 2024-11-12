@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         this.GetCurrentContainer().Inject(this);
         FindAllPlayers();
         
-        gameUI.OnCloseHowToPlayScreen += StartGame;
+        GameUI.OnCloseHowToPlayScreen += StartGame;
         eventManager.OnRewardEvent    += OnRewardEvent;
     }
     private void OnRewardEvent(EventType type)
@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        gameUI.OnCloseHowToPlayScreen -= StartGame;
+        GameUI.OnCloseHowToPlayScreen -= StartGame;
         eventManager.OnRewardEvent    -= OnRewardEvent;
         
         foreach (var player in PlayerControllers.Values)

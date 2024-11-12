@@ -6,11 +6,9 @@ using UnityEngine;
 public class PlayedCardDeck : CardDeck
 {
     public bool canView = true;
-    
-    protected override void Awake()
+
+    protected override void InitSlot()
     {
-        base.Awake();
-        
         foreach (var slot in CardSlots)
         {
             slot.SetPickState(true);

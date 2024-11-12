@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class HowToPlayUI : MonoBehaviour
@@ -11,7 +12,7 @@ public class HowToPlayUI : MonoBehaviour
     [SerializeField] private GameObject[] tabs;
     
     [Header("Button")]
-    [SerializeField] private Button nextBtn;
+    [SerializeField] private Button[] nextBtns;
     [SerializeField] private TextMeshProUGUI btnText;
 
     public Action OnClose;
@@ -20,8 +21,11 @@ public class HowToPlayUI : MonoBehaviour
 
     private void Awake()
     {
-        nextBtn.onClick.RemoveAllListeners();
-        nextBtn.onClick.AddListener(NextTab);
+        foreach (Button button in nextBtns)
+        {
+            button.onClick.RemoveAllListeners();
+            button.onClick.AddListener(NextTab);
+        }
     }
 
     public void Show()
@@ -36,7 +40,7 @@ public class HowToPlayUI : MonoBehaviour
         tabs[currentIndex].SetActive(false);
 
         currentIndex++;
-        if (currentIndex == tabs.Length - 1)
+        if (currentIndex <= tabs.Length - 1)
         {
             tabs[currentIndex].SetActive(true);
         }
